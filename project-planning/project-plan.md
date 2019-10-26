@@ -40,4 +40,4 @@ Google Maps (Mars) API details: <br/>
 ## Errors & Resolutions
 
 ERROR: External error with NASA API data - InSight lander did not return temperature data for sol 322. Temperature data therefore unavailable for Weather component.<br/>
-SOLUTION: Designed function to test for correct data length and then returned placeholder text if temp data not available. (components/weather-widgets/weather-widget-lrg.js)
+SOLUTION: Designed function to test for valid data and then returned placeholder text if temp data not available. (components/weather-widgets/weather-widget-lrg.js)
