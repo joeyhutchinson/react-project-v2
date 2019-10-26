@@ -1,0 +1,318 @@
+
+h1.textWhite.textAlignLeft {
+  color: white;
+}
+
+.vCentered .vCenteredInner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.textAlignCenter {
+  text-align: center !important;
+}
+
+.vBottom, .vCentered, .vTop {
+  display: table;
+}
+
+.textLarger {
+  font-size: 150%;
+  line-height: normal;
+}
+
+.textWhite, a.textWhite {
+  color: #fff !important;
+}
+
+.nobr	{ white-space:nowrap; }
+
+/*s: general*/
+#top_marsBanner {min-height: 74px;}
+#topSubNav {display: none}
+
+.pageContent{font-weight: normal}
+@media screen and (max-width: 750px){
+	body, html {
+		overflow-x: hidden;
+	}
+}
+
+#footer{background-image: url('https://mars.nasa.gov/assets/footer_bg.png'); background-position: bottom left;}
+#footer .socialIcons .follow{color: #ccdeef}
+#footer .gradient_line{width: 100%;height: 1px;}
+/*e: general*/
+
+/*NAVIGATION*/
+#navMarsTabs a{text-transform: capitalize; font-weight: 400}
+	#top_marsBanner .missionBanner {height: 55px;}
+@media only screen and (max-width: 990px){
+	#top_marsBanner .missionBanner {height: 45px;}
+}
+@media only screen and (min-width: 716px){
+/*Desktop*/
+	@media only screen and (min-width: 920px){
+		#navMarsTabs{margin-top:-30px;}
+		#navMarsTabs .navMarsTabs_sub {height:45px;}
+	}
+#navMarsTabs .navMarsTabs_sub {height:30px;}
+#navMarsTabs ul{position:absolute; left: 0; width:180px; }
+#navMarsTabs a, #navMarsTabs .submenu a{text-transform: capitalize; font-weight: 600}
+#navMarsTabs a {padding: 0}
+#navMarsTabs .navMarsTabs_sub {padding: 5px 10px;}
+#navMarsTabs .submenu li {padding-left:10px;}
+#navMarsTabs .submenu li:hover {background-color:rgba(0,0,0,0.3)}
+#navMarsTabs #lnk_mars.navMarsTabs_sub {width:auto;}
+#lnk_mars.navMarsTabs_sub .submenu {width:200px;}
+#navMarsTabs #lnk_mars ul{right:0;left:inherit}
+
+
+#navMarsTabs #lnk_mars.navMarsTabs_sub ul.submenu a:hover, #navMarsTabs #lnk_mars.navMarsTabs_sub a:hover{color:white;}
+#navMarsTabs #lnk_mars.navMarsTabs_sub:before {display:
+	none; }
+#navMarsTabs #lnk_mars.navMarsTabs_sub ul.submenu li:first-child{margin-bottom:0;}
+#navMarsTabs #lnk_mars.navMarsTabs_sub ul.submenu li{margin:0;}
+#navMarsTabs #separator {    background: rgba(255,255,255,0.3);
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    content: ' ';
+    position: relative;
+    right: 0;
+    top: 5px;}
+	#navMarsTabs .navMarsTabs_sub:hover{background-color:#9a4739}
+	#navMarsTabs .navMarsTabs_sub:hover a{color:white;}
+	.navMarsTabs_sub:hover ul.submenu, .navMarsTabs_sub ul.submenu:hover, .navMarsTabs_sub.hover_effect ul.submenu {width: auto;}
+	.navMarsTabs_sub:hover ul.submenu:before, .navMarsTabs_sub a:hover ul.submenu:before, .navMarsTabs_sub.hover_effect ul.submenu:before {display:none;}
+	.navMarsTabs_sub .submenu {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+    margin: 10px 0 0 0;
+    text-align: left;
+    border-radius: 0;
+    position: relative;
+    padding-bottom: 10px;
+    background: #9a4739;
+	list-style: none;
+	}
+	#navMarsTabs .submenu li{padding: 5px 10px;}
+	
+}
+
+@media only screen and (max-width: 715px) {
+/*Mobile*/	
+	#top_marsBanner{height:70px;}
+#navMarsIcons .menuButton {    display: block;
+    padding: 0;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background: url(https://mars.nasa.gov/assets/ui_sprite@2x.png) 0 0;
+    background-size: 300px;}
+#top_marsBanner.menuactive #navMarsIcons .menuButton {background-position:-25px 0;}
+
+	#navMarsTabs.active {width:100%; margin:0 auto;}
+	#navMarsTabs.active span.navMarsTabs_sub {width:auto; margin:0 auto;}
+	#navMarsTabs .navMarsTabs_sub, #navMarsTabs .navMarsTabs_sub:last-child {text-align: left;max-height: inherit; height:inherit;padding:0 55px 20px;}
+    #navMarsTabs .navMarsTabs_sub:after {
+		margin:1em auto 0;
+		display:block;
+		content: " ";
+		width: 100%;
+		margin-left: -55px;
+		height: 1px;
+		clear: both;
+		background: #b76b5f;
+		background: -moz-linear-gradient(left, rgba(183,107,95,0), #b76b5f, rgba(183,107,95,0));
+		background: -webkit-linear-gradient(left, rgba(183,107,95,0), #b76b5f, rgba(183,107,95,0));
+		background: linear-gradient(left, rgba(183,107,95,0), #b76b5f, rgba(183,107,95,0));
+	}
+	#navMarsTabs .navMarsTabs_sub.active .submenu li{ text-align:left; }
+	#navMarsTabs .navMarsTabs_sub.active .submenu a { color:#84B0DD; text-transform: capitalize;}
+	#navMarsTabs .navMarsTabs_sub.active a.toplevel{color:white;}
+	#navMarsTabs .navMarsTabs_sub.active ul.submenu {margin-top:10px;}
+
+}
+@media only screen and (max-width: 512px){
+	#top_marsBanner .missionBanner {height: 70%;}
+}
+
+
+/*s: #8 InSight Latest Weather*/
+#InSight-Weather-Report.section {background: url('https://mars-jpl-nasa-gov.s3.amazonaws.com/src/insight/insight_weather_bg.jpg') no-repeat top center; background-size: cover;}
+#InSight-Weather-Report.section .gradientOverlay{    background: -owg-linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 70%);
+    background: -webkit-linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 70%);
+    background: -moz-linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 70%);
+    background: -o-linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 70%);
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 70%);
+    z-index: 1;}
+#InSight-Weather-Report #InSight-Weather-Content {padding: 0 5% 0;}
+#InSight-Weather-Report #InSight-Weather-Content #InSight-Weather-Data{padding:50px 0 0 20px; width:55%; position:relative; z-index: 1;}
+.pageContent #InSight-Weather-Report #InSight-Weather-Data h1{font-weight: bold;letter-spacing: 1px;}
+#InSight-Weather-Report #InSight-Weather-Data p{line-height: normal;width:95%;color:white;}
+#InSight-Weather-Report .slash, #InSight-Weather-Report .degree .celsius, #InSight-Weather-Report .fadeWhite {color:rgba(255,255,255,0.5);}
+#weather_observation .lbl_fahrenheit , #weather_observation .lbl_celsius, #weather_observation .lbl_mph , #weather_observation .lbl_mps { cursor: pointer}
+#weather_observation .fadeBlack {color:rgba(0,0,0,0.3);}
+.degree .lbl_fahrenheit, .degree .lbl_celsius{cursor: pointer}
+.temperatures.main .fahrenheit, .temperatures.main .celsius{ text-align: right; display: inline-block}
+.highs, .lows {display: table;}
+.highs span, .lows span{display:table-cell;padding: 0 3px; text-align: right; }
+span.dateSol {
+    font-size: 16px;
+    font-weight: 600;
+}
+#InSight-Weather-Report .vCentered {padding:5% 0; width: 100%}
+#InSight-Weather-Report .temperatures.main { padding-left:5%;}
+#InSight-Weather-Report #InSight-tempDate .marsDate {font-weight: bold; font-size: larger}
+#InSight-Weather-Report #InSight-tempDate .marsDate, #InSight-Weather-Report #InSight-tempDate .earthDate {display: block;}
+#InSight-Weather-Report #InSight-Forecast { margin: 0 auto; text-align: center;}
+#InSight-Weather-Report #InSight-Forecast .item {
+	width:14%;
+	margin:20px 1% 50px;
+	background-color:  rgba(0,0,0,0.25);
+	padding: 15px 0.2%;
+	display: inline-block;
+	text-align: center; 
+	font-weight: 500;
+	letter-spacing: 1px;
+	font-size: 14px;
+}
+#InSight-Weather-Report #InSight-Forecast .item .fadeWhiteLine {
+	background-color: rgba(255,255,255,0.5);
+	height: 2px; 
+	width: 80%;
+	text-align: center;
+	margin: 10px auto;
+}
+#InSight-Weather-Report #InSight-Forecast .item  .dateUTC{font-size: 13px; font-weight:500; letter-spacing: 0; display: block;}
+	#InSight-Weather-Report #InSight-Forecast .item .low{ color: white;}
+
+
+/**** DESKTOP ****/
+/*4*/
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(4),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(3),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(3):nth-last-child(2),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(4):nth-last-child(1){
+	width: 15%;
+}
+
+/*3*/
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(3),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(2),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(3):nth-last-child(1){
+	width: 15%;
+}
+
+/*2*/
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(2),
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(1){
+	width: 15%;
+}
+
+/*1*/
+#InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(1){
+	width: 15%;
+}
+
+@media only screen and (max-width: 840px){
+	#InSight-Weather-Report #InSight-Weather-Content #InSight-Weather-Data {width:100%;}
+	#InSight-Weather-Report.section .gradientOverlay{    background: -owg-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 70%);
+		background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 70%);
+		background: -moz-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 70%);
+		background: -o-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 70%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 70%);
+		z-index: 1;}
+
+	#InSight-Weather-Report #InSight-Forecast .item{font-size: 0.9em; margin: 20px 1% 50px;line-height: normal; padding: 8px 3px;}
+	#InSight-Weather-Report #InSight-tempDate .earthDate, #InSight-Weather-Report #InSight-Forecast .item .dateSol{font-size: 16px;}
+	#InSight-Weather-Report #InSight-Forecast .item .dateUTC{font-weight: 300}
+	#InSight-Weather-Report #InSight-tempDate .earthDate {display: block; }
+
+	#InSight-Weather-Report #InSight-Forecast .item{font-size: 0.8em;}
+	#InSight-Weather-Report #InSight-Forecast .item .slash {display: inline-block;}
+	#InSight-Weather-Report #InSight-Forecast .item:nth-child(-n+3),#InSight-Weather-Report #InSight-Forecast .item:nth-child(-n+4) {
+    	display:none; 
+	}
+	/*6*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(4):nth-last-child(3){
+		display: inline-block;
+		width: 25%;
+	}
+
+	/*5*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(4):nth-last-child(2),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(3):nth-last-child(3){
+		display: inline-block;
+		width: 25%;
+	}
+
+	/*4*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(3),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(3):nth-last-child(2),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(4):nth-last-child(1){
+		display: inline-block;
+		width: 25%;
+	}
+    
+	/*3*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(3),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(2),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(3):nth-last-child(1){
+		display: inline-block;
+		width: 25%;
+	}
+    
+	/*2*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(2),
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(2):nth-last-child(1){
+		display: inline-block;
+		width: 35%;
+   }
+    
+	/*1*/
+    #InSight-Weather-Report #InSight-Forecast .item:nth-child(1):nth-last-child(1){
+         display: inline-block;
+		 width: 30%;
+		}
+	/* all */
+	#InSight-Weather-Report #InSight-Forecast .item {width:25%; font-size:0.9em}
+}
+
+	/*EMBED*/
+	#InSight-embedWeather { font-family: "Montserrat",Helvetica,Arial,sans-serif; color: #222; font-size: 0.8em }
+	#InSight-embedWeather .box{display: none;}
+	#InSight-embedWeather #InSight-sizeOptions { margin: 0px; padding: 0px; }
+	#InSight-embedWeather #InSight-sizeOptions li { list-style: none; font-size: 90%; }
+	#InSight-embedWeather .contents {margin:0 auto; text-align: center; display: table}
+	#InSight-embedWeather .preview, #InSight-embedWeather .options { display:table-cell;vertical-align: top; text-align: left;}
+	#InSight-embedWeather .preview {line-height: 0}
+	#InSight-embedWeather .options {border: #ccc solid thin; padding: 20px;}
+	#InSight-embedWeather .options .contain {width: 300px}
+	#InSight-embedWeather .embed-code-wrapper{padding: 5%; width: 80%; word-wrap:break-word; font-family: monospace, serif; font-size: 1em }
+	#InSight-embedWeather .options h3{ border-bottom: thin #ccc solid;margin-top: 0;padding-top: 0;}
+	#InSight-cboxLoadedContent{overflow-y: inherit !important}
+@media only screen and (max-width: 990px){
+	#InSight-embedWeather .options .contain{width: 100%}
+	#InSight-embedWeather .contents, #InSight-embedWeather .preview, #InSight-embedWeather .options { display: block;}
+	#InSight-embedWeather .preview iframe{width: 100%}
+}
+
+#weather_observation td {
+    padding: 10px 5px;
+    text-align: center;
+}
+#weather_observation thead th {
+	border: none;
+	border-bottom: 1px solid darkgray;
+	background: #f9f9f9;
+	padding: 10px 5px;
+}
+#weather_observation td.sol{ padding: 10px 5px;}
+#weather_observation th.sol, #weather_observation td.windspeed{ background: #f9f9f9; border:none;}
+#weather_observation td.temperature, #weather_observation td.pressure{ background: #fff; border:none;}
+/*e: #8 InSight Latest Weather*/
+
+/*MBCMS override*/
+#insight-weather .module {padding:0;}

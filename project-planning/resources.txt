@@ -1,0 +1,16 @@
+
+Carousels
+https://reactjsexample.com/tag/carousel/
+https://reactjsexample.com/a-flexible-image-carousel-built-with-react-js/
+https://reactjsexample.com/lightweight-and-fully-customizable-carousel-component-for-react/
+
+NASA Resources
+https://api.nasa.gov/
+https://mars.nasa.gov/insight/weather/
+
+Google Maps 
+https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
+http://googlemapsapi.blogspot.com/2007/12/maps-from-another-world.html
+
+
+
