@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import WeatherItems from "./weather-item";
+
 import dotenv from "dotenv";
 
 import "./ww-lrg-styles.css";
@@ -197,120 +199,7 @@ class WeatherWidgetLrg extends Component {
               </div>
             </div>
             <div id="InSight-Forecast" className="textWhite">
-              <div className="item">
-                <span className="dateSol nobr">Sol 315</span>
-                <span className="dateUTC nobr">Oct. 15</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -12&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -151&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -24&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -102&#8451;</span>
-                </div>
-              </div>
-              <div className="item">
-                <span className="dateSol">Sol 316</span>
-                <span className="dateUTC">Oct. 16</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -14&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -151&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -26&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -102&#8451;</span>
-                </div>
-              </div>
-              <div className="item">
-                <span className="dateSol">Sol 318</span>
-                <span className="dateUTC">Oct. 18</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -12&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -153&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -25&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -103&#8451;</span>
-                </div>
-              </div>
-              <div className="item">
-                <span className="dateSol">Sol 319</span>
-                <span className="dateUTC">Oct. 19</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -14&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -151&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -25&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -101&#8451;</span>
-                </div>
-              </div>
-              <div className="item">
-                <span className="dateSol">Sol 320</span>
-                <span className="dateUTC">Oct. 21</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -14&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -152&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -26&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -102&#8451;</span>
-                </div>
-              </div>
-              <div className="item">
-                <span className="dateSol">Sol 321</span>
-                <span className="dateUTC">Oct. 22</span>
-                <div className="fadeWhiteLine" />
-                <div className="fahrenheit">
-                  <span className="high">
-                    High: -12&#8457;
-                    <br />
-                  </span>
-                  <span className="low">Low: -153&#8457;</span>
-                </div>
-                <div className="celsius" style={{}}>
-                  <span className="high">
-                    High: -25&#8451;
-                    <br />
-                  </span>
-                  <span className="low">Low: -103&#8451;</span>
-                </div>
-              </div>
+              <WeatherItems />
             </div>
           </div>
         </div>
