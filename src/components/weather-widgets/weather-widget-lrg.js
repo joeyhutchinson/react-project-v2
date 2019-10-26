@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WeatherItems from "./weather-item";
+import WeatherItems from "./weather-items";
 
 import dotenv from "dotenv";
 
@@ -198,8 +198,9 @@ class WeatherWidgetLrg extends Component {
                 </div>
               </div>
             </div>
+            {/*  Individual weather items boxes */}
             <div id="InSight-Forecast" className="textWhite">
-              <WeatherItems />
+              <WeatherItems weatherData={this.state.weatherData}/>
             </div>
           </div>
         </div>
