@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function TempToggle () {
-
+function TempToggle() {
   const [temp, setTemp] = useState("celcius");
 
-  return(
+  return (
     <div className="temp-toggle">
-      <label class="switch">
-        <input type="checkbox"></input>
-        <span class="slider"></span>
+      <label className="switch">
+        <input type="checkbox" />
+        <span className="slider" />
       </label>
     </div>
-  )
-} 
+  );
+}
 
 export default TempToggle;
