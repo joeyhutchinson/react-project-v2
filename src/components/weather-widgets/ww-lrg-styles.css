@@ -151,7 +151,7 @@ h1.textWhite.textAlignLeft {
 #InSight-Weather-Report #InSight-Weather-Content #InSight-Weather-Data{padding:50px 0 0 20px; width:55%; position:relative; z-index: 1;}
 .pageContent #InSight-Weather-Report #InSight-Weather-Data h1{font-weight: bold;letter-spacing: 1px;}
 #InSight-Weather-Report #InSight-Weather-Data p{line-height: normal;width:95%;color:white;}
-#InSight-Weather-Report .slash, #InSight-Weather-Report .degree .celsius, #InSight-Weather-Report .fadeWhite {color:rgba(255,255,255,0.5);}
+#InSight-Weather-Report .slash, #InSight-Weather-Report .degree .celsius, #InSight-Weather-Report .fadeWhite {color:white;}
 #weather_observation .lbl_fahrenheit , #weather_observation .lbl_celsius, #weather_observation .lbl_mph , #weather_observation .lbl_mps { cursor: pointer}
 #weather_observation .fadeBlack {color:rgba(0,0,0,0.3);}
 .degree .lbl_fahrenheit, .degree .lbl_celsius{cursor: pointer}

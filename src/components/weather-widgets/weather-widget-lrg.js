@@ -174,9 +174,8 @@ class WeatherWidgetLrg extends Component {
                         {temperatures(this.state.currentSolData).maxC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="lbl_fahrenheit">F</span>
-                        <span className="slash"> | </span>
-                        <span className="lbl_celsius fadeWhite">C</span>
+                        <span className="fahrenheit">F</span>
+                        <span className="celsius">C</span>
                       </span>
                     </div>
                     <div className="lows nobr">
@@ -189,9 +188,8 @@ class WeatherWidgetLrg extends Component {
                         {temperatures(this.state.currentSolData).minC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="lbl_fahrenheit">F</span>
-                        <span className="slash"> | </span>
-                        <span className="lbl_celsius fadeWhite">C</span>
+                        <span className="fahrenheit">F</span>
+                        <span className="celsius">C</span>
                       </span>
                     </div>
                   </div>

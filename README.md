@@ -24,9 +24,14 @@ This API is designed to collect image data gathered by NASA's Curiosity, Opportu
 
 ## MVP/ Post MVP
 
-#### MVP
+#### MVP (Most Valuable Players)
+- Pull data from NASAs Open APIs to generate weather widgets (small in fixed header and large on Weather page.)
+- Embed toggle switch in header which enables users to toggle between celsius and fahrenheit data in weather widgets
+- Pull image data from NASA's Open APIs to generate dynamic image galleries on each of the rover pages - Curiosity, Opportunity and Spirit
+- Create sliding image carousel on homepage.
 
 #### Post MVP
+- Pull Google Maps API data to embed dynamic Mars map on Map webpage.
 
 ## React Component Hierarchy
 
@@ -45,5 +50,5 @@ This API is designed to collect image data gathered by NASA's Curiosity, Opportu
 
 ## Errors & Resolutions
 
-ERROR: External error with NASA API data - InSight lander did not return temperature data for sol 322. Temperature data therefore unavailable for Weather component.<br/>
-SOLUTION: Designed function to test for valid data and then returned placeholder text if temp data not available. (components/weather-widgets/weather-widget-lrg.js)
+**ERROR**: External error with NASA API data - InSight lander did not return temperature data for sol 322. Temperature data therefore unavailable for Weather component.<br/>
+**SOLUTION**: Designed function to test for valid data and then returned placeholder text if temp data not available. (components/weather-widgets/weather-widget-lrg.js)<br/><br/>

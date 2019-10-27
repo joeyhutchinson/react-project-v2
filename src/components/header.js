@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import TempToggle from "./weather-widgets/temp-toggle"
 
 class Header extends Component {
   render() {
@@ -38,7 +39,9 @@ class Header extends Component {
           <Link key={null} to="/" className="site-title">
             The Red Planet
           </Link>
+          <TempToggle />
         </div>
+        
         <nav id="nav">
           <ul>{links}</ul>
         </nav>
