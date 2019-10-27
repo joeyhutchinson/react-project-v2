@@ -1,8 +1,11 @@
 # Project Overview
+## Project Links
+[GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
+[CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-08mev)<br/>
 
 ## Description
 
-This project will utilise the open sourse data available from NASA, and create a one stop shop for all things planet Mars. It will be a multi page website, and will include searchable images taken by past and current rovers, passt and current weather data updated daily and will also include an interactive embedded Google Mars map. </br>
+This project will utilise the open sourse data available from NASA, and create a one stop shop for all things planet Mars. It will be a multi page website, and will include searchable images taken by past and current rovers, weather data which is updated regularily from the API data, and - if all goes to plan - will also include an interactive embedded Google Mars map. </br>
 
 ## Wireframes
 
