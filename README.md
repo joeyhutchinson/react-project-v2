@@ -3,7 +3,7 @@
 ## Project Links
 
 [GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
-[CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-ds3sm)<br/>
+[CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-notgit-08mev)<br/>
 
 ## Description
 
