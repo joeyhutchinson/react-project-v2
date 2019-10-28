@@ -6,6 +6,7 @@ class WeatherItems extends Component {
   }
 
   render() {
+    console.log(this.props.tempType)
     let temperatures = (solData, tempsValid) => {
       if (tempsValid) {
         let maxFah = Math.round(solData.AT.mx);
@@ -52,14 +53,14 @@ class WeatherItems extends Component {
             <span className="dateSol nobr">Sol {sol}</span>
             <span className="dateUTC nobr">{readableDateShort(solData.First_UTC)}</span>
             <div className="fadeWhiteLine" />
-            <div className="fahrenheit" style={{}}>
+            <div className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>
               <span className="high">
                 High: {temperatures(solData, tempsValid).maxF}&#8457;
                 <br />
               </span>
               <span className="low">Low: {temperatures(solData, tempsValid).minF}&#8457;</span>
             </div>
-            <div className="celsius" style={{}}>
+            <div className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>
               <span className="high">
                 High: {temperatures(solData, tempsValid).maxC}&#8451;
                 <br />

@@ -169,29 +169,29 @@ class WeatherWidgetLrg extends Component {
                     <div className="highs nobr">
                       {/* High temps */}
                       <span className="text">High: </span>
-                      <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}} >
+                      <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}} >
                         {temperatures(this.state.currentSolData).maxF}&#176;
                       </span>
-                      <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}} >
+                      <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}} >
                         {temperatures(this.state.currentSolData).maxC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>F</span>
-                        <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>C</span>
+                        <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>F</span>
+                        <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>C</span>
                       </span>
                     </div>
                     <div className="lows nobr">
                       {/* Low temps */}
                       <span className="text">Low: </span>
-                      <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>
+                      <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>
                         {temperatures(this.state.currentSolData).minF}&#176;
                       </span>
-                      <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>
+                      <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>
                         {temperatures(this.state.currentSolData).minC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>F</span>
-                        <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>C</span>
+                        <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>F</span>
+                        <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>C</span>
                       </span>
                     </div>
                   </div>
@@ -200,7 +200,7 @@ class WeatherWidgetLrg extends Component {
             </div>
             {/*  Individual weather items boxes */}
             <div id="InSight-Forecast" className="textWhite">
-              <WeatherItems weatherData={this.state.weatherData}/>
+              <WeatherItems weatherData={this.state.weatherData} tempType={this.props.tempType}/>
             </div>
           </div>
         </div>
