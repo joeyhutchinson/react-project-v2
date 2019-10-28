@@ -16,6 +16,8 @@ class WeatherWidgetLrg extends Component {
     tempsAvail: false
   };
 
+
+
   // Fetch weather data via API call and set to component state
   // Alert if data is not available and doesn't load
   fetchData = () => {
@@ -167,29 +169,29 @@ class WeatherWidgetLrg extends Component {
                     <div className="highs nobr">
                       {/* High temps */}
                       <span className="text">High: </span>
-                      <span className="fahrenheit" style={{}}>
+                      <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}} >
                         {temperatures(this.state.currentSolData).maxF}&#176;
                       </span>
-                      <span className="celsius" style={{}}>
+                      <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}} >
                         {temperatures(this.state.currentSolData).maxC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="fahrenheit">F</span>
-                        <span className="celsius">C</span>
+                        <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>F</span>
+                        <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>C</span>
                       </span>
                     </div>
                     <div className="lows nobr">
                       {/* Low temps */}
                       <span className="text">Low: </span>
-                      <span className="fahrenheit">
+                      <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>
                         {temperatures(this.state.currentSolData).minF}&#176;
                       </span>
-                      <span className="celsius" style={{}}>
+                      <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>
                         {temperatures(this.state.currentSolData).minC}&#176;
                       </span>
                       <span className="degree">
-                        <span className="fahrenheit">F</span>
-                        <span className="celsius">C</span>
+                        <span className="fahrenheit" style={(this.props.tempType) ? {} : {display: "none"}}>F</span>
+                        <span className="celsius" style={(this.props.tempType) ? {display: "none"} : {}}>C</span>
                       </span>
                     </div>
                   </div>

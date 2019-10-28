@@ -4,17 +4,6 @@ import TempToggle from "./weather-widgets/temp-toggle"
 
 class Header extends Component {
 
-  state = {
-    tempType : false
-  }
-
-  // Handle temperature toggle. False = Fahreinheit. True = Celsius.
-  handleTempType = (e) => {
-    this.setState((prevState) => ({
-      tempType : !this.state.tempType
-    }))
-  }
-
   render() {
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
@@ -72,7 +61,7 @@ class Header extends Component {
           <NavLink key={null} to="/" className="site-title">
             The Red Planet
           </NavLink>
-          <TempToggle handleToggle={this.handleTempType}/>
+          <TempToggle handleTempToggle={this.props.handleTempToggle}/>
         </div>
         
         <nav id="nav">

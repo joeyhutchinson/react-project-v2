@@ -7,11 +7,12 @@ class Weather extends Component {
   };
 
   render() {
+    console.log(this.props.tempType)
     return (
       <main>
         <div className="content">
           <h1>Weather</h1>
-          <WeatherWidgetLrg />
+          <WeatherWidgetLrg tempType={this.props.tempType}/>
           <p>
             The above shows the per-Sol summary data for each of the last seven
             available Sols (Martian days). As more data from a particular Sol

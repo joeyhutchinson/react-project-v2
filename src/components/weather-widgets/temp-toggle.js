@@ -2,7 +2,7 @@ import React from "react";
 
 function TempToggle (props) {
   let handleTempToggle = () => {
-    props.handleToggle()
+    props.handleTempToggle()
   }
 
 

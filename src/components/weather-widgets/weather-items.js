@@ -52,7 +52,7 @@ class WeatherItems extends Component {
             <span className="dateSol nobr">Sol {sol}</span>
             <span className="dateUTC nobr">{readableDateShort(solData.First_UTC)}</span>
             <div className="fadeWhiteLine" />
-            <div className="fahrenheit">
+            <div className="fahrenheit" style={{}}>
               <span className="high">
                 High: {temperatures(solData, tempsValid).maxF}&#8457;
                 <br />
