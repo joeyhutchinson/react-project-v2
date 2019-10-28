@@ -1,10 +1,13 @@
 import React from "react";
 import Slider from "./slider";
+import ScrollToTopOnMountClass from "../scroll-to-top-class";
+
 
 function Home(props) {
   console.log(props);
   return (
     <main>
+      <ScrollToTopOnMountClass/>
       <Slider />
       <div className="content">
         <p>

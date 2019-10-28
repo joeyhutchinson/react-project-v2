@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ScrollToTopOnMountClass from "../../scroll-to-top-class";
+
 
 class Phobos extends Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -7,6 +9,7 @@ class Phobos extends Component {
   render() {
     return (
       <main>
+        <ScrollToTopOnMountClass/>
         <div className="content">
           <h1>Phobos</h1>
           <p>

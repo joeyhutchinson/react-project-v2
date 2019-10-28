@@ -10,9 +10,14 @@
 This project will utilise the open sourse data available from NASA, and create a one stop shop for all things planet Mars. It will be a multi page website, and will include searchable images taken by past and current rovers, weather data which is updated regularily from the API data, and - if all goes to plan - will also include an interactive embedded Google Mars map. </br>
 
 ## Wireframes
-
-[Wireframe 1](https://photos.google.com/share/AF1QipMwMH7_znQlQ6FihfwVoP3q7yiKVvB8rx86eK0r5B7xNnE1O0N2Gc8Q3nbpsMsDqA?key=RERmXzlZWkRvNmV2Q2JSZkZJbUdyWDllVWhGQ2tR)</br>
-(Homepage set-up and brief overview and layout of website.)</br>
+**Homepage**
+[Wireframe 1 - Homepage](https://photos.google.com/share/AF1QipMwMH7_znQlQ6FihfwVoP3q7yiKVvB8rx86eK0r5B7xNnE1O0N2Gc8Q3nbpsMsDqA?key=RERmXzlZWkRvNmV2Q2JSZkZJbUdyWDllVWhGQ2tR)</br>
+(Homepage set-up and brief overview and layout of website.)</br><br/>
+**Weather widget large**
+[Wireframe 2 - Large weather widget](https://photos.app.goo.gl/fjddEykfgrUSte257)</br>
+(Large weather widget set-up on /weather page.)</br>
+[NASA original weather widget](https://mars.nasa.gov/insight/weather/)</br>
+(NASA's version of the weather widget in which I am trying to replicate.)</br>
 
 ## API Info
 

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ScrollToTopOnMountClass from "../../scroll-to-top-class";
+
 
 class Deimos extends Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -7,6 +9,7 @@ class Deimos extends Component {
   render() {
     return (
       <main>
+        <ScrollToTopOnMountClass/>
         <div className="content">
           <h1>Deimos</h1>
           <p>
