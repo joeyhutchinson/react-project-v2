@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import TempToggle from "./weather-widgets/temp-toggle"
 
 class Header extends Component {
@@ -10,9 +10,13 @@ class Header extends Component {
         // If link has sublinks
         let dropdownlinks = d.sublinks.map((s, j) => {
           return (
-            <Link key={j} to={s.route} className="dropdownlink">
+            <NavLink key={j} to={s.route} className="dropdownlink" activeStyle={{
+              backgroundColor: "#ef9662",
+              color: "white",
+              textDecoration: "none"
+            }}>
               <li>{s.name}</li>
-            </Link>
+            </NavLink>
           );
         });
         return (
@@ -25,20 +29,37 @@ class Header extends Component {
         );
       } else {
         // If link does not have sublinks
-        return (
-          <Link key={i} to={d.route} className="navlink">
+
+        // Test for Home link and assign 'exact' prop to Home nav link
+        if (d.name == "Home") {
+          return(
+            <NavLink key={i} to={d.route} className="navlink" activeStyle={{
+              backgroundColor: "#ef9662",
+              color: "white",
+              textDecoration: "none"
+            }} exact>
             <li>{d.name}</li>
-          </Link>
-        );
+          </NavLink>
+          )
+        } else {
+        return (
+          <NavLink key={i} to={d.route} className="navlink" activeStyle={{
+            backgroundColor: "#ef9662",
+            color: "white",
+            textDecoration: "none"
+          }}>
+            <li>{d.name}</li>
+          </NavLink>
+        )};
       }
     });
 
     return (
       <header>
         <div className="site-head">
-          <Link key={null} to="/" className="site-title">
+          <NavLink key={null} to="/" className="site-title">
             The Red Planet
-          </Link>
+          </NavLink>
           <TempToggle />
         </div>
         
