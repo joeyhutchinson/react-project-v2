@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,11 +20,18 @@ import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
 function App(props) {
+
+  // Handle temperature toggle. False = Fahreinheit. True = Celsius.
+  const [tempType, setTempType] = useState(false);
+  let handleTempType = (e) => {
+   setTempType(!tempType)
+  }
+
   return (
     <Router>
       <div>
         <Background />
-        <Header links={props.links} />
+        <Header links={props.links} handleTempToggle={handleTempType}/>
         <Switch>
           <Route
             exact
@@ -32,7 +39,7 @@ function App(props) {
             component={Home}
           />
           <Route path="/geology" component={Geology} />
-          <Route path="/weather" component={Weather} />
+          <Route path="/weather" render={(props) => <Weather {...props} tempType={tempType}/>}/>
           <Route path="/map" component={Maps} />
           <Route path="/moons/phobos" component={Phobos} />
           <Route path="/moons/deimos" component={Deimos} />

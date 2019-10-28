@@ -3,6 +3,18 @@ import { NavLink } from "react-router-dom";
 import TempToggle from "./weather-widgets/temp-toggle"
 
 class Header extends Component {
+
+  state = {
+    tempType : false
+  }
+
+  // Handle temperature toggle. False = Fahreinheit. True = Celsius.
+  handleTempType = (e) => {
+    this.setState((prevState) => ({
+      tempType : !this.state.tempType
+    }))
+  }
+
   render() {
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
@@ -11,7 +23,7 @@ class Header extends Component {
         let dropdownlinks = d.sublinks.map((s, j) => {
           return (
             <NavLink key={j} to={s.route} className="dropdownlink" activeStyle={{
-              backgroundColor: "#ef9662",
+              backgroundColor: "#bd632f",
               color: "white",
               textDecoration: "none"
             }}>
@@ -34,7 +46,7 @@ class Header extends Component {
         if (d.name == "Home") {
           return(
             <NavLink key={i} to={d.route} className="navlink" activeStyle={{
-              backgroundColor: "#ef9662",
+              backgroundColor: "#bd632f",
               color: "white",
               textDecoration: "none"
             }} exact>
@@ -44,7 +56,7 @@ class Header extends Component {
         } else {
         return (
           <NavLink key={i} to={d.route} className="navlink" activeStyle={{
-            backgroundColor: "#ef9662",
+            backgroundColor: "#bd632f",
             color: "white",
             textDecoration: "none"
           }}>
@@ -60,7 +72,7 @@ class Header extends Component {
           <NavLink key={null} to="/" className="site-title">
             The Red Planet
           </NavLink>
-          <TempToggle />
+          <TempToggle handleToggle={this.handleTempType}/>
         </div>
         
         <nav id="nav">
