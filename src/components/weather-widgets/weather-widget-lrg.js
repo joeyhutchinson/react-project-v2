@@ -60,11 +60,6 @@ class WeatherWidgetLrg extends Component {
     this.timer = null;
   }
 
-  componentDidCatch(error, errorInfo) {
-    console.log(error);
-    console.log(errorInfo);
-  }
-
   render() {
     // Render "weather loading" text if API call is delayed or errors
     if (this.state.isLoading) {

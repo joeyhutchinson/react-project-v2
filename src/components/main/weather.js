@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import WeatherWidgetLrg from "../weather-widgets/weather-widget-lrg";
+import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
 class Weather extends Component {
-  state = {
-    tempMeasure: "c"
-  };
 
   render() {
-    console.log(this.props.tempType)
     return (
       <main>
         <div className="content">
+        <ScrollToTopOnMountClass/>
           <h1>Weather</h1>
           <WeatherWidgetLrg tempType={this.props.tempType}/>
           <p>
@@ -78,8 +76,7 @@ class Weather extends Component {
           <p>
             Some researchers suspect that Mars was wetter and warmer in the
             past, with an average temperature of about <span style={(this.props.tempType) ? {display: "none"} : {}}>50 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>10 °C</span>, while others think
-            the planet may have been an icy world with temperatures as low as 
-            <span style={(this.props.tempType) ? {display: "none"} : {}}>-54 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-45 °C</span>. Recent astronomical studies indicate that Mars might be
+            the planet may have been an icy world with temperatures as low as <span style={(this.props.tempType) ? {display: "none"} : {}}>-54 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-45 °C</span>. Recent astronomical studies indicate that Mars might be
             emerging from an ice age. Shrinking ice caps and increased humidity
             at the polar regions suggest a rise in temperature, a feature that
             astronomers believe is the key to making the planet habitable for

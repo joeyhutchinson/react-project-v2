@@ -6,7 +6,8 @@ class WeatherItems extends Component {
   }
 
   render() {
-    console.log(this.props.tempType)
+    // Gather temperature data from weatherData and convert Fahrenheit to Celsius where necessary.
+    // Return as object
     let temperatures = (solData, tempsValid) => {
       if (tempsValid) {
         let maxFah = Math.round(solData.AT.mx);
@@ -22,6 +23,7 @@ class WeatherItems extends Component {
       }
     };
 
+    // Construct and return readable short date i.e. '4 Aug.' supplied from UTC date   
     const readableDateShort = UTC => {
       let monthNum = new Date(UTC).getMonth();
       let months = [
@@ -41,7 +43,7 @@ class WeatherItems extends Component {
       return `${months[monthNum]} ${new Date(UTC).getDate()}`;
     };
 
-
+    // Map over weatherData and return each sol weather item with High and Low temps.
     const displayWeatherItems = () => {
       let solKeys = this.state.weatherData.sol_keys;
 
@@ -74,7 +76,7 @@ class WeatherItems extends Component {
     
       return (
         <>
-                    {displayWeatherItems()}
+          {displayWeatherItems()}
         </>       
       )
   }

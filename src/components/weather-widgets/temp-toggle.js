@@ -1,6 +1,7 @@
 import React from "react";
 
 function TempToggle (props) {
+  // Handle temperature type toggle event in header i.e. user chooses to display fahrenheit or celsius.
   let handleTempToggle = () => {
     props.handleTempToggle()
   }
