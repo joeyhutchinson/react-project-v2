@@ -91,7 +91,7 @@ nav ul {
   padding: 14px 20px;
   font-size: 1rem;
   font-weight: bold;
-  min-width: 12vw;
+  min-width: 11.55vw;
 }
 
 a.navlink {
@@ -172,6 +172,7 @@ main {
   flex-direction: row;
   margin: 0.5rem;
   height: 3vh;
+  width: 6rem;
 }
 .temp-label {
   position: relative;

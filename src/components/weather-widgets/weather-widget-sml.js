@@ -122,7 +122,7 @@ class WeatherWidgetSml extends Component {
                 <h2 className="ww-sml-heading">
                   Latest Mars Weather
                 </h2>
-                <TempToggle handleTempToggle={this.props.handleTempToggle}/>
+                
                 <div className="ww-sml-weather">
                 <img className="weather-icon sunny"src="http://worldweather.wmo.int/images/i25a.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {display: "none"} : {}}/>
                 <img className="weather-icon windy"src="http://worldweather.wmo.int/images/i1.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {} : {display: "none"}}/>
@@ -149,6 +149,7 @@ class WeatherWidgetSml extends Component {
                     <span className="earthDate nobr">
                       {readableDateLong(this.state.currentSolData.First_UTC)}
                     </span>
+                    <TempToggle handleTempToggle={this.props.handleTempToggle}/>
               </div>
     );
   }

@@ -8,7 +8,8 @@ class Slider extends Component {
     
     return (
       <div className="carousel">
-        <div className="carousel-item" ></div>
+        <div className="carousel-item" >
+        </div>
         </div>
     );
   }
