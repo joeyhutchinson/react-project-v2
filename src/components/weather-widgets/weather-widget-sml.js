@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import dotenv from "dotenv";
-import TempToggle from "./temp-toggle"
+import TempToggle from "./temp-toggle";
 
 import "./ww-sml-styles.css";
 
@@ -82,21 +82,30 @@ class WeatherWidgetSml extends Component {
     // Compute Fahrenheit to celsius
 
     let weatherData = solData => {
-      if (this.state.tempsAvail && this.state.windAvail) {
+      if (this.state.windAvail && this.state.tempsAvail) {
         let maxFah = Math.round(solData.AT.mx);
-        let wind = solData.HWS.av;
         let isWindy = (solData.HWS.av > 11) ? true : false;
-        return {
+        return ({
           maxF: maxFah,
           maxC: Math.round((5 / 9) * (maxFah - 32)),
-          windms: wind,
           windy: isWindy
-        };
+        })
+      } else if (this.state.tempsAvail && !this.state.windAvail) {
+        let maxFah = Math.round(solData.AT.mx);
+        return ({
+          maxF: maxFah,
+          maxC: Math.round((5 / 9) * (maxFah - 32)),
+          windy: false
+        })
       } else {
-        return { maxF: "--", maxC: "--", windms: "--" };
+          return ({
+            maxF: "--",
+            maxC: "--",
+            windy: false
+          })
       }
     };
-
+    console.log(this.state.currentSolData)
     // Convert UTC string to readable month and date format
     let readableDateLong = UTC => {
       let monthNum = new Date(UTC).getMonth();

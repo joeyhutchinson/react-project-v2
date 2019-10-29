@@ -166,10 +166,18 @@ span.dateSol {
 #InSight-Weather-Report .temperatures.main { padding-left:5%;}
 #InSight-Weather-Report #InSight-tempDate .marsDate {font-weight: bold; font-size: larger}
 #InSight-Weather-Report #InSight-tempDate .marsDate, #InSight-Weather-Report #InSight-tempDate .earthDate {display: block;}
-#InSight-Weather-Report #InSight-Forecast { margin: 0 auto; text-align: center;}
+#InSight-Weather-Report #InSight-Forecast { 
+	margin: 0 auto; 
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
 #InSight-Weather-Report #InSight-Forecast .item {
-	width:14%;
-	margin:20px 1% 50px;
+	width:12%;
+	margin:20px 0.5% 50px;
 	background-color:  rgba(0,0,0,0.25);
 	padding: 15px 0.2%;
 	display: inline-block;

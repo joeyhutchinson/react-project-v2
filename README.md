@@ -86,3 +86,5 @@ This project will utilise the open sourse data available from NASA, and create a
 
 **ERROR**: External error with NASA API data - InSight lander did not return temperature data for sol 322. Temperature data therefore unavailable for Weather component.<br/>
 **SOLUTION**: Designed function to test for valid data and then returned placeholder text if temp data not available. (components/weather-widgets/weather-widget-lrg.js)<br/><br/>
+**ERROR**: Error with if statement logic in small weather widget component - InSight lander did not return wind data for sol 327. Wind data therefore unavailable for small weather component i.e. dynamic display of sunny or windy icon. if statment not written to handle if wind data not available. Will not show anything (inc. temp) if wind data not available.<br/>
+**SOLUTION**: Re-designed 'if statement' to test for valid wind data and temp data then returned placeholder text if wind data not available and/or temp data not available. If wind data is not available the default sunny icon will show and the temp data will still render. (components/weather-widgets/weather-widget-sml.js)<br/><br/>
