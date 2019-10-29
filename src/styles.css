@@ -170,18 +170,18 @@ main {
   z-index: 10;
   display: flex;
   flex-direction: row;
-  margin: 1rem;
+  margin: 0.5rem;
+  height: 3vh;
 }
 .temp-label {
   position: relative;
-  margin-left: 1rem;
-  margin-top: 0.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0.5rem;
 }
 label.switch {
   position: relative;
   display: inline-block;
-  width: 3rem;
-  height: 1.8rem;
+  width: 2.5rem;
+  height: 1.2rem;
 }
 
 /* Hide default HTML checkbox */
@@ -208,10 +208,10 @@ label.switch input {
 .slider:before {
   position: absolute;
   content: "";
-  height: 24px;
-  width: 24px;
+  height: 16px;
+  width: 16px;
   left: 4px;
-  bottom: 4px;
+  bottom: 1px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;

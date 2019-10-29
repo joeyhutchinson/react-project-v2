@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import TempToggle from "./weather-widgets/temp-toggle"
+import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml"
 
 class Header extends Component {
 
   render() {
+    console.log(this.props.tempType)
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
       if (d.sublinks) {
@@ -61,7 +63,8 @@ class Header extends Component {
           <NavLink key={null} to="/" className="site-title">
             The Red Planet
           </NavLink>
-          <TempToggle handleTempToggle={this.props.handleTempToggle}/>
+          <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={this.props.handleTempToggle}/>
+          {/* <TempToggle handleTempToggle={this.props.handleTempToggle}/> */}
         </div>
         
         <nav id="nav">

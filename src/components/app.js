@@ -31,7 +31,7 @@ function App(props) {
     <Router>
       <div>
         <Background />
-        <Header links={props.links} handleTempToggle={handleTempType}/>
+        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType}/>
         <Switch>
           <Route
             exact

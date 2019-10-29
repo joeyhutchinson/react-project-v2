@@ -1,0 +1,16 @@
+.weather-widget-sml {
+    position: relative;
+    background-color: rgba(51, 51, 51, 0.651);
+    width: 50%;
+    margin: 1rem;
+}
+
+h2.ww-sml-heading {
+    text-align: center;
+    margin: 0.2rem 0;
+}
+
+img.weather-icon {
+    width: 5vw;
+}
+
