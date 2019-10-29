@@ -1,3 +1,6 @@
+// PHOTOS https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
+// MANIFEST https://api.nasa.gov/mars-photos/api/v1/manifests/curiosity/?api_key=DEMO_KEY
+
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml"
