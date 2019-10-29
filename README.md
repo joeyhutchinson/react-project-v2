@@ -2,8 +2,8 @@
 
 ## Project Links
 
-[GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
-[CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-notgit-08mev)<br/>
+- [GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
+- [CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-notgit-08mev)<br/>
 
 ## Description
 
@@ -54,12 +54,28 @@ This project will utilise the open sourse data available from NASA, and create a
 
 ## Est. Time
 
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
-| :-------- | :------: | :------------: | :-----------: | :---------: |
-| Planning  |   High   |    6 Hours     |    7 Hours    |
-| Planning  |          |                |               |
-| Planning  |          |                |               |
-| Total:    |   ----   |    6~ Hours    |    7 Hours    |
+| Component             | Priority | Estimated Time | Time Invested | Actual Time |
+| :--------             | :------: | :------------: | :-----------: | :---------: |
+| app                   |   High   |    1 Hours     |    2 Hours    |    1 Hours
+| background            |   Medium |                |               |
+| footer                |   Medium |                |               |
+| header                |   High   |                |               |
+| scroll-to-top-class   |   Urgent |                |               |
+| home                  |   Medium |                |               |
+| slider                |   Low    |                |               |
+| geology               |   Medium |                |               |
+| map                   |   Low    |                |               |
+| weather               |   Medium |                |               |
+| temp-toggle           |   High   |                |               |
+| weather-widget-lrg    |   High   |    3 Hours     |   4 Hours     |    12 Hours
+| weather-items         |   High   |    1 Hour      |   2 Hours     |    0.5 Hours
+| weather-widget-sml    |   High   |    3 Hours     |   4 Hours     |    4 Hours
+| curiosity             |   Medium |                |               |
+| opportunity           |   Medium |                |               |
+| spirit                |   Medium |                |               |
+| deimos                |   Medium |                |               |
+| phobos                |   Medium |                |               |
+| Total:                |   ----   |    6~ Hours    |    7 Hours    |
 
 ## Code Snippet
 
