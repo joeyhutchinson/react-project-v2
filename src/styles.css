@@ -163,6 +163,8 @@ main {
   padding: 2vh 2vw;
 }
 
+.nobr	{ white-space:nowrap; }
+
 /* Weather toggle in header */
 /* The switch - the box around the slider */
 .temp-toggle {

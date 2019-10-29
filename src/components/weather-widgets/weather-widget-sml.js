@@ -123,34 +123,42 @@ class WeatherWidgetSml extends Component {
                   Latest Mars Weather
                 </h2>
                 
-                <div className="ww-sml-weather">
-                <img className="weather-icon sunny"src="http://worldweather.wmo.int/images/i25a.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {display: "none"} : {}}/>
-                <img className="weather-icon windy"src="http://worldweather.wmo.int/images/i1.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {} : {display: "none"}}/>
-                <span className="weather-desc-sunny" style={(weatherData(this.state.currentSolData).windy) ? {display: "none"} : {}}>Sunny
-                </span>
-                <span className="weather-desc-windy" style={(weatherData(this.state.currentSolData).windy) ? {} : {display: "none"}}>Windy
-                </span>
-                
-                    <div className="highs nobr">
-                      {/* High temps */}
-                      <span className="text">High: </span>
-                      <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}} >
-                        {weatherData(this.state.currentSolData).maxF}&#176;
-                      </span>
-                      <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}} >
-                        {weatherData(this.state.currentSolData).maxC}&#176;
-                      </span>
-                      <span className="degree">
-                        <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>F</span>
-                        <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>C</span>
-                      </span>
+                <div className="ww-sml-inner">
+
+                    {/* Weather icons */}
+                    <img className="weather-icon sunny"src="http://worldweather.wmo.int/images/i25a.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {display: "none"} : {}}/>
+                    <img className="weather-icon windy"src="http://worldweather.wmo.int/images/i1.png" alt="" style={(weatherData(this.state.currentSolData).windy) ? {} : {display: "none"}}/>
+                    
+                    <div className="ww-sml-weather">
+                    {/* Weather description */}
+                        <span className="weather-desc-sunny" style={(weatherData(this.state.currentSolData).windy) ? {display: "none"} : {}}>Sunny
+                        </span>
+                        <span className="weather-desc-windy" style={(weatherData(this.state.currentSolData).windy) ? {} : {display: "none"}}>Windy
+                        </span>
+
+                        {/* Weather Temp */}
+                        <div className="weather-temp nobr">
+                            <span className="text">High:&nbsp;</span>
+                            <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}} >
+                                {weatherData(this.state.currentSolData).maxF}&#176;
+                            </span>
+                            <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}} >
+                                {weatherData(this.state.currentSolData).maxC}&#176;
+                            </span>
+                            <span className="degree">
+                                <span className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>F</span>
+                                <span className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>C</span>
+                            </span>
+                        </div>
+                        {/* Weather date */}
+                        <span className="earthDate nobr">
+                            {readableDateLong(this.state.currentSolData.First_UTC)}
+                        </span>
                     </div>
-                    </div>
-                    <span className="earthDate nobr">
-                      {readableDateLong(this.state.currentSolData.First_UTC)}
-                    </span>
-                    <TempToggle handleTempToggle={this.props.handleTempToggle}/>
-              </div>
+                    {/* Temperature Type Toggle i.e. Fahreinheit or celsius */}
+                <TempToggle handleTempToggle={this.props.handleTempToggle}/>
+                </div>
+             </div>
     );
   }
 }
