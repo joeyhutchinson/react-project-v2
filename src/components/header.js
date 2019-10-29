@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import TempToggle from "./weather-widgets/temp-toggle"
 import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml"
 
 class Header extends Component {
@@ -34,7 +33,7 @@ class Header extends Component {
         // If link does not have sublinks
 
         // Test for Home link and assign 'exact' prop to Home nav link
-        if (d.name == "Home") {
+        if (d.name === "Home") {
           return(
             <NavLink key={i} to={d.route} className="navlink" activeStyle={{
               backgroundColor: "#bd632f",
@@ -64,7 +63,6 @@ class Header extends Component {
             The Red Planet
           </NavLink>
           <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={this.props.handleTempToggle}/>
-          {/* <TempToggle handleTempToggle={this.props.handleTempToggle}/> */}
         </div>
         
         <nav id="nav">

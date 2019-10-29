@@ -5,7 +5,7 @@
 
 import React from "react";
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
-
+import RoverImageGallery from "./rover-image-gallery";
 
 function Curiosity(props) {
   return (
@@ -13,6 +13,7 @@ function Curiosity(props) {
       <ScrollToTopOnMountClass/>
       <div className="content">
         <h1>Curiosity</h1>
+        <RoverImageGallery rover={"curiosity"}/>
       </div>
     </main>
   );

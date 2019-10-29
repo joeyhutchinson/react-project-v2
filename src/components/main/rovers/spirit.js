@@ -5,6 +5,7 @@
 
 import React from "react";
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
+import RoverImageGallery from "./rover-image-gallery";
 
 function Spirit(props) {
   return (
@@ -12,6 +13,7 @@ function Spirit(props) {
       <ScrollToTopOnMountClass/>
       <div className="content">
         <h1>Spirit</h1>
+        <RoverImageGallery rover={"spirit"}/>
       </div>
     </main>
   );

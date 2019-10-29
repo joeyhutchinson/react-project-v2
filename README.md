@@ -4,6 +4,7 @@
 
 - [GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
 - [CodeSandbox Sandbox](https://codesandbox.io/s/react-project-v2-notgit-08mev)<br/>
+- [Hosted Location]()<br/>
 
 ## Description
 
@@ -60,6 +61,7 @@ This project will utilise the open sourse data available from NASA, and create a
 | background            |   Medium |                |               |
 | footer                |   Medium |                |               |
 | header                |   High   |                |               |
+| mobile-header         |   High   |                |               |
 | scroll-to-top-class   |   Urgent |                |               |
 | home                  |   Medium |                |               |
 | slider                |   Low    |                |               |
@@ -73,6 +75,7 @@ This project will utilise the open sourse data available from NASA, and create a
 | curiosity             |   Medium |                |               |
 | opportunity           |   Medium |                |               |
 | spirit                |   Medium |                |               |
+| rover-image-gallery   |   High   |                |               |
 | deimos                |   Medium |                |               |
 | phobos                |   Medium |                |               |
 | Total:                |   ----   |    6~ Hours    |    7 Hours    |
