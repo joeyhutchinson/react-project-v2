@@ -165,7 +165,7 @@ span.dateSol {
 #InSight-Weather-Report .vCentered {padding:5% 0; width: 100%}
 #InSight-Weather-Report .temperatures.main { padding-left:5%;}
 #InSight-Weather-Report #InSight-tempDate .marsDate {font-weight: bold; font-size: larger}
-#InSight-Weather-Report #InSight-tempDate .marsDate, #InSight-Weather-Report #InSight-tempDate .earthDate {display: block;}
+#InSight-Weather-Report #InSight-tempDate .marsDate, #InSight-Weather-Report #InSight-tempDate .earthDate {display: block; text-align: center;}
 #InSight-Weather-Report #InSight-Forecast { 
 	margin: 0 auto; 
 	text-align: center;
