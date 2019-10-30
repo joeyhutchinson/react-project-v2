@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import DatePicker from 'react-datepicker';
 import dotenv from "dotenv";
 
 import "./rover-image-gallery.css";
@@ -13,9 +12,8 @@ class RoverImageGallery extends Component {
         isLoading: true,
         manifestData: [],
         imageData: [],
-        selectedFromDate: 1000,
-        selectedToDate: "",
-        selectedCamera: "fhaz"
+        selectedDay: 1,
+        selectedCamera: []
     }
     //   Fetch manifest data via API call and set to component state
     //   Alert if data is not available and doesn't load
@@ -74,56 +72,47 @@ class RoverImageGallery extends Component {
     result.setDate(result.getDate() + days);
     return result;
   }
+
+  
     render () {
       console.log(this.state.manifestData.max_sol)
-
-      const landingDate = this.state.manifestData.landing_date;
       const lastDateAvail = this.state.manifestData.max_date;
-      const maxSol = this.state.manifestData.max_sol;  
+      const maxSol = this.state.manifestData.max_sol;
+
+      let readableDateLong = date => {
+        let monthNum = new Date(date).getMonth();
+        let months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ];
+        return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
+      };
 
       return (
           <>
           <div className="dataDetails">
-            <table>
-              <thead>
-                <tr>
-                  <th>Launch Date</th>
-                  <th>Landing Date</th>
-                  <th>Rover Status</th>
-                  <th>No.Photos Taken</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{this.state.manifestData.launch_date}</td>
-                  <td>{this.state.manifestData.landing_date}</td>
-                  <td>{this.state.manifestData.status}</td>
-                  <td>{this.state.manifestData.total_photos}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="dataTable">
+              <div><h3>Launch Date</h3><hr></hr><p>{readableDateLong(this.state.manifestData.launch_date)}</p></div>
+              <div><h3>Landing Date</h3><hr></hr><p>{readableDateLong(this.state.manifestData.landing_date)}</p></div>
+              <div><h3>Rover Status</h3><hr></hr><p>{this.state.manifestData.status}</p></div>
+              <div><h3>No. Photos Taken</h3><hr></hr><p>{this.state.manifestData.total_photos}</p></div>
+            </div>
           </div>
-          {/* <div className="image-form">
+          <h2>Image Gallery</h2>
+          <div className="image-form">
             <form className="form" onSubmit={{}}>
             <div className="field">
-                <label className="label">From date</label>
-                <DatePicker
-                    selected={this.state.selectedFromDate}
-                    onChange={{}}
-                    minDate={this.state.manifestData.landing_date}
-                    maxDate={this.addDays(this.state.manifestData.landing_date, this.state.manifestData.max_sol)}
-                    placeholderText="Select date"
-                  />
-              </div>
-              <div className="field">
-                <label className="label">To date</label>
-                <DatePicker
-                    selected={this.state.selectedFromDate}
-                    onChange={{}}
-                    minDate={this.state.manifestData.landing_date}
-                    maxDate={this.addDays(this.state.manifestData.landing_date, this.state.manifestData.max_sol)}
-                    placeholderText="Select date"
-                  />
+                <label className="label">Choose mission day:</label>
               </div>
               <div className="field">
                 <label className="label">Select camera</label>
@@ -143,8 +132,8 @@ class RoverImageGallery extends Component {
                       className="button is-primary"
                     />
               </div>
-            </form> */}
-          {/* </div> */}
+            </form>
+           </div>
           <div className="image-gallery">
               <div className="thumbnails-section"></div>
               <div className="main-image-section"></div>
