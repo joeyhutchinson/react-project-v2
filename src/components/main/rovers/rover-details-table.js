@@ -38,7 +38,26 @@ class RoverDetailsTable extends Component {
         ];
         return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
       };
+      let details = ["Launch Date", "Landing Date", "Rover Status", "No. Photos Taken"];
 
+      let loadingStyle = {color: "#3ba7ce"};
+      
+
+
+      if (this.props.isLoading) {
+        return (
+        
+          <div className="dataDetails">
+            <div className="dataTable">
+              <div><h3>Launch Date</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
+              <div><h3>Landing Date</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
+              <div><h3>Rover Status</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
+              <div><h3>No. Photos Taken</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
+            </div>
+          </div>
+        
+        )
+      } else {
       return (
         
           <div className="dataDetails">
@@ -51,6 +70,7 @@ class RoverDetailsTable extends Component {
           </div>
         
       )
+      }
     }
 }
 

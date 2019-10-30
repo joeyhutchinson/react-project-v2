@@ -24,7 +24,7 @@ fetchManifestData = () => {
       .then(
         data => {
           this.setState({
-            isLoading: true,
+            isLoading: false,
             manifestData: data.photo_manifest
           });
         },
@@ -47,7 +47,7 @@ fetchManifestData = () => {
     .then(
       data => {
         this.setState({
-          isLoading: true,
+          isLoading: false,
           imageData: data
         });
       },
@@ -71,8 +71,8 @@ fetchManifestData = () => {
         <ScrollToTopOnMountClass/>
         <div className="content">
           <h1>Opportunity</h1>
-          <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}/>
-          <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}/>
+          <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
+          <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
         </div>
       </main>
     );
