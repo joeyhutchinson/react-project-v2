@@ -1,21 +1,81 @@
-// Sample api queries
-// https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&api_key=DEMO_KEY
-// https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY
-// https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&page=2&api_key=DEMO_KEY
-
-import React from "react";
+import React, { Component } from "react";
+import dotenv from "dotenv";
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
 import RoverImageGallery from "./rover-image-gallery";
+import RoverDetailsTable from './rover-details-table'
 
-function Opportunity(props) {
-  return (
-    <main>
-      <ScrollToTopOnMountClass/>
-      <div className="content">
-        <h1>Opportunity</h1>
-        <RoverImageGallery rover={"opportunity"}/>
-      </div>
-    </main>
-  );
+dotenv.config();
+
+class Opportunity extends Component {
+  state = {
+    rover: 'opportunity',
+    isLoading: true,
+    manifestData: [],
+    imageData: []
+}
+//   Fetch manifest data via API call and set to component state
+//   Alert if data is not available and doesn't load
+fetchManifestData = () => {
+    const url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${
+        this.state.rover}/?api_key=${
+            process.env.REACT_APP_NASA_API_KEY}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(
+        data => {
+          this.setState({
+            isLoading: true,
+            manifestData: data.photo_manifest
+          });
+        },
+        error => {
+          if (error) {
+            alert("Image gallery is currently unavailable");
+          }
+        }
+      );
+  };
+
+  //   Fetch image data via API call and set to component state
+  //   Alert if data is not available and doesn't load
+  fetchImageData = () => {
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${
+      this.state.rover}/photos?sol=1000&api_key=${
+    process.env.REACT_APP_NASA_API_KEY}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(
+      data => {
+        this.setState({
+          isLoading: true,
+          imageData: data
+        });
+      },
+      error => {
+        if (error) {
+          alert("Image gallery is currently unavailable");
+        }
+      }
+    );
+  };
+
+  componentDidMount() {
+  // Make API call when component mounts
+  this.fetchManifestData();
+  this.fetchImageData();
+  }
+
+  render() {
+    return (
+      <main>
+        <ScrollToTopOnMountClass/>
+        <div className="content">
+          <h1>Opportunity</h1>
+          <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}/>
+          <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}/>
+        </div>
+      </main>
+    );
+  }
 }
 export default Opportunity;
