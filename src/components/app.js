@@ -14,7 +14,7 @@ import Geology from "./main/geology";
 import Weather from "./main/weather";
 import Phobos from "./main/moons/phobos";
 import Deimos from "./main/moons/deimos";
-import Curiosity from "./main/rovers/curiosity";
+import CuriosityV2 from "./main/rovers/curiosityv2";
 import Opportunity from "./main/rovers/opportunity";
 import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
@@ -43,7 +43,7 @@ function App(props) {
           <Route path="/map" component={Maps} />
           <Route path="/moons/phobos" component={Phobos} />
           <Route path="/moons/deimos" component={Deimos} />
-          <Route path="/rovers/curiosity" component={Curiosity} />
+          <Route path="/rovers/curiosity" component={CuriosityV2} />
           <Route path="/rovers/opportunity" component={Opportunity} />
           <Route path="/rovers/spirit" component={Spirit} />
           <Redirect to="/" />
