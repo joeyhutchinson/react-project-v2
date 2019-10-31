@@ -114,26 +114,6 @@ class WeatherWidgetLrg extends Component {
       }
     };
 
-    // Convert UTC string to readable month and date format
-    let readableDateLong = UTC => {
-      let monthNum = new Date(UTC).getMonth();
-      let months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
-      return `${months[monthNum]} ${new Date(UTC).getDate()}`;
-    };
-
     return (
       <div className="weather-widget-lrg">
         <div id="InSight-Weather-Report" className="section">
@@ -157,7 +137,7 @@ class WeatherWidgetLrg extends Component {
                       Sol {this.state.currentSolNum}
                     </span>
                     <span className="earthDate nobr">
-                      {readableDateLong(this.state.currentSolData.First_UTC)}
+                      {this.props.readableDate(this.state.currentSolData.First_UTC, 'long')}
                     </span>
                   </div>
                   <div className="temperatures main vCenteredInner fontBold textLarge">
@@ -195,7 +175,7 @@ class WeatherWidgetLrg extends Component {
             </div>
             {/*  Individual weather items boxes */}
             <div id="InSight-Forecast" className="textWhite">
-              <WeatherItems weatherData={this.state.weatherData} tempType={this.props.tempType}/>
+              <WeatherItems weatherData={this.state.weatherData} tempType={this.props.tempType} readableDate={this.props.readableDate}/>
             </div>
           </div>
         </div>

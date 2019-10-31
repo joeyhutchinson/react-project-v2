@@ -105,26 +105,7 @@ class WeatherWidgetSml extends Component {
           })
       }
     };
-    console.log(this.state.currentSolData)
-    // Convert UTC string to readable month and date format
-    let readableDateLong = UTC => {
-      let monthNum = new Date(UTC).getMonth();
-      let months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
-      return `${months[monthNum]} ${new Date(UTC).getDate()}`;
-    };
+    
 
     return (
       <div className="weather-widget-sml">
@@ -161,7 +142,7 @@ class WeatherWidgetSml extends Component {
                         </div>
                         {/* Weather date */}
                         <span className="earthDate nobr">
-                            {readableDateLong(this.state.currentSolData.First_UTC)}
+                            {this.props.readableDate(this.state.currentSolData.First_UTC, 'long')}
                         </span>
                     </div>
                     {/* Temperature Type Toggle i.e. Fahreinheit or celsius */}

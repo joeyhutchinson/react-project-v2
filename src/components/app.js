@@ -27,11 +27,48 @@ function App(props) {
    setTempType(!tempType)
   }
 
+  const readableDate = (date, monthType) => {
+    let monthNum = new Date(date).getMonth();
+    const monthsShort = [
+      "Jan.",
+      "Feb.",
+      "Mar.",
+      "Apr.",
+      "May",
+      "Jun.",
+      "Jul.",
+      "Aug.",
+      "Sep.",
+      "Oct.",
+      "Nov.",
+      "Dec."
+    ];
+    const monthsLong = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    if (monthType == 'short') {
+      return `${monthsShort[monthNum]} ${new Date(date).getDate()}`;
+    } else if (monthType == 'long') {
+      return `${monthsLong[monthNum]} ${new Date(date).getDate()}`;
+    }
+  };
+
   return (
     <Router>
       <div>
         <Background />
-        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType}/>
+        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} readableDate={readableDate}/>
         <Switch>
           <Route
             exact
@@ -39,13 +76,13 @@ function App(props) {
             component={Home}
           />
           <Route path="/geology" component={Geology} />
-          <Route path="/weather" render={(props) => <Weather {...props} tempType={tempType}/>}/>
+          <Route path="/weather" render={(props) => <Weather {...props} tempType={tempType} readableDate={readableDate}/>}/>
           <Route path="/map" component={Maps} />
           <Route path="/moons/phobos" component={Phobos} />
           <Route path="/moons/deimos" component={Deimos} />
-          <Route path="/rovers/curiosity" component={Curiosity} />
-          <Route path="/rovers/opportunity" component={Opportunity} />
-          <Route path="/rovers/spirit" component={Spirit} />
+          <Route path="/rovers/curiosity" render={(props) => <Curiosity {...props} readableDate={readableDate}/>}/>
+          <Route path="/rovers/opportunity" render={(props) => <Opportunity {...props} readableDate={readableDate}/>}/>
+          <Route path="/rovers/spirit" render={(props) => <Opportunity {...props} readableDate={readableDate}/>}/>
           <Redirect to="/" />
         </Switch>
         <Footer />

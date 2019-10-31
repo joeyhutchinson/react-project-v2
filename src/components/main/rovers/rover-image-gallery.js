@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 import "./rover-components.css";
 
-import "react-datepicker/dist/react-datepicker.css";
-
-// imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}
-
 class RoverImageGallery extends Component {
     state = {
         // selectedDay: 1,
@@ -25,24 +21,6 @@ class RoverImageGallery extends Component {
       // const lastDateAvail = this.props.imageManifestData.max_date;
       // const maxSol = this.props.imageManifestData.max_sol;
 
-      let readableDateLong = date => {
-        let monthNum = new Date(date).getMonth();
-        let months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-        ];
-        return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
-      };
 
       return (
           <>

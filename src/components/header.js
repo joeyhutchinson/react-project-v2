@@ -65,7 +65,7 @@ class Header extends Component {
           <NavLink key={null} to="/" className="site-title">
             The Red Planet
           </NavLink>
-          <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={this.props.handleTempToggle}/>
+          <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={this.props.handleTempToggle} readableDate={this.props.readableDate}/>
         </div>
         
         <nav id="nav">

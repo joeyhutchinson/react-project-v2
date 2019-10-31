@@ -14,30 +14,11 @@ function RoverDetailsTable (props){
     return result;
   }
 
-  let readableDateLong = date => {
-    let monthNum = new Date(date).getMonth();
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-    return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
-  };
-
   const lastDateAvail = props.imageManifestData.max_date;
   const maxSol = props.imageManifestData.max_sol;
    
-  const details = [{detailName : "Launch Date", detailResult: readableDateLong(props.imageManifestData.launch_date)}, 
-                  {detailName: "Landing Date", detailResult: readableDateLong(props.imageManifestData.landing_date)}, 
+  const details = [{detailName : "Launch Date", detailResult: props.readableDate(props.imageManifestData.launch_date, "long")}, 
+                  {detailName: "Landing Date", detailResult: props.readableDate(props.imageManifestData.landing_date, "long")}, 
                   {detailName: "Rover Status", detailResult: props.imageManifestData.status}, 
                   {detailName: "No. Photos Taken", detailResult: props.imageManifestData.total_photos}];
                   console.log(details)

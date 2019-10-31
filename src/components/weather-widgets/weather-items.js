@@ -23,26 +23,6 @@ class WeatherItems extends Component {
       }
     };
 
-    // Construct and return readable short date i.e. '4 Aug.' supplied from UTC date   
-    const readableDateShort = UTC => {
-      let monthNum = new Date(UTC).getMonth();
-      let months = [
-        "Jan.",
-        "Feb.",
-        "Mar.",
-        "Apr.",
-        "May",
-        "Jun.",
-        "Jul.",
-        "Aug.",
-        "Sep.",
-        "Oct.",
-        "Nov.",
-        "Dec."
-      ];
-      return `${months[monthNum]} ${new Date(UTC).getDate()}`;
-    };
-
     // Map over weatherData and return each sol weather item with High and Low temps.
     const displayWeatherItems = () => {
       let solKeys = this.state.weatherData.sol_keys;
@@ -53,7 +33,7 @@ class WeatherItems extends Component {
         return (
           <div className={`item sol${sol}`} key={index}>
             <span className="dateSol nobr">Sol {sol}</span>
-            <span className="dateUTC nobr">{readableDateShort(solData.First_UTC)}</span>
+            <span className="dateUTC nobr">{this.props.readableDate(solData.First_UTC, 'short')}</span>
             <div className="fadeWhiteLine" />
             <div className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>
               <span className="high">

@@ -71,7 +71,7 @@ fetchManifestData = () => {
         <ScrollToTopOnMountClass/>
         <div className="content">
           <h1>Opportunity</h1>
-          <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
+          <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading} readableDate={this.props.readableDate}/>
           <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
         </div>
       </main>

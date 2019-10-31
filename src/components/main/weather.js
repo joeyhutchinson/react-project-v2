@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import WeatherWidgetLrg from "../weather-widgets/weather-widget-lrg";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
-class Weather extends Component {
+function Weather (props) {
 
-  render() {
     return (
       <main>
         <div className="content">
         <ScrollToTopOnMountClass/>
           <h1>Weather</h1>
-          <WeatherWidgetLrg tempType={this.props.tempType}/>
+          <WeatherWidgetLrg tempType={props.tempType} readableDate={props.readableDate}/>
           <p>
             The above shows the per-Sol summary data for each of the last seven
             available Sols (Martian days). As more data from a particular Sol
@@ -22,9 +21,9 @@ class Weather extends Component {
           <p>
             Mars has an atmosphere that is 100 times thinner than the atmosphere
             of Earth. As a result, Mars' atmosphere cannot retain heat and the
-            surface of Mars has an average temperature of <span style={(this.props.tempType) ? {display: "none"} : {}}>-81 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-63 °C</span>. During winter,
-            temperatures at the poles drop even further, reaching lows of <span style={(this.props.tempType) ? {display: "none"} : {}}>-195 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-126 °C</span>. Near the equator of Mars, daytime temperatures during the summer
-            can reach <span style={(this.props.tempType) ? {display: "none"} : {}}>70 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>21 °C</span>, but plummet to <span style={(this.props.tempType) ? {display: "none"} : {}}>-100 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-73 °C</span> at night. Frost is common on
+            surface of Mars has an average temperature of <span style={(props.tempType) ? {display: "none"} : {}}>-81 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>-63 °C</span>. During winter,
+            temperatures at the poles drop even further, reaching lows of <span style={(props.tempType) ? {display: "none"} : {}}>-195 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>-126 °C</span>. Near the equator of Mars, daytime temperatures during the summer
+            can reach <span style={(props.tempType) ? {display: "none"} : {}}>70 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>21 °C</span>, but plummet to <span style={(props.tempType) ? {display: "none"} : {}}>-100 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>-73 °C</span> at night. Frost is common on
             rocks during nights, but it melts and evaporates as the air get
             warmer near dawn. Even when Mars experiences 100% humidity, the
             conditions remain similar to those of the Atacama Desert in South
@@ -75,8 +74,8 @@ class Weather extends Component {
           <h2>Changing Climate</h2>
           <p>
             Some researchers suspect that Mars was wetter and warmer in the
-            past, with an average temperature of about <span style={(this.props.tempType) ? {display: "none"} : {}}>50 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>10 °C</span>, while others think
-            the planet may have been an icy world with temperatures as low as <span style={(this.props.tempType) ? {display: "none"} : {}}>-54 °F</span><span style={(this.props.tempType) ? {} : {display: "none"}}>-45 °C</span>. Recent astronomical studies indicate that Mars might be
+            past, with an average temperature of about <span style={(props.tempType) ? {display: "none"} : {}}>50 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>10 °C</span>, while others think
+            the planet may have been an icy world with temperatures as low as <span style={(props.tempType) ? {display: "none"} : {}}>-54 °F</span><span style={(props.tempType) ? {} : {display: "none"}}>-45 °C</span>. Recent astronomical studies indicate that Mars might be
             emerging from an ice age. Shrinking ice caps and increased humidity
             at the polar regions suggest a rise in temperature, a feature that
             astronomers believe is the key to making the planet habitable for
@@ -86,5 +85,4 @@ class Weather extends Component {
       </main>
     );
   }
-}
 export default Weather;
