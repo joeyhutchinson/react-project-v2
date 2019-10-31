@@ -1,7 +1,7 @@
 import React from 'react';
-
-import "./rover-image-gallery.css";
 import "react-datepicker/dist/react-datepicker.css";
+import "./rover-components.css";
+
 
 // imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}
 
