@@ -8,7 +8,7 @@ function RoverDetailsTable (props){
   const details = [{detailName : "Launch Date", detailResult: props.readableDate(props.imageManifestData.launch_date, "long")}, 
                   {detailName: "Landing Date", detailResult: props.readableDate(props.imageManifestData.landing_date, "long")}, 
                   {detailName: "Rover Status", detailResult: props.imageManifestData.status}, 
-                  {detailName: "No. Photos Taken", detailResult: props.imageManifestData.total_photos}];
+                  {detailName: "No. Photos Taken", detailResult: String(props.imageManifestData.total_photos).replace(/(.)(?=(\d{3})+$)/g,'$1,')}];
   const loadingStyle = {color: "#3ba7ce"};
 
   if (props.isLoading) {

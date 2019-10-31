@@ -47,17 +47,10 @@ class WeatherWidgetLrg extends Component {
         }
       );
   };
+  
   componentDidMount() {
     // Make API call when component mounts
     this.fetchData();
-    // Remake call every 5 minutes so data is updated in long sessions
-    this.timer = setInterval(() => this.fetchData(), 300000);
-  }
-
-  componentWillUnmount() {
-    // Cancel 5 minute API call when component unmounted
-    clearInterval(this.timer);
-    this.timer = null;
   }
 
   render() {

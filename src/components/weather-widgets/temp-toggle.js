@@ -5,7 +5,7 @@ function TempToggle (props) {
   let handleTempToggle = () => {
     props.handleTempToggle()
   }
-
+  
   return (
     <div className="temp-toggle">
       <div className="temp-label">&#176;F</div>

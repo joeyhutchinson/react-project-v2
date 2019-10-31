@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from "react-router-dom";
-
-import dotenv from 'dotenv';
 
 import Background from "./background";
 import Header from "./header";
@@ -21,39 +19,15 @@ import Opportunity from "./main/rovers/opportunity";
 import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
-dotenv.config();
+function App(props) {
 
-const App = (props) => {
-
+  // Handle temperature toggle. False = Fahreinheit. True = Celsius.
   const [tempType, setTempType] = useState(false);
-  const [isDataLoading, setIsDataLoading] = useState(true);
-  const [allWeatherData, setAllWeatherData] = useState({});
 
-  // Fetch weather data via API call and set to component state
-  useEffect(  () => {
-    let fetchData = async () => {
-      const url = `https://api.nasa.gov/insight_weather/?api_key=${
-        process.env.REACT_APP_NASA_API_KEY
-      }&feedtype=json&ver=1.0`;
-      let response = await fetch(url);
-      let data = await response.json()
-      const solsReturned = data.sol_keys;
-      const currentSol = solsReturned[solsReturned.length - 1];
-      setIsDataLoading(false);
-      setAllWeatherData({weatherData: data, 
-                        currentSolData: data[currentSol], 
-                        currentSolNum: currentSol, 
-                        isTempsAvail: data.validity_checks[currentSol].AT.valid,
-                        isWindAvail: data.validity_checks[currentSol].HWS.valid});
-          }
-    fetchData();
-  }, []);
-  // Set temp to return in fahrenheit or celsius 
-  let handleTempType = () => {
-    setTempType(!tempType)
-  };
+  let handleTempType = (e) => {
+   setTempType(!tempType)
+  }
 
-  // Convert date data to readable string
   const readableDate = (date, monthType) => {
     let monthNum = new Date(date).getMonth();
     const monthsShort = [
@@ -87,7 +61,7 @@ const App = (props) => {
     if (monthType === 'short') {
       return `${monthsShort[monthNum]} ${new Date(date).getDate()}`;
     } else if (monthType === 'long') {
-      return `${monthsLong[monthNum]} ${new Date(date).getDate()}`;
+      return `${new Date(date).getDate()} ${monthsLong[monthNum]} ${new Date(date).getFullYear()}`;
     }
   };
 
@@ -95,7 +69,7 @@ const App = (props) => {
     <Router>
       <div>
         <Background />
-        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} isDataLoading={isDataLoading}allWeatherData={allWeatherData} readableDate={readableDate}/>
+        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} readableDate={readableDate}/>
         <Switch>
           <Route
             exact

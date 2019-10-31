@@ -1,6 +1,3 @@
-// PHOTOS https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
-// MANIFEST https://api.nasa.gov/mars-photos/api/v1/manifests/curiosity/?api_key=DEMO_KEY
-
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml"
@@ -8,6 +5,7 @@ import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml"
 class Header extends Component {
 
   render() {
+    console.log(this.props.tempType)
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
       if (d.sublinks) {
@@ -64,7 +62,7 @@ class Header extends Component {
           <NavLink key={null} to="/" className="site-title">
             The Red Planet
           </NavLink>
-          <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={() => this.props.handleTempToggle()} allWeatherData={this.props.allWeatherData} readableDate={() => this.props.readableDate()} isDataLoading={this.props.isDataLoading}/>
+          <WeatherWidgetSml tempType={this.props.tempType} handleTempToggle={this.props.handleTempToggle} readableDate={this.props.readableDate}/>
         </div>
         
         <nav id="nav">
