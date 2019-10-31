@@ -2,7 +2,7 @@ import React from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import "./rover-components.css";
 
-function RoverDetailsTable (props){
+const RoverDetailsTable = (props) => {
 
    
   const details = [{detailName : "Launch Date", detailResult: props.readableDate(props.imageManifestData.launch_date, "long")}, 

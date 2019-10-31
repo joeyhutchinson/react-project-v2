@@ -1,6 +1,6 @@
 import React from "react";
 
-function CuriosityLandingVideo (props) {
+const CuriosityLandingVideo = (props) => {
   return (
     <div
       className="video"

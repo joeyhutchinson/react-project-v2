@@ -19,7 +19,7 @@ import Opportunity from "./main/rovers/opportunity";
 import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
-function App(props) {
+const App = (props) => {
 
   // Handle temperature toggle. False = Fahreinheit. True = Celsius.
   const [tempType, setTempType] = useState(false);

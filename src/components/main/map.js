@@ -4,7 +4,7 @@
 import React from "react";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
-function Maps(props) {
+const Maps = (props) => {
   return (
     <main>
       <ScrollToTopOnMountClass/>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function OpportunityMissionVideo (props) {
+const OpportunityMissionVideo = (props) => {
   return (
     <div
       className="video"

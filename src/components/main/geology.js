@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
-function Geology(props) {
+const Geology = (props) => {
   return (
     <main>
       <ScrollToTopOnMountClass/>

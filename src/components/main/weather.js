@@ -2,7 +2,7 @@ import React from "react";
 import WeatherWidgetLrg from "../weather-widgets/weather-widget-lrg";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
-function Weather (props) {
+const Weather = (props) => {
 
     return (
       <main>
