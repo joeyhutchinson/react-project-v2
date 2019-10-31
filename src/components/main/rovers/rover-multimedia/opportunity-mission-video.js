@@ -12,6 +12,7 @@ function OpportunityMissionVideo (props) {
       }}
     >
       <iframe
+        title="Opportunity Mission Video"
         style={{
           position: "absolute",
           top: 0,

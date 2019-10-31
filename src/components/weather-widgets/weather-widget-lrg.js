@@ -91,7 +91,6 @@ class WeatherWidgetLrg extends Component {
         </div>
       );
     }
-    console.log(this.state.weatherData.validity_checks);
     // Below renders if no errors and api call is completed
 
     // Test if weather data is available and return temperature data for sol

@@ -3,21 +3,21 @@ import React, { Component } from 'react';
 import "./rover-components.css";
 
 class RoverImageGallery extends Component {
-    state = {
-        // selectedDay: 1,
-        // selectedCamera: []
-    }
+  //   state = {
+  //       // selectedDay: 1,
+  //       // selectedCamera: []
+  //   }
     
 
-  addDays = (date, days) => {
-    let result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-  }
+  // addDays = (date, days) => {
+  //   let result = new Date(date);
+  //   result.setDate(result.getDate() + days);
+  //   return result;
+  // }
 
   
     render () {
-      console.log(this.props.imageManifestData.max_sol)
+      // console.log(this.props.imageManifestData.max_sol)
       // const lastDateAvail = this.props.imageManifestData.max_date;
       // const maxSol = this.props.imageManifestData.max_sol;
 
@@ -25,7 +25,7 @@ class RoverImageGallery extends Component {
       return (
           <>
           <h2>Image Gallery</h2>
-          <div className="image-form">
+          {/* <div className="image-form">
             <form className="form" onSubmit={{}}>
             <div className="field">
                 <label className="label">Choose mission day:</label>
@@ -49,7 +49,7 @@ class RoverImageGallery extends Component {
                     />
               </div>
             </form>
-           </div>
+           </div> */}
           <div className="image-gallery">
               <div className="thumbnails-section"></div>
               <div className="main-image-section"></div>

@@ -12,6 +12,7 @@ function CuriosityLandingVideo (props) {
       }}
     >
       <iframe
+        title="Curiosity Landing Video"
         style={{
           position: "absolute",
           top: 0,

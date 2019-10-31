@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from "react-router-dom";
+
+import dotenv from 'dotenv';
 
 import Background from "./background";
 import Header from "./header";
@@ -19,14 +21,39 @@ import Opportunity from "./main/rovers/opportunity";
 import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
-function App(props) {
+dotenv.config();
 
-  // Handle temperature toggle. False = Fahreinheit. True = Celsius.
+const App = (props) => {
+
   const [tempType, setTempType] = useState(false);
-  let handleTempType = (e) => {
-   setTempType(!tempType)
-  }
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [allWeatherData, setAllWeatherData] = useState({});
 
+  // Fetch weather data via API call and set to component state
+  useEffect(  () => {
+    let fetchData = async () => {
+      const url = `https://api.nasa.gov/insight_weather/?api_key=${
+        process.env.REACT_APP_NASA_API_KEY
+      }&feedtype=json&ver=1.0`;
+      let response = await fetch(url);
+      let data = await response.json()
+      const solsReturned = data.sol_keys;
+      const currentSol = solsReturned[solsReturned.length - 1];
+      setIsDataLoading(false);
+      setAllWeatherData({weatherData: data, 
+                        currentSolData: data[currentSol], 
+                        currentSolNum: currentSol, 
+                        isTempsAvail: data.validity_checks[currentSol].AT.valid,
+                        isWindAvail: data.validity_checks[currentSol].HWS.valid});
+          }
+    fetchData();
+  }, []);
+  // Set temp to return in fahrenheit or celsius 
+  let handleTempType = () => {
+    setTempType(!tempType)
+  };
+
+  // Convert date data to readable string
   const readableDate = (date, monthType) => {
     let monthNum = new Date(date).getMonth();
     const monthsShort = [
@@ -57,9 +84,9 @@ function App(props) {
       "November",
       "December"
     ];
-    if (monthType == 'short') {
+    if (monthType === 'short') {
       return `${monthsShort[monthNum]} ${new Date(date).getDate()}`;
-    } else if (monthType == 'long') {
+    } else if (monthType === 'long') {
       return `${monthsLong[monthNum]} ${new Date(date).getDate()}`;
     }
   };
@@ -68,7 +95,7 @@ function App(props) {
     <Router>
       <div>
         <Background />
-        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} readableDate={readableDate}/>
+        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} isDataLoading={isDataLoading}allWeatherData={allWeatherData} readableDate={readableDate}/>
         <Switch>
           <Route
             exact
@@ -82,7 +109,7 @@ function App(props) {
           <Route path="/moons/deimos" component={Deimos} />
           <Route path="/rovers/curiosity" render={(props) => <Curiosity {...props} readableDate={readableDate}/>}/>
           <Route path="/rovers/opportunity" render={(props) => <Opportunity {...props} readableDate={readableDate}/>}/>
-          <Route path="/rovers/spirit" render={(props) => <Opportunity {...props} readableDate={readableDate}/>}/>
+          <Route path="/rovers/spirit" render={(props) => <Spirit {...props} readableDate={readableDate}/>}/>
           <Redirect to="/" />
         </Switch>
         <Footer />
