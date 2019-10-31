@@ -15,6 +15,7 @@
 
 img.weather-icon {
     height: 5.8vh;
+    width: auto;
  }
 
 .ww-sml-weather {

@@ -10,6 +10,27 @@
     margin: auto;
     width: 22%;
   }
+.leading-content {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.leading-content img {
+    width: 30%;
+    height: auto;
+    margin: 0 0 1rem 1rem;
+    float: right;
+}
+
+.leading-content p {
+    margin: 0 1rem 1rem 0;
+    
+}
+
+.image-gallery-wrapper {
+    position: relative;
+    width: 100%;
+}
 
 .image-form form {
     display:flex;

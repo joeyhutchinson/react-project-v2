@@ -75,6 +75,15 @@ fetchManifestData = () => {
         <div className="content">
           <h1>Opportunity</h1>
           <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading} readableDate={this.props.readableDate}/>
+          <div className="leading-content">
+          <img src="https://timedotcom.files.wordpress.com/2019/02/nasa-space-rover-opportunity-1.jpg?quality=85" alt="" />
+            <p>
+            The Opportunity rover stopped communicating with Earth when a severe Mars-wide dust storm blanketed its location in June 2018. After more than a thousand commands to restore contact, engineers in the Space Flight Operations Facility at NASA's Jet Propulsion Laboratory (JPL) made their last attempt to revive Opportunity Tuesday, to no avail. The solar-powered rover's final communication was received June 10.
+            </p>
+            <p>
+            Designed to last just 90 Martian days and travel 1,100 yards (1,000 meters), Opportunity vastly surpassed all expectations in its endurance, scientific value and longevity. In addition to exceeding its life expectancy by 60 times, the rover traveled more than 28 miles (45 kilometers) by the time it reached its most appropriate final resting spot on Mars – Perseverance Valley.
+            </p>
+          </div> 
           <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
           <OpportunityMissionVideo/>
           <div className="caption-text">VIDEO: NASA Rover Completes Mars Mission - NASA Jet Propulsion Laboratory</div>

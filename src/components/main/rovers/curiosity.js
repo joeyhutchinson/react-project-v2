@@ -79,10 +79,13 @@ fetchManifestData = () => {
         <div className="content">
           <h1>Curiosity</h1>
           <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading} readableDate={this.props.readableDate}/>
-          <img src="https://cdn.vox-cdn.com/thumbor/g_uh5bmEj-wE4gW6ZYeZdc29fso=/0x14:1907x1285/2050x1367/cdn.vox-cdn.com/uploads/chorus_image/image/37181616/mahli-selfie-1b.0.0.jpg" alt="" style={{width: "40%", float: "right", margin: "0 0 2rem 2rem"}}/>
-          <p>
-          YO!! Curiosity explores Gale Crater and acquires rock, soil, and air samples for onboard analysis. The car-size rover is about as tall as a basketball player and uses a 7 foot-long arm to place tools close to rocks selected for study. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.
-          </p>
+          <div className="leading-content">
+          <img src="https://cdn.vox-cdn.com/thumbor/g_uh5bmEj-wE4gW6ZYeZdc29fso=/0x14:1907x1285/2050x1367/cdn.vox-cdn.com/uploads/chorus_image/image/37181616/mahli-selfie-1b.0.0.jpg" alt="" />
+            <p>
+            Curiosity explores Gale Crater and acquires rock, soil, and air samples for onboard analysis. The car-size rover is about as tall as a basketball player and uses a 7 foot-long arm to place tools close to rocks selected for study. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.
+            </p>
+            
+          </div> 
           <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
         
         <h2>Rover Landing</h2>
