@@ -80,6 +80,7 @@ class Opportunity extends Component {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1200px-NASA_Mars_Rover.jpg"
               alt=""
             />
+            <h2>Overview</h2>
             <p>
               The Opportunity rover stopped communicating with Earth when a
               severe Mars-wide dust storm blanketed its location in June 2018.

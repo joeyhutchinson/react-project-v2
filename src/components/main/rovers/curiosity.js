@@ -83,6 +83,7 @@ class Curiosity extends Component {
               src="https://cdn.vox-cdn.com/thumbor/g_uh5bmEj-wE4gW6ZYeZdc29fso=/0x14:1907x1285/2050x1367/cdn.vox-cdn.com/uploads/chorus_image/image/37181616/mahli-selfie-1b.0.0.jpg"
               alt=""
             />
+            <h2>Overview</h2>
             <p>
               The Mars Science Laboratory and its rover centerpiece, Curiosity,
               is the most ambitious Mars mission yet flown by NASA. The rover

@@ -78,6 +78,7 @@ class Spirit extends Component {
               src="https://www.extremetech.com/wp-content/uploads/2016/01/Opportunity-640x360.jpg"
               alt=""
             />
+            <h2>Overview</h2>
             <p>
               The Spirit and Opportunity rovers together represented NASA's Mars
               Exploration Rover Mission (MER), part of the Mars Exploration
