@@ -19,14 +19,13 @@ import Opportunity from "./main/rovers/opportunity";
 import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
-const App = (props) => {
-
+const App = props => {
   // Handle temperature toggle. False = Fahreinheit. True = Celsius.
   const [tempType, setTempType] = useState(false);
 
-  let handleTempType = (e) => {
-   setTempType(!tempType)
-  }
+  let handleTempType = e => {
+    setTempType(!tempType);
+  };
 
   const readableDate = (date, monthType) => {
     let monthNum = new Date(date).getMonth();
@@ -58,10 +57,12 @@ const App = (props) => {
       "November",
       "December"
     ];
-    if (monthType === 'short') {
+    if (monthType === "short") {
       return `${monthsShort[monthNum]} ${new Date(date).getDate()}`;
-    } else if (monthType === 'long') {
-      return `${new Date(date).getDate()} ${monthsLong[monthNum]} ${new Date(date).getFullYear()}`;
+    } else if (monthType === "long") {
+      return `${new Date(date).getDate()} ${monthsLong[monthNum]} ${new Date(
+        date
+      ).getFullYear()}`;
     }
   };
 
@@ -69,26 +70,49 @@ const App = (props) => {
     <Router>
       <div>
         <Background />
-        <Header links={props.links} handleTempToggle={handleTempType} tempType={tempType} readableDate={readableDate}/>
+        <Header
+          links={props.links}
+          handleTempToggle={handleTempType}
+          tempType={tempType}
+          readableDate={readableDate}
+        />
         <Switch>
-          <Route
-            exact
-            path="/"
-            component={Home}
-          />
+          <Route exact path="/" component={Home} />
           <Route path="/geology" component={Geology} />
-          <Route path="/weather" render={(props) => <Weather {...props} tempType={tempType} readableDate={readableDate}/>}/>
+          <Route
+            path="/weather"
+            render={props => (
+              <Weather
+                {...props}
+                tempType={tempType}
+                readableDate={readableDate}
+              />
+            )}
+          />
           <Route path="/map" component={Maps} />
           <Route path="/moons/phobos" component={Phobos} />
           <Route path="/moons/deimos" component={Deimos} />
-          <Route path="/rovers/curiosity" render={(props) => <Curiosity {...props} readableDate={readableDate}/>}/>
-          <Route path="/rovers/opportunity" render={(props) => <Opportunity {...props} readableDate={readableDate}/>}/>
-          <Route path="/rovers/spirit" render={(props) => <Spirit {...props} readableDate={readableDate}/>}/>
+          <Route
+            path="/rovers/curiosity"
+            render={props => (
+              <Curiosity {...props} readableDate={readableDate} />
+            )}
+          />
+          <Route
+            path="/rovers/opportunity"
+            render={props => (
+              <Opportunity {...props} readableDate={readableDate} />
+            )}
+          />
+          <Route
+            path="/rovers/spirit"
+            render={props => <Spirit {...props} readableDate={readableDate} />}
+          />
           <Redirect to="/" />
         </Switch>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 export default App;

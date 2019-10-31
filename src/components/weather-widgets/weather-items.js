@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class WeatherItems extends Component {
   state = {
-    weatherData : this.props.weatherData
-  }
+    weatherData: this.props.weatherData
+  };
 
   render() {
     // Gather temperature data from weatherData and convert Fahrenheit to Celsius where necessary.
@@ -33,32 +33,40 @@ class WeatherItems extends Component {
         return (
           <div className={`item sol${sol}`} key={index}>
             <span className="dateSol nobr">Sol {sol}</span>
-            <span className="dateUTC nobr">{this.props.readableDate(solData.First_UTC, 'short')}</span>
+            <span className="dateUTC nobr">
+              {this.props.readableDate(solData.First_UTC, "short")}
+            </span>
             <div className="fadeWhiteLine" />
-            <div className="fahrenheit" style={(this.props.tempType) ? {display: "none"} : {}}>
+            <div
+              className="fahrenheit"
+              style={this.props.tempType ? { display: "none" } : {}}
+            >
               <span className="high">
                 High: {temperatures(solData, tempsValid).maxF}&#8457;
                 <br />
               </span>
-              <span className="low">Low: {temperatures(solData, tempsValid).minF}&#8457;</span>
+              <span className="low">
+                Low: {temperatures(solData, tempsValid).minF}&#8457;
+              </span>
             </div>
-            <div className="celsius" style={(this.props.tempType) ? {} : {display: "none"}}>
+            <div
+              className="celsius"
+              style={this.props.tempType ? {} : { display: "none" }}
+            >
               <span className="high">
                 High: {temperatures(solData, tempsValid).maxC}&#8451;
                 <br />
               </span>
-              <span className="low">Low: {temperatures(solData, tempsValid).minC}&#8451;</span>
+              <span className="low">
+                Low: {temperatures(solData, tempsValid).minC}&#8451;
+              </span>
             </div>
           </div>
-        )
-      })
-    }
-    
-      return (
-        <>
-          {displayWeatherItems()}
-        </>       
-      )
+        );
+      });
+    };
+
+    return <>{displayWeatherItems()}</>;
   }
-  }
+}
 export default WeatherItems;

@@ -3,7 +3,7 @@ import Slider from "./slider";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
 
-function Home(props) {
+const Home = (props) => {
   console.log(props);
   return (
     <main>
