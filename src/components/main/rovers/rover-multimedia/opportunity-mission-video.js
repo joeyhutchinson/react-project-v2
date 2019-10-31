@@ -1,6 +1,6 @@
 import React from "react";
 
-function CuriosityLandingVideo (props) {
+function OpportunityMissionVideo (props) {
   return (
     <div
       className="video"
@@ -19,7 +19,7 @@ function CuriosityLandingVideo (props) {
           width: "100%",
           height: "100%"
         }}
-        src={"https://www.youtube.com/embed/Ki_Af_o9Q9s"}
+        src={"https://www.youtube.com/embed/1Ll-VHYxWXU"}
         frameBorder="0"
       />
     </div>
@@ -27,4 +27,4 @@ function CuriosityLandingVideo (props) {
   )
 }
 
-export default CuriosityLandingVideo;
+export default OpportunityMissionVideo;

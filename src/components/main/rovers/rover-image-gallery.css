@@ -2,9 +2,6 @@
     display:flex;
     flex-direction: row;
 }
-.dataTable h3 {
-     
-}
 
 .dataTable div {
     padding: 15px;

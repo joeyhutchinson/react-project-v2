@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+
 import dotenv from "dotenv";
+
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
 import RoverImageGallery from "./rover-image-gallery";
-import RoverDetailsTable from './rover-details-table'
+import RoverDetailsTable from './rover-details-table';
+import OpportunityMissionVideo from './rover-multimedia/opportunity-mission-video'
 
 dotenv.config();
 
@@ -73,6 +76,8 @@ fetchManifestData = () => {
           <h1>Opportunity</h1>
           <RoverDetailsTable imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
           <RoverImageGallery imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData} isLoading={this.state.isLoading}/>
+          <OpportunityMissionVideo/>
+          <div className="caption-text">VIDEO: NASA Rover Completes Mars Mission - NASA Jet Propulsion Laboratory</div>
         </div>
       </main>
     );

@@ -1,77 +1,68 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import "./rover-image-gallery.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 // imageManifestData={this.state.manifestData} imageGalleryData={this.state.imageData}
 
-class RoverDetailsTable extends Component {
+function RoverDetailsTable (props){
     
 
-  addDays = (date, days) => {
+  let addDays = (date, days) => {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
   }
 
-  
-    render () {
-      console.log(this.props.imageManifestData.max_sol)
-      const lastDateAvail = this.props.imageManifestData.max_date;
-      const maxSol = this.props.imageManifestData.max_sol;
+  let readableDateLong = date => {
+    let monthNum = new Date(date).getMonth();
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
+  };
 
-      let readableDateLong = date => {
-        let monthNum = new Date(date).getMonth();
-        let months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-        ];
-        return ` ${new Date(date).getDate()} ${months[monthNum]} ${new Date(date).getFullYear()} `;
-      };
-      let details = ["Launch Date", "Landing Date", "Rover Status", "No. Photos Taken"];
+  const lastDateAvail = props.imageManifestData.max_date;
+  const maxSol = props.imageManifestData.max_sol;
+   
+  const details = [{detailName : "Launch Date", detailResult: readableDateLong(props.imageManifestData.launch_date)}, 
+                  {detailName: "Landing Date", detailResult: readableDateLong(props.imageManifestData.landing_date)}, 
+                  {detailName: "Rover Status", detailResult: props.imageManifestData.status}, 
+                  {detailName: "No. Photos Taken", detailResult: props.imageManifestData.total_photos}];
+                  console.log(details)
+  const loadingStyle = {color: "#3ba7ce"};
 
-      let loadingStyle = {color: "#3ba7ce"};
-      
-
-
-      if (this.props.isLoading) {
-        return (
-        
-          <div className="dataDetails">
-            <div className="dataTable">
-              <div><h3>Launch Date</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
-              <div><h3>Landing Date</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
-              <div><h3>Rover Status</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
-              <div><h3>No. Photos Taken</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>
-            </div>
-          </div>
-        
-        )
-      } else {
+  if (props.isLoading) {
+  return (
+    <div className="dataDetails">
+      <div className="dataTable"> 
+      {details.map((detail, index) => {
+        return (<div><h3>{detail.detailName}</h3><hr></hr><p style={loadingStyle}>Loading...</p></div>)
+      })}
+      </div>
+    </div>
+  )
+    } else {
       return (
-        
-          <div className="dataDetails">
-            <div className="dataTable">
-              <div><h3>Launch Date</h3><hr></hr><p>{readableDateLong(this.props.imageManifestData.launch_date)}</p></div>
-              <div><h3>Landing Date</h3><hr></hr><p>{readableDateLong(this.props.imageManifestData.landing_date)}</p></div>
-              <div><h3>Rover Status</h3><hr></hr><p>{this.props.imageManifestData.status}</p></div>
-              <div><h3>No. Photos Taken</h3><hr></hr><p>{this.props.imageManifestData.total_photos}</p></div>
-            </div>
+          <div className="dataTable"> 
+          {details.map((detail, index) => {
+            return (<div><h3>{detail.detailName}</h3><hr></hr><p>{detail.detailResult}</p></div>)
+          })}
           </div>
-        
       )
-      }
     }
 }
+
 
 export default RoverDetailsTable;
