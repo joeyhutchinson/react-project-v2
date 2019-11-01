@@ -4,7 +4,6 @@ import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml";
 
 class Header extends Component {
   render() {
-    console.log(this.props.tempType);
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
       if (d.sublinks) {

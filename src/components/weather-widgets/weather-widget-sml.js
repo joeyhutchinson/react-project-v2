@@ -55,7 +55,7 @@ class WeatherWidgetSml extends Component {
       return (
         <div className="weather-widget-sml">
           <span className="ww-sml-heading">Latest Mars Weather</span>
-          <p style={{ color: "tomato", fontSize: "1rem" }}>
+          <p style={{ color: "#3ba7ce", fontSize: "1rem", marginLeft: "2rem" }}>
             Weather is currently loading...
           </p>
         </div>
