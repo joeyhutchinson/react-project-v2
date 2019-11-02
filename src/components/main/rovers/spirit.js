@@ -4,6 +4,8 @@ import ScrollToTopOnMountClass from "../../scroll-to-top-class";
 import RoverImageGallery from "./rover-image-gallery";
 import RoverDetailsTable from "./rover-details-table";
 
+import "./rover-components.css";
+
 dotenv.config();
 
 class Spirit extends Component {

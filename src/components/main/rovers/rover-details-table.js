@@ -1,6 +1,5 @@
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import "./rover-components.css";
 
 const RoverDetailsTable = props => {
   const capitlisedFirstLetter = data => {
