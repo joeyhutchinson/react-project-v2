@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import dotenv from "dotenv";
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
-import RoverImageGallery from "./rover-image-gallery";
+import RoverImageGallery from "./rover-image-gallery/rover-image-gallery";
 import RoverDetailsTable from "./rover-details-table";
 
 import "./rover-components.css";
@@ -108,6 +108,9 @@ class Spirit extends Component {
               able to regain contact with Spirit.
             </p>
           </div>
+          <h2>Cameras and imagery</h2>
+          <p>Over the course of its mission on Mars, Opportunity took over 228,000 images. This included 15 360-degree color panoramas from the surface of Mars.</p>
+          <h3>Available imagery</h3>
           <RoverImageGallery
             imageManifestData={this.state.manifestData}
             imageGalleryData={this.state.imageData}

@@ -6,7 +6,7 @@
 import React, { Component } from "react";
 import dotenv from "dotenv";
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
-import RoverImageGallery from "./rover-image-gallery";
+import RoverImageGallery from "./rover-image-gallery/rover-image-gallery";
 import RoverDetailsTable from "./rover-details-table";
 
 import "./rover-components.css";
@@ -101,12 +101,15 @@ class Curiosity extends Component {
               found extensive evidence of past water and geological change.
             </p>
           </div>
+          <h2>Cameras and imagery</h2>
+          <p>Curiosity is packed with no fewer than 17 cameras to shoot high-quality photos and videos in black-and-white, color, and 3-D stereo of the Martian landscape. While scientists are no doubt quite eager for the information that these images will contain, most of us can live vicariously through the rover and experience some breathtaking views on Mars.</p>
+          <h3>Available imagery</h3>
           <RoverImageGallery
             imageManifestData={this.state.manifestData}
             imageGalleryData={this.state.imageData}
             isLoading={this.state.isLoading}
           />
-        </div>
+          </div>
       </main>
     );
   }
