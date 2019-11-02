@@ -24,6 +24,11 @@ This project will utilise the open sourse data available from NASA, and create a
 (Small dynamic weather widget set-up in header.)<br/>
 [Beaufort Scale info](https://en.wikipedia.org/wiki/Beaufort_scale)<br/>
 (Scale used to determine what would be classed as "windy weather".)<br/><br/>
+**Image Gallery**<br/>
+[Wireframe 4 - Image Gallery]()<br/>
+(Dynamic image gallery that appears on all rover pages - Curiosity, Opportunity and Spirit.)<br/>
+[Initial Data Considerations](https://photos.google.com/album/AF1QipPEFVTSUa1KCMoMW-Zyf7JQLRd19eIVpqeKOE0e/photo/AF1QipMGjbnhVt2cL22bp0OT9dPxg5niOufVyYjMuQbF)<br/>
+(Data is extensive and thus had to be heavily considered before building this part of the project.)<br/><br/>
 
 ## API Info
 

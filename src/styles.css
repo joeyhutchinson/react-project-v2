@@ -10,17 +10,7 @@ body {
   background-color: black;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
+/* ---------- General text styles ---------- */
 h1 {
   font-size: 1.5rem;
   color: #ef9662;
@@ -39,18 +29,33 @@ h3 {
   text-shadow: 1px 1px 1px #111;
 }
 
+.nobr	{ white-space:nowrap; }
+
 .caption-text {
   font-size: 0.8rem;
   padding: 2px 10px;
   font-style: italic;
 }
 
+/*  ----------- Background stars ----------- */
 .star {
   position: fixed;
   width: 1px;
   height: 1px;
   background-color: white;
   z-index: -1;
+}
+
+/*  ----------- Header styling ----------- */
+header {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .site-head {
@@ -73,6 +78,7 @@ a.site-title {
   margin: auto;
 }
 
+/*  ----------- Site menu styling ----------- */
 nav {
   display: flex;
   flex-direction: row;
@@ -159,6 +165,7 @@ header + main {
   padding-top: 180px;
 }
 
+/*  ----------- Main and content styling ----------- */
 main {
   height: 100%;
   z-index: -1;
@@ -167,7 +174,7 @@ main {
 
 .content {
   margin: 0px 15%;
-  min-height: 150vh;
+  min-height: 100vh;
   background-color: rgba(192, 192, 192, 0.651);
   padding: 2vh 2vw;
 }
@@ -176,9 +183,8 @@ main {
   color: #111;
 }
 
-.nobr	{ white-space:nowrap; }
+/*  ----------- Weather toggle in header ----------- */
 
-/* Weather toggle in header */
 /* The switch - the box around the slider */
 .temp-toggle {
   position: relative;
@@ -193,7 +199,7 @@ main {
 .temp-toggle::after {
   position: absolute;
   content: "Change temp.";
-  color: #111;
+  color: #333;
   font-size: 0.6rem;
   font-style: italic;
   height: 16px;
@@ -205,7 +211,7 @@ main {
 .temp-label {
   position: relative;
   margin: 0rem 0rem 0rem 0.8rem;
-  color: #111;
+  color: #333;
 }
 label.switch {
   position: relative;
@@ -221,7 +227,7 @@ label.switch input {
   height: 0;
 }
 
-/* The slider */
+/* The slider toggle*/
 
 .slider {
   width: 100%;
@@ -262,47 +268,10 @@ input:checked + .slider:before {
   transform: translateX(24px);
 }
 
+/*  ----------- Subpage styling ----------- */
 
-/* Subpage styling */
-/* Weather */
 
-.temp-buttons {
-  top: 0;
-  right: 0;
-  margin: 1rem;
-  z-index: 10;
-  width: 7rem;
-}
-
-.temp-buttons p {
-  margin-bottom: 4px;
-  padding-left: 1rem;
-}
-
-button.temp {
-  padding: 10px 15px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #d7673f;
-  border: none;
-  border-radius: 7px;
-  box-shadow: 0 4px #999;
-  margin-right: 10px;
-}
-
-button.temp:hover {
-  background-color: #d7673f;
-}
-
-button.temp:active {
-  background-color: #d7673f;
-  box-shadow: 0 2px #666;
-  transform: translateY(4px);
-}
-
+/*  ----------- Footer styling ----------- */
 footer {
   position: fixed;
   height: 50px;
@@ -314,10 +283,12 @@ footer {
   z-index: 10;
 }
 
+/*  ----------- MEDIA STYLING ----------- */
+
 @media only screen and (max-width: 600px) {
   .content {
     margin: 0px 2%;
-    min-height: 150vh;
+    min-height: 100vh;
     background-color: rgba(51, 51, 51, 0.651);
     padding: 2vh 2vw;
   }
