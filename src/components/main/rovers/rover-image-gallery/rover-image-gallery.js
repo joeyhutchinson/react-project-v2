@@ -11,15 +11,14 @@ import "../rover-components.css";
 
 const RoverImageGallery = (props) =>  {
 
+  const [imageGalleryImages, setImageGalleryImages] = useState([]);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-  const [thumbnailImages, setThumbnailImages] = useState([ {a: 1}, {b: 2}, {c: 3}, {d: 4}, {e: 5}, {f: 6}, {g: 7}, {h: 8}, {i: 9}]);
+  const [thumbnailImages, setThumbnailImages] = useState([]);
   const [modalStyle, setModalStyle] = useState({});
   const [featureImage,setFeatureImage] = useState(0);
 
   useEffect(() => {
-    console.log("inside useEffect");
-    setThumbnailImages([]);
-    console.log(thumbnailImages);
+    
   }, []);
 
   const leftClick = () => {
@@ -49,10 +48,6 @@ const RoverImageGallery = (props) =>  {
       </div>
     )
   } else {
-    console.log(props.imageManifestData)
-    console.log(props.imageGalleryData.photos)
-
-      
       return (
         <>
           <div className="image-gallery-wrapper">
@@ -84,7 +79,7 @@ const RoverImageGallery = (props) =>  {
           </ul>
           <button className="modal-thumbnail-right-arrow" onClick={rightClick} disabled={thumbnailIndex === thumbnailImages.length - 1}>&#10095;</button>
           </div>
-          <caption>Mission Day (Sol) No. {props.selectedSol} - Camera {props.selectedCamera}</caption>
+          <div><p>Mission Day (Sol) No. {props.selectedSol} - Camera {props.selectedCamera}</p></div>
           </div>
           </>
 
