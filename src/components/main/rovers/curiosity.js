@@ -18,7 +18,9 @@ class Curiosity extends Component {
     rover: "curiosity",
     isLoading: true,
     manifestData: [],
-    imageData: []
+    imageData: [],
+    selectedSol: 654,
+    selectedCamera: 'FHAZ'
   };
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load
@@ -44,7 +46,7 @@ class Curiosity extends Component {
   //   Fetch image data via API call and set to component state
   //   Alert if data is not available and doesn't load
   fetchImageData = () => {
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=1000&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
     fetch(url)
       .then(response => response.json())
       .then(
@@ -108,6 +110,8 @@ class Curiosity extends Component {
             imageManifestData={this.state.manifestData}
             imageGalleryData={this.state.imageData}
             isLoading={this.state.isLoading}
+            selectedSol={this.state.selectedSol}
+            selectedCamera={this.state.selectedCamera}
           />
           </div>
       </main>

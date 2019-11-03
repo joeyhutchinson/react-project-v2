@@ -7,8 +7,9 @@
   overflow: hidden;
   width: 100%;
   height: 50vh;
-  background-image: url("https://mars.nasa.gov/system/resources/detail_files/7658_curiosity-mars-rover-self-portrait-martian-sand-dunes-pia20316-full2.jpg");
+  background-image: url("https://media.wired.com/photos/59272b287034dc5f91bedcdd/master/pass/PIA11777.jpg");
+  /* background-image: url("https://planetarymapping.files.wordpress.com/2016/02/marsmapujkiadasfull.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
 }
