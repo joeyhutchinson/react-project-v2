@@ -25,7 +25,7 @@ This project will utilise the open sourse data available from NASA, and create a
 [Beaufort Scale info](https://en.wikipedia.org/wiki/Beaufort_scale)<br/>
 (Scale used to determine what would be classed as "windy weather".)<br/><br/>
 **Image Gallery**<br/>
-[Wireframe 4 - Image Gallery]()<br/>
+[Wireframe 4 - Image Gallery - [Page1](https://photos.google.com/photo/AF1QipOrqghVA5iReWWFsRYlGjvOTNBMvy0JDf8CvUgh) [Page2](https://photos.google.com/photo/AF1QipOxdLBouTdK0Ru4ZaZNCqLJ4b2gh-pDZzzQG_8p) [Page3](https://photos.google.com/photo/AF1QipOjnzbpnJ7tBPi-KvsQ4UsV988glry0S890rQnt) [Page4](https://photos.google.com/photo/AF1QipOLQew6wGPSSyL-0tUUNedbeYQLIsZQrXCf-Dkw)<br/>
 (Dynamic image gallery that appears on all rover pages - Curiosity, Opportunity and Spirit.)<br/>
 [Initial Data Considerations](https://photos.google.com/album/AF1QipPEFVTSUa1KCMoMW-Zyf7JQLRd19eIVpqeKOE0e/photo/AF1QipMGjbnhVt2cL22bp0OT9dPxg5niOufVyYjMuQbF)<br/>
 (Data is extensive and thus had to be heavily considered before building this part of the project.)<br/><br/>
@@ -84,7 +84,7 @@ This project will utilise the open sourse data available from NASA, and create a
 | curiosity             |   Medium |                |               |
 | opportunity           |   Medium |                |               |
 | spirit                |   Medium |                |               |
-| rover-image-gallery   |   High   |                |               |
+| rover-image-gallery   |   High   |    8 Hours     |               |
 | deimos                |   Medium |                |               |
 | phobos                |   Medium |                |               |
 | Total:                |   ----   |    6~ Hours    |    7 Hours    |
