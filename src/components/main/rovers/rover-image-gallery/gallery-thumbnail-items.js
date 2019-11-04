@@ -4,15 +4,13 @@ import React from 'react';
 
 const GalleryThumbnailItems = (props) => {
   
-  if (props.isLoading === true) {
+  if (props.isImageDataLoading === true) {
     return( null )
   } else {
-      let lengthThumbnails = Object.keys(props.thumbnailImages).length;
+      // let lengthThumbnails = Object.keys(props.thumbnailImages).length;
       const thumbnailStyle = {
-        transform: `translateX(-${(props.thumbnailIndex) * 30}vw)`
+        // transform: `translateX(-${(props.thumbnailIndex) * 30}vw)`
     }
-    console.log('this is thumbnailstyle', thumbnailStyle)
-
       return (
         <>
               <li className="thumbnail-container" onClick={() => props.openModal(1)} style={thumbnailStyle}>

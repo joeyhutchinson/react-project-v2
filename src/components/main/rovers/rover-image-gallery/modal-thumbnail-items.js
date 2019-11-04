@@ -1,15 +1,13 @@
 import React from 'react';
 
-// thumbnailTranslation={modalthumbnailStyle}
-
 const ModalThumbnailItems = (props) => {
   
-  if (props.isLoading === true) {
+  if (props.isImageDataLoading === true) {
     return( null )
   } else {
-      let lengthThumbnails = Object.keys(props.thumbnailImages).length;
+      // let lengthThumbnails = Object.keys(props.thumbnailImages).length;
       const modalthumbnailStyle = {
-        transform: `translateX(-${(props.thumbnailIndex) * 30}vw)`
+        // transform: `translateX(-${(props.thumbnailIndex) * 30}vw)`
     }
 
       return (

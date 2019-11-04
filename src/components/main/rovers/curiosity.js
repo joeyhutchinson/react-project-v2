@@ -16,12 +16,16 @@ dotenv.config();
 class Curiosity extends Component {
   state = {
     rover: "curiosity",
-    isLoading: true,
+    isManifestLoading: true,
+    isImageDataLoading: true,
     manifestData: [],
-    imageData: [],
+    imageData: {},
+    maxSol: '',
     selectedSol: 654,
+    availableCameras: {},
     selectedCamera: 'FHAZ'
   };
+
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load
   fetchManifestData = () => {
@@ -31,7 +35,7 @@ class Curiosity extends Component {
       .then(
         data => {
           this.setState({
-            isLoading: false,
+            isManifestLoading: false,
             manifestData: data.photo_manifest
           });
         },
@@ -52,8 +56,8 @@ class Curiosity extends Component {
       .then(
         data => {
           this.setState({
-            isLoading: false,
-            imageData: data
+            isImageDataLoading: false,
+            imageData: data.photos
           });
         },
         error => {
@@ -70,7 +74,12 @@ class Curiosity extends Component {
     this.fetchImageData();
   }
 
+  componentDidUpdate() {
+
+  }
+
   render() {
+
     return (
       <main>
         <ScrollToTopOnMountClass />
@@ -78,8 +87,7 @@ class Curiosity extends Component {
           <h1>Curiosity</h1>
           <RoverDetailsTable
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
+            isManifestLoading={this.state.isManifestLoading}
             readableDate={this.props.readableDate}
           />
           <div className="leading-content">
@@ -109,9 +117,8 @@ class Curiosity extends Component {
           <RoverImageGallery
             imageManifestData={this.state.manifestData}
             imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
-            selectedSol={this.state.selectedSol}
-            selectedCamera={this.state.selectedCamera}
+            isManifestLoading={this.state.isManifestLoading}
+            isImageDataLoading={this.state.isImageDataLoading}
           />
           </div>
       </main>

@@ -1,5 +1,4 @@
 import React from "react";
-import "react-datepicker/dist/react-datepicker.css";
 
 const RoverDetailsTable = props => {
   const capitlisedFirstLetter = data => {
@@ -41,7 +40,7 @@ const RoverDetailsTable = props => {
   const loadingStyle = { color: "#3ba7ce" };
 
   // Render appropriate details table dependant on if API data loading. If loading, placeholder text is rendered.
-  if (props.isLoading) {
+  if (props.isManifestLoading) {
     return (
       <div className="dataDetails">
         <div className="dataTable">

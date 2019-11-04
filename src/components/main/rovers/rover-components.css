@@ -292,9 +292,19 @@ img.feature-image {
   margin-top: 1vh;
 }
 
-caption {
+.caption {
   width: 100%;
   position: absolute;
   text-align: center;
   bottom: 2%;
+}
+
+/*  ----------- Image gallery form ----------- */
+
+form {
+  width: 100%;
+}
+
+input {
+  color: #333;
 }

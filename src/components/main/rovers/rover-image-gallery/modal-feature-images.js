@@ -4,7 +4,7 @@ import React from 'react';
 
 const ModalFeatureImages = (props) => {
   
-  if (props.isLoading === true) {
+  if (props.isImageDataLoading === true) {
     return( null )
   } else {
     const isFeatureImage = ( props.featureImage === 1) ? {display: "block"} : {display: "none"};
