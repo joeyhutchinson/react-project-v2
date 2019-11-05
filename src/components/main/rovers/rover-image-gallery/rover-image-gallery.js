@@ -1,48 +1,77 @@
 import React, {useState, useEffect} from 'react';
+import dotenv from "dotenv";
+
 import GalleryThumbnailItems from "../rover-image-gallery/gallery-thumbnail-items"
 import ModalThumbnailItems from "../rover-image-gallery/modal-thumbnail-items"
 import ModalFeatureImages from "../rover-image-gallery/modal-feature-images"
 import RoverGalleryForm from "../rover-image-gallery/rover-gallery-form"
 
+dotenv.config();
+
 const RoverImageGallery = (props) =>  {
 
-  //Static data
+  // ---------- STATE DATA
+
+  //Static fixed data
   const [maxSol, setMaxSol] = useState('');
+
+  // Data set during API Call
+  const [isImageDataLoading, setIsImageDataLoading] = useState(true);
+  const [allImageData, setAllImageData] = useState([]);
   
-  // Data filtered by image gallery form
-  const [imageGalleryImages, setImageGalleryImages] = useState(['1','2','3']);
-  const [selectedSol, setSelectedSol] = useState(365); // TEST PREFILL
-  const [selectedCamera, setSelectedCamera] = useState('');
-  const [availableCameras, setAvailableCameras] = useState([]);
+  // Data filtered by image gallery form]
+  const [selectedSol, setSelectedSol] = useState(0); // INITIAL PREFILL - starts at 0
+  const [selectedCameraForm, setSelectedCameraForm] = useState('');
+  const [imageGalleryImages, setImageGalleryImages] = useState([]);
 
   // Data used for image gallery transitions, and image style and selection
-  const [thumbnailIndex, setThumbnailIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
   const [modalStyle, setModalStyle] = useState({});
   const [featureImage,setFeatureImage] = useState(0);
 
-  // Form functionality
+
+  // ---------- API CALL
+
+  useEffect(() => {
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${props.rover}/photos?sol=${selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
+
+    let makeAPICall = async () => {
+      let data = await fetch(url);
+      let imageData = await data.json();
+      setAllImageData(imageData.photos);
+      setIsImageDataLoading(false);
+    };
+    makeAPICall();
+  }, [selectedSol, props.rover]);
+
+  // ---------- FORM FUNCTIONALITY
 
   // Handle submit from form
-  const handleFormSubmit = (solDay, camera) => {
-    let solIndex = String(solDay);
+  const handleFormSubmit = (sol, camera) => {
+
+    setSelectedSol(sol);
+    setSelectedCameraForm(camera);
+
+    console.log("handle submit in gallery", sol, camera)
+
     let imageArray = [];
-    setSelectedSol(solDay)
-    console.log("handle submit in gallery", solDay, camera)
-    // if (props.imageGalleryData.sol === Number(solDay)) {
-    //   return imageArray
-    // }
     setImageGalleryImages();
+
+    // reset form on submit
+    setSelectedSol(0)
+    let manifest = props.imageManifestData.photos
+    setSelectedCameraForm(String(manifest[0].cameras[0]));
+    
   };
 
+  // ---------- IMAGE GALLERY BUTTON FUNCTIONALITY 
   
-  // Image gallery left and right button functionality
-  // In page buttons
   const leftClick = () => {
-    setThumbnailIndex(prevState => prevState - 1);
+    setImageIndex(prevState => prevState - 1);
   }
 
   const rightClick = () => {
-    setThumbnailIndex(prevState => prevState + 1);
+    setImageIndex(prevState => prevState + 1);
   }
 
   // Modal buttons
@@ -65,42 +94,47 @@ const RoverImageGallery = (props) =>  {
       </div>
     )
   } else {
-    const imageData = props.imageGalleryData
+  
+
     const maxSol = props.imageManifestData.max_sol;
     const images = imageGalleryImages
-    let test = () => {
-      let selectedImage = String(7);
-      let returnData = imageData[selectedImage];
-      console.log(returnData.img_src);
-      console.log(maxSol)
-    }
-    test();
+    // let test = () => {
+    //   let selectedImage = String(7);
+    //   let returnData = allImageData[selectedImage];
+    //   console.log(returnData.img_src);
+    //   console.log(maxSol)
+    // }
+    // test();
       return (
         <>
           <div className="image-gallery-wrapper">
+            <div><p style={{color: "#fff", fontSize: "0.9rem" }}>Select a mission day (sol) and camera type below, then click the 'Create' button to generate a gallery of images taken by the rover on that particular day. You can then click on any image to open it up in the full page gallery.</p>
+            </div>
 
             <RoverGalleryForm 
               isManifestLoading={props.isManifestLoading} 
               imageManifestData={props.imageManifestData} 
               handleFormSubmit={handleFormSubmit}
               selectedSol={selectedSol}
+              selectedCameraForm={selectedCameraForm}
+              solDataArray={props.solDataArray}
             />
 
             <div className="image-gallery">
-              <button className="left-arrow" onClick={leftClick} disabled={thumbnailIndex === 0}>&#10094;</button>
+              <button className="left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
               {/* In page image thumbnail gallery */}
               <ul className="thumbnail-gallery">
 
-              <GalleryThumbnailItems 
+              <GalleryThumbnailItems
+                isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
                 thumbnailImages={imageGalleryImages} 
-                thumbnailIndex={thumbnailIndex} 
-                isImageDataLoading={props.isImageDataLoading} 
+                imageIndex={imageIndex} 
                 openModal={openModal}
               />
 
               </ul>
               <button className="right-arrow" onClick={rightClick}>&#10095;</button>
-              {/* disabled={thumbnailIndex === images.length - 1} */}
+              {/* disabled={imageIndex === images.length - 1} */}
             </div>
             <div className="caption-text">
             (Images: © NASA/JPL/University of Arizona)
@@ -109,37 +143,35 @@ const RoverImageGallery = (props) =>  {
           <div id="lightbox-gallery" className="modal" style={modalStyle}>
           <span className="close cursor" onClick={closeModal}>&times;</span>
           <div className="modal-content">
-          <button className="modal-feature-left-arrow" disabled={thumbnailIndex === 0}>&#10094;</button>
+          <button className="modal-feature-left-arrow" disabled={imageIndex === 0}>&#10094;</button>
           <ul className="modal-feature-gallery">
             {/* Modal feature images */}
 
             <ModalFeatureImages 
-              thumbnailImages={imageGalleryImages} 
-              thumbnailIndex={thumbnailIndex} 
-              isImageDataLoading={props.isImageDataLoading} 
-              isManifestLoading={props.isManifestLoading} 
+              images={imageGalleryImages} 
+              imageIndex={imageIndex} 
+              isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
               featureImage={featureImage}
             />
           </ul>
           <button className="modal-feature-right-arrow">&#10095;</button>
-          {/* disabled={thumbnailIndex === images.length - 1} */}
+          {/* disabled={imageIndex === images.length - 1} */}
           {/* Modal image thumbnails */}
-          <button className="modal-thumbnail-left-arrow" onClick={leftClick} disabled={thumbnailIndex === 0}>&#10094;</button>
+          <button className="modal-thumbnail-left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
           <ul className="modal-thumbnail-gallery">
           
           <ModalThumbnailItems 
-            thumbnailImages={imageGalleryImages} 
-            thumbnailIndex={thumbnailIndex} 
-            isImageDataLoading={props.isImageDataLoading} 
-            isManifestLoading={props.isManifestLoading} 
+            images={imageGalleryImages} 
+            imageIndex={imageIndex} 
+            isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false } 
             openModal={openModal}
           />
           
           </ul>
           <button className="modal-thumbnail-right-arrow" onClick={rightClick}>&#10095;</button>
-          {/* disabled={thumbnailIndex === images.length - 1} */}
+          {/* disabled={imageIndex === images.length - 1} */}
           </div>
-          <div className="caption"><span>Mission Day (Sol) No. {selectedSol} - Camera {selectedCamera}</span></div>
+          <div className="caption"><span>Mission Day (Sol) No. {selectedSol} - Camera {selectedCameraForm}</span></div>
           </div>
           </>
 

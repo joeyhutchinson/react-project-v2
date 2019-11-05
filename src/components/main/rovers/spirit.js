@@ -11,42 +11,25 @@ dotenv.config();
 class Spirit extends Component {
   state = {
     rover: "spirit",
-    isLoading: true,
+    isManifestLoading: true,
     manifestData: [],
-    imageData: []
+    solDataArray: []
   };
-  //   Fetch manifest data via API call and set to component state
-  //   Alert if data is not available and doesn't load
   fetchManifestData = () => {
     const url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${this.state.rover}/?api_key=${process.env.REACT_APP_NASA_API_KEY}`;
     fetch(url)
       .then(response => response.json())
       .then(
         data => {
-          this.setState({
-            isLoading: false,
-            manifestData: data.photo_manifest
-          });
-        },
-        error => {
-          if (error) {
-            alert("Image gallery is currently unavailable");
+          let manifest = data.photo_manifest.photos
+          const solData = [];
+          for ( let i = 0; i < manifest.length; i++ ) {
+            solData.push(manifest[i].sol)
           }
-        }
-      );
-  };
-
-  //   Fetch image data via API call and set to component state
-  //   Alert if data is not available and doesn't load
-  fetchImageData = () => {
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=1000&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(
-        data => {
           this.setState({
-            isLoading: false,
-            imageData: data
+            isManifestLoading: false,
+            manifestData: data.photo_manifest,
+            solDataArray: solData
           });
         },
         error => {
@@ -58,9 +41,8 @@ class Spirit extends Component {
   };
 
   componentDidMount() {
-    // Make API call when component mounts
+    // Make Manifest Data API call when component mounts
     this.fetchManifestData();
-    this.fetchImageData();
   }
 
   render() {
@@ -68,11 +50,10 @@ class Spirit extends Component {
       <main>
         <ScrollToTopOnMountClass />
         <div className="content">
-          <h1>Opportunity</h1>
+          <h1>Spirit</h1>
           <RoverDetailsTable
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
+            isManifestLoading={this.state.isManifestLoading}
             readableDate={this.props.readableDate}
           />
           <div className="leading-content">
@@ -112,9 +93,10 @@ class Spirit extends Component {
           <p>Over the course of its mission on Mars, Opportunity took over 228,000 images. This included 15 360-degree color panoramas from the surface of Mars.</p>
           <h3>Available imagery</h3>
           <RoverImageGallery
+            rover={this.state.rover}
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
+            isManifestLoading={this.state.isManifestLoading}
+            solDataArray={this.state.solDataArray}
           />
         </div>
       </main>

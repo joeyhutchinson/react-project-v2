@@ -93,7 +93,7 @@ button.left-arrow:hover, button.right-arrow:hover {
 }
 
 button.left-arrow {
-  left: 0%;
+  left: 0.4%;
   transform: translate(0%,-50%);
 
 }
@@ -301,10 +301,63 @@ img.feature-image {
 
 /*  ----------- Image gallery form ----------- */
 
-form {
+.image-gallery-wrapper {
+  border: 2px solid rgb(51, 51, 51, 0.6);
+  border-radius: 10px;
+  background-color: rgb(51, 51, 51, 0.6);
+  padding: 1rem;
+}
+form#gallery-form {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
 }
 
-input {
+form#gallery-form label {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form-mission-day, .form-camera-select, .submit-button {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.5rem 1rem;
+  border: 2px solid #fff;
+}
+
+.form-mission-day {
+  width: 25%;
   color: #333;
+}
+
+.form-mission-day select {
+  width: 50%;
+  color: #333;
+}
+
+.form-camera-select {
+  width: 50%;
+  text-align: center;
+}
+
+.form-camera-select input {
+  font-size: 0.8rem;
+  min-width: 6rem;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+.submit-button {
+  text-align: center;
+  width: 25%;
+}
+
+
+.submit-button input {
+  color: #333;
+  font-size: 0.8rem;
+  width: 8rem;
+  margin: auto;
+  border-radius: 4px;
 }

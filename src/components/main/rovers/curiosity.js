@@ -1,10 +1,6 @@
-// Sample api queries
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEY
-
 import React, { Component } from "react";
 import dotenv from "dotenv";
+
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
 import RoverImageGallery from "./rover-image-gallery/rover-image-gallery";
 import RoverDetailsTable from "./rover-details-table";
@@ -17,13 +13,8 @@ class Curiosity extends Component {
   state = {
     rover: "curiosity",
     isManifestLoading: true,
-    isImageDataLoading: true,
     manifestData: [],
-    imageData: {},
-    maxSol: '',
-    selectedSol: 654,
-    availableCameras: {},
-    selectedCamera: 'FHAZ'
+    solDataArray: []
   };
 
   //   Fetch manifest data via API call and set to component state
@@ -34,30 +25,15 @@ class Curiosity extends Component {
       .then(response => response.json())
       .then(
         data => {
+          let manifest = data.photo_manifest.photos
+          const solData = [];
+          for ( let i = 0; i < manifest.length; i++ ) {
+            solData.push(manifest[i].sol)
+          }
           this.setState({
             isManifestLoading: false,
-            manifestData: data.photo_manifest
-          });
-        },
-        error => {
-          if (error) {
-            alert("Image gallery is currently unavailable");
-          }
-        }
-      );
-  };
-
-  //   Fetch image data via API call and set to component state
-  //   Alert if data is not available and doesn't load
-  fetchImageData = () => {
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(
-        data => {
-          this.setState({
-            isImageDataLoading: false,
-            imageData: data.photos
+            manifestData: data.photo_manifest,
+            solDataArray: solData
           });
         },
         error => {
@@ -69,13 +45,8 @@ class Curiosity extends Component {
   };
 
   componentDidMount() {
-    // Make API call when component mounts
+    // Make Manifest Data API call when component mounts
     this.fetchManifestData();
-    this.fetchImageData();
-  }
-
-  componentDidUpdate() {
-
   }
 
   render() {
@@ -115,10 +86,10 @@ class Curiosity extends Component {
           <p>Curiosity is packed with no fewer than 17 cameras to shoot high-quality photos and videos in black-and-white, color, and 3-D stereo of the Martian landscape. While scientists are no doubt quite eager for the information that these images will contain, most of us can live vicariously through the rover and experience some breathtaking views on Mars.</p>
           <h3>Available imagery</h3>
           <RoverImageGallery
+            rover={this.state.rover}
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
             isManifestLoading={this.state.isManifestLoading}
-            isImageDataLoading={this.state.isImageDataLoading}
+            solDataArray={this.state.solDataArray}
           />
           </div>
       </main>

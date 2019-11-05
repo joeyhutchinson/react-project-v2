@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import dotenv from "dotenv";
 
 import ScrollToTopOnMountClass from "../../scroll-to-top-class";
@@ -13,9 +12,9 @@ dotenv.config();
 class Opportunity extends Component {
   state = {
     rover: "opportunity",
-    isLoading: true,
+    isManifestLoading: true,
     manifestData: [],
-    imageData: []
+    solDataArray: []
   };
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load
@@ -25,9 +24,15 @@ class Opportunity extends Component {
       .then(response => response.json())
       .then(
         data => {
+          let manifest = data.photo_manifest.photos
+          const solData = [];
+          for ( let i = 0; i < manifest.length; i++ ) {
+            solData.push(manifest[i].sol)
+          }
           this.setState({
-            isLoading: false,
-            manifestData: data.photo_manifest
+            isManifestLoading: false,
+            manifestData: data.photo_manifest,
+            solDataArray: solData
           });
         },
         error => {
@@ -37,32 +42,9 @@ class Opportunity extends Component {
         }
       );
   };
-
-  //   Fetch image data via API call and set to component state
-  //   Alert if data is not available and doesn't load
-  fetchImageData = () => {
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=1000&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(
-        data => {
-          this.setState({
-            isLoading: false,
-            imageData: data
-          });
-        },
-        error => {
-          if (error) {
-            alert("Image gallery is currently unavailable");
-          }
-        }
-      );
-  };
-
   componentDidMount() {
     // Make API call when component mounts
     this.fetchManifestData();
-    this.fetchImageData();
   }
 
   render() {
@@ -73,8 +55,7 @@ class Opportunity extends Component {
           <h1>Opportunity</h1>
           <RoverDetailsTable
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
+            isManifestLoading={this.state.isManifestLoading}
             readableDate={this.props.readableDate}
           />
           <div className="leading-content">
@@ -105,9 +86,10 @@ class Opportunity extends Component {
           <p>Over the course of its mission on Mars, Opportunity took over 228,000 images. This included 15 360-degree color panoramas from the surface of Mars.</p>
           <h3>Available imagery</h3>
           <RoverImageGallery
+            rover={this.state.rover}
             imageManifestData={this.state.manifestData}
-            imageGalleryData={this.state.imageData}
-            isLoading={this.state.isLoading}
+            isManifestLoading={this.state.isManifestLoading}
+            solDataArray={this.state.solDataArray}
           />
         </div>
       </main>

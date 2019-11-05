@@ -2,12 +2,17 @@ import React from 'react';
 
 // thumbnailTranslation={modalFeatureStyle}
 
+// images={imageGalleryImages} 
+// imageIndex={thumbnailIndex} 
+// isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
+// featureImage={featureImage}
+
 const ModalFeatureImages = (props) => {
   
-  if (props.isImageDataLoading === true) {
+  if (props.isLoading === true) {
     return( null )
   } else {
-    const isFeatureImage = ( props.featureImage === 1) ? {display: "block"} : {display: "none"};
+    const isFeatureImage = ( props.featureImage === 0 ) ? {display: "block"} : {display: "none"}; // Change to === props.imageIndex when set up
 
       return (
               <li className="modal-feature-container" style={isFeatureImage}>
