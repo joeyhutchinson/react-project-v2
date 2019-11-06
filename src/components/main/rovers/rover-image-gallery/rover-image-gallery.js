@@ -15,54 +15,12 @@ const RoverImageGallery = (props) =>  {
   //Static fixed data
   const [maxSol, setMaxSol] = useState('');
 
-  // Data set during API Call
-  const [isImageDataLoading, setIsImageDataLoading] = useState(true);
-  const [allImageData, setAllImageData] = useState([]);
-  
-  // Data filtered by image gallery form]
-  const [selectedSol, setSelectedSol] = useState(0); // INITIAL PREFILL - starts at 0
-  const [selectedCameraForm, setSelectedCameraForm] = useState('');
-  const [imageGalleryImages, setImageGalleryImages] = useState([]);
-
   // Data used for image gallery transitions, and image style and selection
   const [imageIndex, setImageIndex] = useState(0);
   const [modalStyle, setModalStyle] = useState({});
   const [featureImage,setFeatureImage] = useState(0);
 
-
-  // ---------- API CALL
-
-  useEffect(() => {
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${props.rover}/photos?sol=${selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-
-    let makeAPICall = async () => {
-      let data = await fetch(url);
-      let imageData = await data.json();
-      setAllImageData(imageData.photos);
-      setIsImageDataLoading(false);
-    };
-    makeAPICall();
-  }, [selectedSol, props.rover]);
-
-  // ---------- FORM FUNCTIONALITY
-
-  // Handle submit from form
-  const handleFormSubmit = (sol, camera) => {
-
-    setSelectedSol(sol);
-    setSelectedCameraForm(camera);
-
-    console.log("handle submit in gallery", sol, camera)
-
-    let imageArray = [];
-    setImageGalleryImages();
-
-    // reset form on submit
-    setSelectedSol(0)
-    let manifest = props.imageManifestData.photos
-    setSelectedCameraForm(String(manifest[0].cameras[0]));
-    
-  };
+  
 
   // ---------- IMAGE GALLERY BUTTON FUNCTIONALITY 
   
@@ -85,7 +43,7 @@ const RoverImageGallery = (props) =>  {
   }
 
 
-  if ((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading) === true) {
+  if (props.isImageDataLoading) {
     return (
       <div className="image-gallery-wrapper">
         <div className="image-gallery">
@@ -97,14 +55,7 @@ const RoverImageGallery = (props) =>  {
   
 
     const maxSol = props.imageManifestData.max_sol;
-    const images = imageGalleryImages
-    // let test = () => {
-    //   let selectedImage = String(7);
-    //   let returnData = allImageData[selectedImage];
-    //   console.log(returnData.img_src);
-    //   console.log(maxSol)
-    // }
-    // test();
+
       return (
         <>
           <div className="image-gallery-wrapper">
@@ -114,9 +65,9 @@ const RoverImageGallery = (props) =>  {
             <RoverGalleryForm 
               isManifestLoading={props.isManifestLoading} 
               imageManifestData={props.imageManifestData} 
-              handleFormSubmit={handleFormSubmit}
-              selectedSol={selectedSol}
-              selectedCameraForm={selectedCameraForm}
+              handleFormSubmit={props.handleFormSubmit}
+              selectedSol={props.selectedSol}
+              selectedCameraForm={props.selectedCameraForm}
               solDataArray={props.solDataArray}
             />
 
@@ -127,7 +78,7 @@ const RoverImageGallery = (props) =>  {
 
               <GalleryThumbnailItems
                 isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
-                thumbnailImages={imageGalleryImages} 
+                thumbnailImages={props.imageGalleryImages} 
                 imageIndex={imageIndex} 
                 openModal={openModal}
               />
@@ -148,7 +99,7 @@ const RoverImageGallery = (props) =>  {
             {/* Modal feature images */}
 
             <ModalFeatureImages 
-              images={imageGalleryImages} 
+              images={props.imageGalleryImages} 
               imageIndex={imageIndex} 
               isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
               featureImage={featureImage}
@@ -161,7 +112,7 @@ const RoverImageGallery = (props) =>  {
           <ul className="modal-thumbnail-gallery">
           
           <ModalThumbnailItems 
-            images={imageGalleryImages} 
+            images={props.imageGalleryImages} 
             imageIndex={imageIndex} 
             isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false } 
             openModal={openModal}
@@ -171,7 +122,7 @@ const RoverImageGallery = (props) =>  {
           <button className="modal-thumbnail-right-arrow" onClick={rightClick}>&#10095;</button>
           {/* disabled={imageIndex === images.length - 1} */}
           </div>
-          <div className="caption"><span>Mission Day (Sol) No. {selectedSol} - Camera {selectedCameraForm}</span></div>
+          <div className="caption"><span>Mission Day (Sol) No. {props.selectedSol} - Camera {props.selectedCameraForm}</span></div>
           </div>
           </>
 

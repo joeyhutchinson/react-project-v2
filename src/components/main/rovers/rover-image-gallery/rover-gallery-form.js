@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import SolDropDown from "../rover-image-gallery/sol-drop-down"
 import CameraButtons from "../rover-image-gallery/camera-buttons"
 
@@ -17,15 +17,6 @@ const RoverGalleryForm = (props) =>  {
   const [solInput, setSolInput] = useState(props.selectedSol); // INITIAL STATE
   const [selectedCamera, setSelectedCamera] = useState('')
   const [solIndex, setSolIndex] = useState('0')
-
-  // Set selected camera to fist one in camera array when day changes or when page fist loads
-  useEffect(() => {
-    const setInitialSelectedCamera = () => {
-      let manifest = props.imageManifestData.photos
-      setSelectedCamera(String(manifest[solIndex].cameras[0]));
-    }
-    setInitialSelectedCamera();
-  },[solInput]);
 
   // ---------- FORM FUNCTIONALITY
 

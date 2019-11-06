@@ -336,6 +336,10 @@ form#gallery-form label {
   color: #333;
 }
 
+.form-mission-day option {
+  color: #333;
+}
+
 .form-camera-select {
   width: 50%;
   text-align: center;
@@ -357,7 +361,7 @@ form#gallery-form label {
 .submit-button input {
   color: #333;
   font-size: 0.8rem;
-  width: 8rem;
+  min-width: 40%;
   margin: auto;
   border-radius: 4px;
 }

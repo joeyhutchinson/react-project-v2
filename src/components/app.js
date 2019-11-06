@@ -20,6 +20,7 @@ import Spirit from "./main/rovers/spirit";
 import Maps from "./main/map";
 
 const App = props => {
+  let sliderImages = props.sliderImages
   // Handle temperature toggle. False = Fahreinheit. True = Celsius.
   const [tempType, setTempType] = useState(false);
 
@@ -77,7 +78,13 @@ const App = props => {
           readableDate={readableDate}
         />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route 
+            exact path="/" 
+            render={props => (
+              <Home {...props} sliderImages={sliderImages} />
+            )}
+            
+            />
           <Route path="/geology" component={Geology} />
           <Route
             path="/weather"

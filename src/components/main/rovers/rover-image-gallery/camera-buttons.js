@@ -22,11 +22,11 @@ class CameraButtons extends Component {
     } else {
 
       const manifest = this.props.imageManifestData;
-      console.log(this.props.solIndex)
+      console.log(`This is the solIndex ID - `, this.props.solIndex)
       let cameraArray = manifest[this.props.solIndex].cameras;
 
       
-      console.log(cameraArray)
+      console.log(`This is the camera array - `,cameraArray)
 
 
       // Remove cameras that do not produce images from cameraArray
@@ -39,10 +39,6 @@ class CameraButtons extends Component {
           }
         }
       }
-       
-      console.log(this.props.imageManifestData)
-      console.log(cameraArray)
-      console.log(this.props.selectedCamera)
       return cameraArray.map((camera, i) => {
         return (
           <React.Fragment>

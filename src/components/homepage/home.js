@@ -4,11 +4,10 @@ import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
 
 const Home = (props) => {
-  console.log(props);
   return (
     <main>
       <ScrollToTopOnMountClass/>
-      <Slider />
+      <Slider sliderImages={props.sliderImages}/>
       <div className="content">
         <p>
           Mars is one of the most explored bodies in our solar system, and it's
