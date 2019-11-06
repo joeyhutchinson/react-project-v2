@@ -39,11 +39,13 @@ class Spirit extends Component {
       .then(response => response.json())
       .then(
         data => {
-          let manifest = data.photo_manifest.photos
+          let manifestInfo = data.photo_manifest.photos
+          console.log(`this is manifest in solData`, manifestInfo[0].earth_date)
           const solData = [];
-          for ( let i = 0; i < manifest.length; i++ ) {
-            solData.push(manifest[i].sol)
+          for ( let i = 0; i < manifestInfo.length; i++ ) {
+            solData.push(manifestInfo[i].sol)
           }
+          console.log(solData)
           this.setState({
             isManifestLoading: false,
             manifestData: data.photo_manifest,
@@ -95,10 +97,12 @@ class Spirit extends Component {
       SelectedCameraForm: camera
     });
     console.log("handle submit in gallery", sol, camera)
-    let manifestData = this.state.imageManifestData
+    let manifestData = this.state.manifestData.photos
+    console.log(manifestData)
 
     let solData = this.state.solDataArray; 
     let solIndexNum = solData.indexOf(parseInt(sol, 10));
+    console.log(solIndexNum)
     let totalImagesAvail = manifestData[solIndexNum].total_photos;
 
     // Set array of image src urls for sol
@@ -151,7 +155,7 @@ class Spirit extends Component {
             isManifestLoading={this.state.isManifestLoading}
             readableDate={this.props.readableDate}
           />
-          <div className="leading-content">
+           <div className="leading-content">
             <img
               src="https://www.extremetech.com/wp-content/uploads/2016/01/Opportunity-640x360.jpg"
               alt=""
