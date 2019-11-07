@@ -21,13 +21,13 @@ const Home = (props) => {
     console.log(index)
   }
 
-  setTimeout(() => {
-    if (sliderIndex === 2) {
-      setSliderIndex(0)
-    } else {
-      setSliderIndex(prevState => prevState + 1)
-    }
-  }, 10000);
+  // setTimeout(() => {
+  //   if (sliderIndex === 2) {
+  //     setSliderIndex(0)
+  //   } else {
+  //     setSliderIndex(prevState => prevState + 1)
+  //   }
+  // }, 10000);
 
   return (
     <main>
