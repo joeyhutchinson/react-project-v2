@@ -15,9 +15,10 @@ class Opportunity extends Component {
     isManifestLoading: true,
     isImageDataLoading: true,
     manifestData: [],
+    manifestDataPhotos: [],
     solDataArray: [],
     allImageData: [],
-    selectedSol: 0,
+    selectedSol: '',
     selectedCameraForm: '',
     allImageUrls: [],
     imageGalleryImages: [`https://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG`,
@@ -30,7 +31,6 @@ class Opportunity extends Component {
       `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044630270503587E02_DXXX.jpg`, 
       `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044630420405139E02_DXXX.jpg`]
   };
-
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load
   fetchManifestData = () => {
@@ -39,17 +39,19 @@ class Opportunity extends Component {
       .then(response => response.json())
       .then(
         data => {
-          let manifestInfo = data.photo_manifest.photos
-          console.log(`this is manifest in solData`, manifestInfo[0].earth_date)
-          const solData = [];
-          for ( let i = 0; i < manifestInfo.length; i++ ) {
-            solData.push(manifestInfo[i].sol)
+          let manifestInfoPhotos = data.photo_manifest.photos
+          let solData = [];
+          for ( let i = 0; i < manifestInfoPhotos.length; i++ ) {
+            solData.push(manifestInfoPhotos[i].sol)
           }
-          console.log(solData)
+          let camera = String(manifestInfoPhotos[0].cameras[0])
           this.setState({
             isManifestLoading: false,
+            isImageDataLoading: false,
             manifestData: data.photo_manifest,
-            solDataArray: solData
+            manifestDataPhotos: data.photo_manifest.photos,
+            solDataArray: solData,
+            selectedCameraForm: camera
           });
         },
         error => {
@@ -59,15 +61,64 @@ class Opportunity extends Component {
         }
       );
   };
-   //   Fetch image data via API call and set to component state
-  //   Alert if data is not available and doesn't load
-  fetchImageData = () => {
+  //  Fetch image data via API call and set to component state
+  // Alert if data is not available and doesn't load
+  // fetchImageData = () => {
+  //   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(
+  //       data => {
+  //         let imageData = data.photos
+  //         let manifestInfo = this.state.manifestDataPhotos
+  //         let imageDataCamera = [];
+  //         for ( let i = 0; i < imageData.length; i++ ) {
+  //           if (imageData[i].camera.name === this.state.selectedCameraForm) {
+  //             imageDataCamera.push(manifestInfo[i].sol)
+  //           }
+  //         }
+  //         this.setState({
+  //           allImageData: imageData,
+  //           isImageDataLoading: false
+  //         });
+  //       },
+  //       error => {
+  //         if (error) {
+  //           alert("Image gallery is currently unavailable");
+  //         }
+  //       }
+  //     );
+  // };
+
+  componentDidMount() {
+    // Make Manifest Data API call when component mounts
+    this.fetchManifestData();
+    // this.fetchImageData();
+  }
+        
+  // ---------- FORM FUNCTIONALITY
+
+  // Handle submit from form
+  handleFormSubmit = (sol, camera) => {
+    this.setState({
+      selectedSol: sol,
+      selectedCameraForm: camera,
+      isImageDataLoading: true
+    });
+
     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
     fetch(url)
       .then(response => response.json())
       .then(
         data => {
           let imageData = data.photos
+          let manifestInfo = this.state.manifestDataPhotos
+          let imageDataCamera = [];
+          for ( let i = 0; i < imageData.length; i++ ) {
+            if (imageData[i].camera.name === camera) {
+              imageDataCamera.push(manifestInfo[i].sol)
+            }
+          }
           this.setState({
             allImageData: imageData,
             isImageDataLoading: false
@@ -79,31 +130,12 @@ class Opportunity extends Component {
           }
         }
       );
-  };
 
-  componentDidMount() {
-    // Make Manifest Data API call when component mounts
-    this.fetchManifestData();
-    this.fetchImageData();
-  }
-
-  // ---------- FORM FUNCTIONALITY
-
-  // Handle submit from form
-  handleFormSubmit = (sol, camera) => {
-
-    this.setState({
-      selectedSol: sol,
-      SelectedCameraForm: camera
-    });
-    console.log("handle submit in gallery", sol, camera)
-    let manifestData = this.state.manifestData.photos
-    console.log(manifestData)
+    let manifestDataPhotos = this.state.manifestDataPhotos
 
     let solData = this.state.solDataArray; 
     let solIndexNum = solData.indexOf(parseInt(sol, 10));
-    console.log(solIndexNum)
-    let totalImagesAvail = manifestData[solIndexNum].total_photos;
+    let totalImagesAvail = manifestDataPhotos[solIndexNum].total_photos;
 
     // Set array of image src urls for sol
     let imageSrcArray = []
@@ -116,8 +148,6 @@ class Opportunity extends Component {
     });
 
     // Get nth image out of returned images
-    let num = (totalImagesAvail > 25) ? Math.floor(totalImagesAvail / 25) : totalImagesAvail;
-    console.log(`This is the number yo!`, num)
     let galleryImagesArray = [];
     if (totalImagesAvail > 25) {
       let num = Math.floor(totalImagesAvail / 25);
@@ -132,15 +162,6 @@ class Opportunity extends Component {
     this.setState({
       imageGalleryImages: galleryImagesArray
     });
-
-    console.log(`This is the images yo!`, this.state.imageGalleryImages)
-
-    // reset form on submit
-    this.setState({
-      selectedSol: 0,
-      selectedCameraForm: String(manifestData[0].cameras[0])
-    });
-    
   };
 
   render() {

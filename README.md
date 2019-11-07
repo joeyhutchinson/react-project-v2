@@ -98,5 +98,7 @@ This project will utilise the open sourse data available from NASA, and create a
 **ERROR**: Error with if statement logic in small weather widget component - InSight lander did not return wind data for sol 327. Wind data therefore unavailable for small weather component i.e. dynamic display of sunny or windy icon. if statment not written to handle if wind data not available. Will not show anything (inc. temp) if wind data not available.<br/>
 **SOLUTION**: Re-designed 'if statement' to test for valid wind data and temp data then returned placeholder text if wind data not available and/or temp data not available. If wind data is not available the default sunny icon will show and the temp data will still render. (components/weather-widgets/weather-widget-sml.js)<br/><br/>
 **WARNING**: React Hook useEffect has a missing dependancy: 'props.imageManifestData.photos'. Either include it or remove the dependancy array.<br/>
-**SOLUTION**:  
+**SOLUTION**:  <br/>
+**ERROR**: TypeError: Cannot read property 'img_src' of undefined." - Suspect it is caused by the time it is taking for all imagesd API Call to complete.<br/>
+**SOLUTION**:  <br/>
  

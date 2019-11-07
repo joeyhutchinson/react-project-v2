@@ -1,12 +1,5 @@
 import React, {Component} from "react";
 
-// isManifestLoading={props.isManifestLoading} 
-// imageManifestData={props.imageManifestData.photos} 
-// handleCameraChange={handleCameraChange} 
-// solInput={solInput} 
-// selectedCamera={selectedCamera}
-// solIndex={solIndex}
-
 class CameraButtons extends Component {
 
   handleCameraChange = e => {
@@ -22,12 +15,7 @@ class CameraButtons extends Component {
     } else {
 
       const manifest = this.props.imageManifestData;
-      console.log(`This is the solIndex ID - `, this.props.solIndex)
       let cameraArray = manifest[this.props.solIndex].cameras;
-
-      
-      console.log(`This is the camera array - `,cameraArray)
-
 
       // Remove cameras that do not produce images from cameraArray
       const doNotIncludeCameraList = ['MAHLI', 'MARDI', 'MINITES'];

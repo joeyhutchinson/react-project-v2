@@ -1,17 +1,11 @@
 import React from 'react';
 
-// isLoading={((props.isManifestLoading && props.isImageDataLoading) || (props.isManifestLoading || props.isImageDataLoading)) ? true : false} 
-// thumbnailImages={imageGalleryImages} 
-// imageIndex={imageIndex} 
-// openModal={openModal}
-
 const GalleryThumbnailItems = (props) => {
   
   if (props.isLoading === true) {
     return( null )
   } else {
-      // let lengthThumbnails = Object.keys(props.thumbnailImages).length;
-      const thumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 30}vw)`}
+      const thumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 20}vw)`}
 
       let thumbnailImages = props.thumbnailImages;
       return thumbnailImages.map((image, i) => {

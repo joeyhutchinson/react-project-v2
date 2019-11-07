@@ -2,18 +2,8 @@ import React, {useState} from 'react';
 import SolDropDown from "../rover-image-gallery/sol-drop-down"
 import CameraButtons from "../rover-image-gallery/camera-buttons"
 
-// PROPS
-// isManifestLoading={props.isManifestLoading} 
-// imageManifestData={props.imageManifestData} 
-// handleFormSubmit={handleFormSubmit}
-// selectedSol={selectedSol}
-// selectedCameraForm={selectedCameraForm}
-
-
-
 const RoverGalleryForm = (props) =>  {
 
-  const [availableCameras, setAvailableCameras] = useState([]);
   const [solInput, setSolInput] = useState(props.selectedSol); // INITIAL STATE
   const [selectedCamera, setSelectedCamera] = useState('')
   const [solIndex, setSolIndex] = useState('0')
@@ -33,10 +23,6 @@ const RoverGalleryForm = (props) =>  {
     let solData = props.solDataArray; 
     let solIndexNum = solData.indexOf(parseInt(input, 10));
     setSolIndex(solIndexNum);
-    console.log(`this is handleSolInput in form - solDataArray`, solData)
-    console.log(`this is handleSolInput in form`, input)
-    console.log(`this is handleSolInput in form - solIndexNum`, solIndexNum)
-    console.log(`this is handleSolInput in form - solDataArray`, props.solDataArray)
   }
 
   // Handle camera select
@@ -58,7 +44,6 @@ const RoverGalleryForm = (props) =>  {
               onChange={handleSolInput} 
               value={solInput} 
               required 
-              // placeholder={placeholderText}
             >
               <SolDropDown 
                 solDataArray={props.solDataArray}/>

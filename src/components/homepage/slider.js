@@ -1,36 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-import data from "../../data"
 
 import "./slider.css";
 
-class Slider extends Component {
-
-
-  render() {
-    let imageDetails = this.props.sliderImages;
-    
+const Slider = (props) => {
+  return props.sliderImages.map((item, i) => {
     return (
-      <div className="carousel">
-        <div className="carousel-item" style={{backgroundImage: `url(${imageDetails.image1.src})`}}>
-          <div><span>{imageDetails.image1.caption}</span>
-          <Link
-              to={imageDetails.image1.link}
-              className="inpage-link"
-              activeStyle={{
-                backgroundColor: "#bd632f",
-                color: "white",
-                textDecoration: "none"
-              }}
+      <>
+          <div 
+            className={`carousel-item fade ${( i == props.sliderIndex ) ? `active-slide` : ``}`}
+            key={`carousel-${i}`} 
+            style={{backgroundImage: `url(${item.src})`}}
             >
-              <button>{imageDetails.image1.buttonText}</button>
-            </Link>
           </div>
+          <div className={`carousel-descr ${( i == props.sliderIndex ) ? `active-slide` : ``}`}>
+          <span className="carousel-header">{item.image}</span><br/> 
+          <span className="carousel-caption">{item.caption}</span><br/>
+          <Link
+            to={item.link}
+            className="inpage-link"
+          >
+            <button className="page-link">{item.buttonText} &#10095;</button>
+          </Link>
         </div>
-      </div>
-    );
-  }
+        </>
+    )
+  });
 }
-
 export default Slider;
