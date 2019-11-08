@@ -4,7 +4,7 @@
 
 - [GitHub Repository](https://github.com/joeyhutchinson/react-project-v2)<br/>
 - [CodeSandbox Sandbox](https://codesandbox.io/s/github/joeyhutchinson/react-project-v2)<br/>
-- [Hosted Location]()<br/>
+- [Hosted Location](https://nervous-brown-96f8ae.netlify.com/)<br/>
 
 ## Description
 
@@ -90,6 +90,76 @@ This project will utilise the open sourse data available from NASA, and create a
 | Total:                |   ----   |    6~ Hours    |    7 Hours    |
 
 ## Code Snippet
+
+### Rover Image Gallery component - Image gallery form submit function
+The image gallery has been the one developed item that has caused me the most grief. The amount of time I expected to spend on this item has been well and truly surpassed by the time spent managing errors and fixing bugs. It still is causing me headaches!
+
+```
+handleFormSubmit = (sol, camera) => {
+    this.setState({
+      selectedSol: sol,
+      selectedCameraForm: camera,
+      isImageDataLoading: true
+    });
+
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(
+        data => {
+          let imageData = data.photos
+          let manifestInfo = this.state.manifestDataPhotos
+          let imageDataCamera = [];
+          for ( let i = 0; i < imageData.length; i++ ) {
+            if (imageData[i].camera.name === camera) {
+              imageDataCamera.push(manifestInfo[i].sol)
+            }
+          }
+          this.setState({
+            allImageData: imageData,
+            isImageDataLoading: false
+          });
+        },
+        error => {
+          if (error) {
+            alert("Image gallery is currently unavailable");
+          }
+        }
+      );
+
+    let manifestDataPhotos = this.state.manifestDataPhotos
+
+    let solData = this.state.solDataArray; 
+    let solIndexNum = solData.indexOf(parseInt(sol, 10));
+    let totalImagesAvail = manifestDataPhotos[solIndexNum].total_photos;
+
+    // Set array of image src urls for sol
+    let imageSrcArray = []
+    let allImageData = this.state.allImageData
+    for ( let i=0; i < (totalImagesAvail - 1); i++) {
+      imageSrcArray.push(allImageData[i].img_src)
+    }
+    this.setState({
+      allImageUrls: imageSrcArray
+    });
+
+    // Get nth image out of returned images
+    let galleryImagesArray = [];
+    if (totalImagesAvail > 25) {
+      let num = Math.floor(totalImagesAvail / 25);
+      for ( let i=0; i < 24; i++) {
+        galleryImagesArray.push(allImageData[i*num].img_src)
+      }
+    } else if (totalImagesAvail <= 25) {
+        for ( let i=0; i < 24; i++) {
+          galleryImagesArray.push(allImageData[i].img_src)
+        }
+      }
+    this.setState({
+      imageGalleryImages: galleryImagesArray
+    });    
+  };
+```
 
 ## Errors & Resolutions
 
