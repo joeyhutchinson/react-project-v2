@@ -16,13 +16,13 @@
   background-position: center;
 }
 
-.dot1, .dot2, .dot3 {
+.dot1, .dot2, .dot3, .dot4, .dot5 {
   position:absolute;
   cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  bottom: 3%;
+  bottom: 5%;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -31,11 +31,23 @@
 }
 
 .dot1 {
+  left: 46%;
+}
+
+.dot2 {
   left: 48%;
 }
 
 .dot3 {
+  left: 50%;
+}
+
+.dot4 {
   left: 52%;
+}
+
+.dot5 {
+  left: 54%;
 }
 
 .dot:hover {
@@ -44,25 +56,21 @@
 
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 20s;
+  -webkit-animation-duration: 10s;
   animation-name: fade;
-  animation-duration: 20s;
+  animation-duration: 10s;
 }
 
 @-webkit-keyframes fade {
   0% {opacity: 0}
   10%{opacity: 0.6}
-  50% {opacity: 1}
-  90%{opacity: 0.6}
-  100% {opacity: 0}
+  100% {opacity: 1}
 }
 
 @keyframes fade {
   0% {opacity: 0}
   10%{opacity: 0.6}
-  50% {opacity: 1}
-  90%{opacity: 0.6}
-  100% {opacity: 0}
+  100% {opacity: 1}
 }
 
 button.slider-left-arrow, button.slider-right-arrow {

@@ -14,6 +14,7 @@ class Curiosity extends Component {
     rover: "curiosity",
     isManifestLoading: true,
     isImageDataLoading: true,
+    errorActive: false,
     manifestData: [],
     manifestDataPhotos: [],
     solDataArray: [],
@@ -61,39 +62,16 @@ class Curiosity extends Component {
         }
       );
   };
-  // //  Fetch image data via API call and set to component state
-  // // Alert if data is not available and doesn't load
-  // fetchImageData = () => {
-  //   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(
-  //       data => {
-  //         let imageData = data.photos
-  //         let manifestInfo = this.state.manifestDataPhotos
-  //         let imageDataCamera = [];
-  //         for ( let i = 0; i < imageData.length; i++ ) {
-  //           if (imageData[i].camera.name === this.state.selectedCameraForm) {
-  //             imageDataCamera.push(manifestInfo[i].sol)
-  //           }
-  //         }
-  //         this.setState({
-  //           allImageData: imageData,
-  //           isImageDataLoading: false
-  //         });
-  //       },
-  //       error => {
-  //         if (error) {
-  //           alert("Image gallery is currently unavailable");
-  //         }
-  //       }
-  //     );
-  // };
 
   componentDidMount() {
     // Make Manifest Data API call when component mounts
     this.fetchManifestData();
     // this.fetchImageData();
+  }
+
+  componentDidCatch(error, info) {
+    this.setState({ errorActive: true });
+    console.log(error, info);
   }
         
   // ---------- FORM FUNCTIONALITY
@@ -165,56 +143,69 @@ class Curiosity extends Component {
   };
 
   render() {
+    if (this.state.errorActive === true) {
+      return (
+        <main style={{backgroundColor: "#fff", width: "100%"}}>
+          <ScrollToTopOnMountClass />
+          <div className="content" style={{backgroundColor: "#fff", width: "50%", margin: "auto"}}>
+            <h2>Oops! Something went wrong!</h2>
+            <p>Please give the Universe a moment to pull itself together, and then try your action again.</p>
+            <img src="https://yogimehtab.com/wp-content/uploads/2017/06/sad-mars.jpg" alt=""style={{width: "25%"}}></img>
+          </div>
+        </main>
+      )
+    } else {
 
-    return (
-      <main>
-        <ScrollToTopOnMountClass />
-        <div className="content">
-          <h1>Curiosity</h1>
-          <RoverDetailsTable
-            imageManifestData={this.state.manifestData}
-            isManifestLoading={this.state.isManifestLoading}
-            readableDate={this.props.readableDate}
-          />
-          <div className="leading-content">
-            <img
-              src="https://cdn.vox-cdn.com/thumbor/g_uh5bmEj-wE4gW6ZYeZdc29fso=/0x14:1907x1285/2050x1367/cdn.vox-cdn.com/uploads/chorus_image/image/37181616/mahli-selfie-1b.0.0.jpg"
-              alt=""
+      return (
+        <main>
+          <ScrollToTopOnMountClass />
+          <div className="content">
+            <h1>Curiosity</h1>
+            <RoverDetailsTable
+              imageManifestData={this.state.manifestData}
+              isManifestLoading={this.state.isManifestLoading}
+              readableDate={this.props.readableDate}
             />
-            <h2>Overview</h2>
-            <p>
-              The Mars Science Laboratory and its rover centerpiece, Curiosity,
-              is the most ambitious Mars mission yet flown by NASA. The rover
-              landed on Mars in 2012 with a primary mission to find out if Mars
-              is, or was, suitable for life. Another objective is to learn more
-              about the Red Planet's environment.
-            </p>
-            <p>
-              In March 2018, it celebrated 2,000 sols (Mars days) on the planet,
-              making its way from Gale Crater to Aeolis Mons (colloquially
-              called Mount Sharp), where it has looked at geological information
-              embedded in the mountain's layers. Along the way, it also has
-              found extensive evidence of past water and geological change.
-            </p>
-          </div>
-          <h2>Cameras and imagery</h2>
-          <p>Curiosity is packed with no fewer than 17 cameras to shoot high-quality photos and videos in black-and-white, color, and 3-D stereo of the Martian landscape. While scientists are no doubt quite eager for the information that these images will contain, most of us can live vicariously through the rover and experience some breathtaking views on Mars.</p>
-          <h3>Available imagery</h3>
-          <RoverImageGallery
-            imageManifestData={this.state.manifestData}
-            isManifestLoading={this.state.isManifestLoading}
-            solDataArray={this.state.solDataArray}
-            allImageData={this.state.allImageData}
-            isImageDataLoading={this.state.isImageDataLoading}
-            selectedSol={this.state.selectedSol}
-            selectedCameraForm={this.state.selectedCameraForm}
-            allImageUrls={this.state.imageUrls}
-            imageGalleryImages={this.state.imageGalleryImages}
-            handleFormSubmit={this.handleFormSubmit}
-          />
-          </div>
-      </main>
-    );
+            <div className="leading-content">
+              <img
+                src="https://cdn.vox-cdn.com/thumbor/g_uh5bmEj-wE4gW6ZYeZdc29fso=/0x14:1907x1285/2050x1367/cdn.vox-cdn.com/uploads/chorus_image/image/37181616/mahli-selfie-1b.0.0.jpg"
+                alt=""
+              />
+              <h2>Overview</h2>
+              <p>
+                The Mars Science Laboratory and its rover centerpiece, Curiosity,
+                is the most ambitious Mars mission yet flown by NASA. The rover
+                landed on Mars in 2012 with a primary mission to find out if Mars
+                is, or was, suitable for life. Another objective is to learn more
+                about the Red Planet's environment.
+              </p>
+              <p>
+                In March 2018, it celebrated 2,000 sols (Mars days) on the planet,
+                making its way from Gale Crater to Aeolis Mons (colloquially
+                called Mount Sharp), where it has looked at geological information
+                embedded in the mountain's layers. Along the way, it also has
+                found extensive evidence of past water and geological change.
+              </p>
+            </div>
+            <h2>Cameras and imagery</h2>
+            <p>Curiosity is packed with no fewer than 17 cameras to shoot high-quality photos and videos in black-and-white, color, and 3-D stereo of the Martian landscape. While scientists are no doubt quite eager for the information that these images will contain, most of us can live vicariously through the rover and experience some breathtaking views on Mars.</p>
+            <h3>Available imagery</h3>
+            <RoverImageGallery
+              imageManifestData={this.state.manifestData}
+              isManifestLoading={this.state.isManifestLoading}
+              solDataArray={this.state.solDataArray}
+              allImageData={this.state.allImageData}
+              isImageDataLoading={this.state.isImageDataLoading}
+              selectedSol={this.state.selectedSol}
+              selectedCameraForm={this.state.selectedCameraForm}
+              allImageUrls={this.state.imageUrls}
+              imageGalleryImages={this.state.imageGalleryImages}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+            </div>
+        </main>
+      );
+    }
   }
 }
 export default Curiosity;

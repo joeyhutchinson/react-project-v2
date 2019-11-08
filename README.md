@@ -67,26 +67,26 @@ This project will utilise the open sourse data available from NASA, and create a
 | Component             | Priority | Estimated Time | Time Invested | Actual Time |
 | :--------             | :------: | :------------: | :-----------: | :---------: |
 | app                   |   High   |    1 Hours     |    2 Hours    |    1 Hours
-| background            |   Medium |                |               |
-| footer                |   Medium |                |               |
-| header                |   High   |                |               |
-| mobile-header         |   High   |                |               |
-| scroll-to-top-class   |   Urgent |                |               |
-| home                  |   Medium |                |               |
-| slider                |   Low    |                |               |
-| geology               |   Medium |                |               |
+| background            |   Medium |    1 Hours     |    2 Hours    |    1 Hours
+| footer                |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
+| header                |   High   |    3 Hours     |   4 Hours     |   4 Hours
+| mobile-header         |   Low    |                |               |
+| scroll-to-top-class   |   Urgent |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
+| home                  |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
+| slider                |   Low    |    2 Hours     |   2 Hours     |    1 Hour
+| geology               |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
 | map                   |   Low    |                |               |
-| weather               |   Medium |                |               |
-| temp-toggle           |   High   |                |               |
+| weather               |   Medium |    6 Hours     |   6 Hours     |    8 Hours
+| temp-toggle           |   High   |    2 Hours     |   2 Hours     |    2 Hours 
 | weather-widget-lrg    |   High   |    3 Hours     |   4 Hours     |    12 Hours
 | weather-items         |   High   |    1 Hour      |   2 Hours     |    0.5 Hours
 | weather-widget-sml    |   High   |    3 Hours     |   4 Hours     |    4 Hours
-| curiosity             |   Medium |                |               |
-| opportunity           |   Medium |                |               |
-| spirit                |   Medium |                |               |
-| rover-image-gallery   |   High   |    8 Hours     |               |
-| deimos                |   Medium |                |               |
-| phobos                |   Medium |                |               |
+| curiosity             |   Medium |    2 Hours     |   2 Hours     |    4 Hours 
+| opportunity           |   Medium |    2 Hours     |   2 Hours     |    0.5 Hours
+| spirit                |   Medium |    2 Hours     |   2 Hours     |    0.3 Hours
+| rover-image-gallery   |   High   |    8 Hours     |   8 Hours     |    24 Hours
+| deimos                |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
+| phobos                |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
 | Total:                |   ----   |    6~ Hours    |    7 Hours    |
 
 ## Code Snippet
@@ -98,7 +98,7 @@ This project will utilise the open sourse data available from NASA, and create a
 **ERROR**: Error with if statement logic in small weather widget component - InSight lander did not return wind data for sol 327. Wind data therefore unavailable for small weather component i.e. dynamic display of sunny or windy icon. if statment not written to handle if wind data not available. Will not show anything (inc. temp) if wind data not available.<br/>
 **SOLUTION**: Re-designed 'if statement' to test for valid wind data and temp data then returned placeholder text if wind data not available and/or temp data not available. If wind data is not available the default sunny icon will show and the temp data will still render. (components/weather-widgets/weather-widget-sml.js)<br/><br/>
 **WARNING**: React Hook useEffect has a missing dependancy: 'props.imageManifestData.photos'. Either include it or remove the dependancy array.<br/>
-**SOLUTION**:  <br/>
-**ERROR**: TypeError: Cannot read property 'img_src' of undefined." - Suspect it is caused by the time it is taking for all imagesd API Call to complete.<br/>
+**SOLUTION**: Refactored the component, removed the useEffect and added the fetch function in other components with required dependancy factored in.<br/>
+**ERROR**: TypeError: Cannot read property 'img_src' of undefined." - Suspect it is caused by the time it is taking for all image  API Call to complete.<br/>
 **SOLUTION**:  <br/>
  
