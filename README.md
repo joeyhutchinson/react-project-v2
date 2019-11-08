@@ -87,7 +87,7 @@ This project will utilise the open sourse data available from NASA, and create a
 | rover-image-gallery   |   High   |    8 Hours     |   8 Hours     |    24 Hours
 | deimos                |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
 | phobos                |   Medium |   0.5 Hours    |   0.5 Hours   |   0.5 Hours
-| Total:                |   ----   |    6~ Hours    |    7 Hours    |
+| Total:                |   ----   |    36~ Hours   |        |
 
 ## Code Snippet
 
