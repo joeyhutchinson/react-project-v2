@@ -9,7 +9,6 @@
 .carousel-item {
   display: none;
   overflow: hidden;
-  width: 100vw;
   height: 77vh;
   background-size: cover;
   background-repeat: no-repeat;
