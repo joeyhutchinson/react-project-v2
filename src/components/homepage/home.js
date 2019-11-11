@@ -21,14 +21,6 @@ const Home = (props) => {
     console.log(index)
   }
 
-  // setTimeout(() => {
-  //   if (sliderIndex === 4) {
-  //     setSliderIndex(0)
-  //   } else {
-  //     setSliderIndex(prevState => prevState + 1)
-  //   }
-  // }, 10000);
-
   return (
     <main>
       <ScrollToTopOnMountClass/>
