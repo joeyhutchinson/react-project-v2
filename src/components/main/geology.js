@@ -27,7 +27,7 @@ Lying across the north-south division of Mars is an uplifted continent the size 
           <img
             src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1095/2016/11/03155547/OSC_Astro_10_04_OlympusMon.jpg"
             alt=""
-            style={{ width: "40%", float: "right", margin: "1rem 0 1rem 1rem" }}
+            className="in-page-img"
           />
           <h2>Vocanoes</h2>
           <p>

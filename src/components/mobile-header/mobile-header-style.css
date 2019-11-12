@@ -93,6 +93,9 @@ ul.mobile-dropdown-content li {
   outline: none;
   transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
   z-index: 100;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 #roundButton img {

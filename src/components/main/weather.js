@@ -64,11 +64,7 @@ const Weather = props => {
         <img
           alt=""
           src="https://i2.wp.com/wattsupwiththat.com/wp-content/uploads/2018/07/mars-dust-2018.png?fit=512%2C254&ssl=1"
-          style={{
-            float: "right",
-            margin: "0.5rem 0 0.5rem 1rem",
-            width: "60%"
-          }}
+          className="in-page-img"
         />
 
         <h2>Dust Storms</h2>
