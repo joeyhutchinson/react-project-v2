@@ -200,7 +200,7 @@ header + main {
 main {
   height: 100%;
   z-index: -1;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .content {
@@ -334,7 +334,7 @@ footer {
     list-style-type: none;
     margin: 0;
   }
-  
+
   .content {
     margin: 0px 2%;
     min-height: 100vh;

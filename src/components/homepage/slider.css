@@ -174,10 +174,10 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   }
 
   .carousel-descr {
-    left: 1%;
+    left: 11%;
     top: unset;
     bottom: 18%;
-    width: 98%;
+    width: 80%;
     padding: 1rem;
     background-color: rgba(239, 150, 98, 0.8);
     border-radius: 10px;

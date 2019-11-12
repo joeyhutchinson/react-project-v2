@@ -8,7 +8,8 @@ import "./mobile-header-style.css"
 
 class MobileHeader extends Component {
     state = {
-        visible: false
+        visible: false,
+        isHide: false
     }
 
     handleMouseDown = (e) => {
@@ -19,8 +20,28 @@ class MobileHeader extends Component {
         console.log("clicked");
         e.stopPropagation();
     }
+
+    hideWidget = () => {
+        const { isHide } = this.state
+ 
+        window.scrollY > this.prev ?
+        !isHide && this.setState({ isHide: true })
+        :
+        isHide && this.setState({ isHide: false });
+ 
+        this.prev = window.scrollY;
+     }
+
+    componentDidMount(){
+        window.addEventListener('scroll', this.hideWidget);
+    }
+
+    componentWillUnmount(){
+         window.removeEventListener('scroll', this.hideWidget);
+    }
     
     render() {
+        const classHide = this.state.isHide ? 'hide' : '';
         
             return (
               <header id="mobile-header">
@@ -38,11 +59,13 @@ class MobileHeader extends Component {
                 </nav>
                 <MenuButton handleMouseDown={this.handleMouseDown}/>
                 </div>
+                <div className={`widget-wrapper ${classHide}`}>
                 <WeatherWidgetSml
                     tempType={this.props.tempType}
                     handleTempToggle={this.props.handleTempToggle}
                     readableDate={this.props.readableDate}
                 />
+                </div>
               </header>
             );
           }
