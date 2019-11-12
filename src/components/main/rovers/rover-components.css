@@ -369,3 +369,25 @@ form#gallery-form label {
   margin: auto;
   border-radius: 4px;
 }
+
+@media only screen and (max-width: 600px) {
+  .dataTable {
+    flex-direction: column;
+}
+
+.dataTable li {
+    padding: 5px;
+    text-align: left;
+    width: 80%;
+    margin: 0 0 0 1rem;
+  }
+
+  .dataTable h3, .dataTable p {
+    margin: 0.2rem;
+  }
+
+  .dataTable hr {
+    display: none;
+  }
+
+}
