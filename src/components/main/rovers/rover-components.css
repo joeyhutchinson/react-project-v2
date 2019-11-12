@@ -370,7 +370,9 @@ form#gallery-form label {
   border-radius: 4px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen 
+  and (max-width: 812px) {
+
   .dataTable {
     flex-direction: column;
 }
@@ -409,3 +411,11 @@ form#gallery-form label {
 }
 
 }
+
+@media only screen 
+  and (max-width: 812px)
+  and (orientation: landscape) {
+    .image-gallery {
+      height: 56vh;
+    }
+  }

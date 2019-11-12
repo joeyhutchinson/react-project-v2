@@ -207,7 +207,7 @@ main {
   margin: 0px 15%;
   min-height: 100vh;
   background-color: rgba(192, 192, 192, 0.651);
-  padding: 2vh 2vw;
+  padding: 6vh 2vw 2vh;
 }
 
 .content p, p > span {
@@ -322,7 +322,17 @@ footer {
 
 /*  ----------- MEDIA STYLING ----------- */
 
-@media only screen and (max-width: 600px) {
+@media only screen 
+  and (max-width: 1024px) {
+    footer {
+      height: 5vh;
+      padding: 5px;
+    }
+}
+
+@media only screen 
+  and (max-width: 812px) {
+
   header#desktop-header {
     display: none;
   }
@@ -349,7 +359,7 @@ footer {
     margin: 0px 2%;
     min-height: 100vh;
     background-color: rgba(192, 192, 192, 0.651);
-    padding: 2vh 2vw;
+    padding: 6vh 2vw;
   }
 
   .site-title {
