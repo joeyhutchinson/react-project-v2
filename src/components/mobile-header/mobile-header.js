@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import WeatherWidgetSml from "../weather-widgets/weather-widget-sml"
+import WeatherWidgetMobile from "../weather-widgets/weather-widget-mobile"
 import MenuButton from "./menu-button"
 import Menu from "./menu"
 
@@ -57,10 +57,13 @@ class MobileHeader extends Component {
                     links={this.props.links}
                 />
                 </nav>
-                <MenuButton handleMouseDown={this.handleMouseDown}/>
+                <MenuButton 
+                  handleMouseDown={this.handleMouseDown}
+                  menuVisibility={this.state.visible}
+                />
                 </div>
                 <div className={`widget-wrapper ${classHide}`}>
-                <WeatherWidgetSml
+                <WeatherWidgetMobile
                     tempType={this.props.tempType}
                     handleTempToggle={this.props.handleTempToggle}
                     readableDate={this.props.readableDate}

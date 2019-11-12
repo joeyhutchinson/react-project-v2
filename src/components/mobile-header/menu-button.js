@@ -5,7 +5,8 @@ class MenuButton extends Component {
   render() {
     return (
       <button id="roundButton" onMouseDown={this.props.handleMouseDown}>
-        <img src="https://www.stickpng.com/assets/images/588a64e7d06f6719692a2d11.png" alt="menu-button" style={{width: "20px", height: "auto", marginTop: "4px"}}/>
+        <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png" alt="menu-button" style={(this.props.menuVisibility) ? {display: "none"}: {}}/>
+        <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png" alt="menu-button" style={(this.props.menuVisibility) ? {}: {display: "none"}}/>
       </button>
     )
   }

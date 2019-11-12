@@ -1,0 +1,50 @@
+.weather-widget-mobile {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(192, 192, 192);
+    width: 100%;
+    padding: 0.5rem;
+}
+.ww-mobile-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.ww-mobile-inner span {
+    color: #333;
+}
+
+img.weather-icon-mobile {
+    height: 4vh;
+    width: auto;
+    margin: auto
+ }
+
+.ww-mobile-weather {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    font-size: 1rem;
+}
+
+.weather-temp-mobile {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.weather-temp-mobile span {
+    font-weight: bold;
+    font-size: 1rem;
+    
+}
+
+h2.ww-mobile-heading {
+    color: #333;
+    text-align: left;
+    font-size: 0.8rem;
+    text-shadow: none;
+    margin: 0.5rem 0 0 1rem;
+}
+

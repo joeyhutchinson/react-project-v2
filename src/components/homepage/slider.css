@@ -143,7 +143,7 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   }
 
   .dot1, .dot2, .dot3, .dot4, .dot5 {
-    bottom: 12%;
+    bottom: 5%;
   }
   
   .dot1 {
@@ -174,10 +174,10 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   }
 
   .carousel-descr {
-    left: 11%;
+    left: 7%;
     top: unset;
-    bottom: 18%;
-    width: 80%;
+    bottom: 10%;
+    width: 88%;
     padding: 1rem;
     background-color: rgba(239, 150, 98, 0.8);
     border-radius: 10px;
