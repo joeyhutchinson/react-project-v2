@@ -1,0 +1,108 @@
+#flyoutMenu {
+  z-index: 100;
+  background-color: rgba(51, 51, 51, 0.95);
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  transition: transform .3s cubic-bezier(0, 0, 0, .52);
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#flyoutMenu.show {
+  transform: translate3d(0vw, 0, 0);
+}
+
+#flyoutMenu.hide {
+  transform: translate3d(200vw, 0, 0);
+}
+
+#flyoutMenu>ul {
+  padding-inline-start: 0 !important;
+  list-style-type: none;
+}
+
+.mobile-navlink,
+.mobile-droptop {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: rgba(102, 102, 102, 0.418);
+  border: 1px solid rgba(102, 102, 102, 0.418);
+}
+
+a.mobile-navlink {
+  display: block;
+  text-decoration: none;
+}
+
+.mobile-droptop {
+  display: block;
+  overflow: hidden;
+  cursor: default;
+}
+
+ul.mobile-dropdown-content {
+  list-style-type: none;
+  padding-inline-start: 0 !important;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+ul.mobile-dropdown-content li {
+  display: block;
+  list-style-type: none;
+  padding-inline-start: 0 !important;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mobile-dropdownlink {
+  text-decoration: none;
+}
+
+.mobile-menu-arrow {
+  transform: rotate(-90deg);
+  /* Legacy vendor prefixes that you probably don't need... */
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+  /* IE */
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+  -o-transform: rotate(-90deg);
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+#roundButton {
+  position: relative;
+  background-color: #ef9662;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid rgb(197, 83, 17);
+  outline: none;
+  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+  z-index: 100;
+}
+
+#roundButton:hover {
+  background-color: #ef9662;
+  cursor: pointer;
+  border-color: rgba(239, 150, 98, 0.6);
+  transform: scale(1.2, 1.2)
+}
+
+#roundButton:active {
+  border-color: rgba(239, 150, 98, 0.6);
+  background-color: #fff;
+}
+

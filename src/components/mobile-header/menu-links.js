@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import WeatherWidgetSml from "../components/weather-widgets/weather-widget-sml";
 
-class Header extends Component {
+class MenuLinks extends Component {
+
   render() {
     // Creation of nav links
     const links = this.props.links.map((d, i) => {
@@ -13,9 +13,8 @@ class Header extends Component {
             <NavLink
               key={j}
               to={s.route}
-              className="dropdownlink"
+              className="mobile-dropdownlink"
               activeStyle={{
-                backgroundColor: "#bd632f",
                 color: "white",
                 textDecoration: "none"
               }}
@@ -25,9 +24,9 @@ class Header extends Component {
           );
         });
         return (
-          <li className="droptop" key={i}>
+          <li className="mobile-droptop" key={i}>
             {d.name}
-            <ul className={`dropdown-content ${d.name.toLowerCase()}`}>
+            <ul className={`mobile-dropdown-content ${d.name.toLowerCase()}`}>
               {dropdownlinks}
             </ul>
           </li>
@@ -41,9 +40,8 @@ class Header extends Component {
             <NavLink
               key={i}
               to={d.route}
-              className="navlink"
+              className="mobile-navlink"
               activeStyle={{
-                backgroundColor: "#bd632f",
                 color: "white",
                 textDecoration: "none"
               }}
@@ -57,9 +55,8 @@ class Header extends Component {
             <NavLink
               key={i}
               to={d.route}
-              className="navlink"
+              className="mobile-navlink"
               activeStyle={{
-                backgroundColor: "#bd632f",
                 color: "white",
                 textDecoration: "none"
               }}
@@ -72,24 +69,10 @@ class Header extends Component {
     });
 
     return (
-      <header id="desktop-header">
-        <div className="site-head">
-          <NavLink key={null} to="/" className="site-title">
-            The Red Planet
-          </NavLink>
-          <WeatherWidgetSml
-            tempType={this.props.tempType}
-            handleTempToggle={this.props.handleTempToggle}
-            readableDate={this.props.readableDate}
-          />
-        </div>
-
-        <nav id="desktop-nav">
+     
           <ul>{links}</ul>
-        </nav>
-      </header>
     );
   }
 }
 
-export default Header;
+export default MenuLinks;

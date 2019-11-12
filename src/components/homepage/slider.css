@@ -132,3 +132,70 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
 .active-slide {
   display: block;
 }
+
+@media only screen and (max-width: 600px) {
+  .carousel {
+    min-height: 65vh;
+  }
+
+  .carousel-item {
+    height: 100%;
+  }
+
+  .dot1, .dot2, .dot3, .dot4, .dot5 {
+    bottom: 14%;
+  }
+  
+  .dot1 {
+    left: 40%;
+  }
+  
+  .dot2 {
+    left: 45%;
+  }
+  
+  .dot3 {
+    left: 50%;
+  }
+  
+  .dot4 {
+    left: 55%;
+  }
+  
+  .dot5 {
+    left: 60%;
+  }
+  
+
+  button.slider-left-arrow, button.slider-right-arrow {
+    top: 40%;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .carousel-descr {
+    left: 0;
+    top: 45%;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(239, 150, 98, 0.8);
+    border-radius: 0px;
+  }
+
+  .carousel-header {
+    font-size: 1.2rem;
+  }
+  
+  .carousel-caption {
+    font-size: 0.8rem;
+  }
+
+  .page-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    margin: 0.5rem 0;
+  
+  }
+
+}

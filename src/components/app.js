@@ -8,6 +8,7 @@ import {
 
 import Background from "./background";
 import Header from "./header";
+import MobileHeader from "./mobile-header/mobile-header"
 import Footer from "./footer";
 import Home from "./homepage/home";
 import Geology from "./main/geology";
@@ -71,6 +72,12 @@ const App = props => {
     <Router>
       <div>
         <Background />
+        <MobileHeader
+          links={props.links}
+          handleTempToggle={handleTempType}
+          tempType={tempType}
+          readableDate={readableDate}
+        />
         <Header
           links={props.links}
           handleTempToggle={handleTempType}

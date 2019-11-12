@@ -54,3 +54,12 @@ h2.ww-sml-heading {
     font-size: 0.8rem;
 }
 
+@media only screen and (max-width: 600px) {
+    .weather-widget-sml {
+        background-color: rgba(192, 192, 192);
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+    }
+
+}

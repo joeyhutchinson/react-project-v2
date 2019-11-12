@@ -47,7 +47,7 @@ h3 {
 }
 
 /*  ----------- Header styling ----------- */
-header {
+header#desktop-header {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -56,6 +56,37 @@ header {
   top: 0;
   width: 100%;
   z-index: 10;
+}
+
+header#mobile-header {
+  display:none;
+  flex-direction: column;
+  margin: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.mobile-site-head {
+  display: flex;
+  flex-direction: row;
+  background-image: url(https://news.wttw.com/sites/default/files/field/image/MichioKaku_0226.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  width: 100%;
+  padding: 0 5vw;
+  height: 10vh;
+}
+
+a.mobile-site-title {
+  text-decoration: none;
+  width: 100%;
+  font-size: 1.8rem;
+  color: #efefef;
+  margin: auto;
 }
 
 .site-head {
@@ -79,7 +110,7 @@ a.site-title {
 }
 
 /*  ----------- Site menu styling ----------- */
-nav {
+nav#desktop-nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -88,7 +119,7 @@ nav {
   background-color: #333;
   list-style-type: none;
 }
-nav ul {
+nav#desktop-nav>ul {
   display: flex;
   flex-direction: row;
   padding-inline-start: 0 !important;
@@ -286,6 +317,24 @@ footer {
 /*  ----------- MEDIA STYLING ----------- */
 
 @media only screen and (max-width: 600px) {
+  header#desktop-header {
+    display: none;
+  }
+  
+  header#mobile-header {
+    display:flex;
+    z-index: 10;
+  }
+
+  nav#mobile-nav {
+    list-style-type: none;
+  }
+  nav#mobile-nav>ul {
+    padding-inline-start: 0 !important;
+    list-style-type: none;
+    margin: 0;
+  }
+  
   .content {
     margin: 0px 2%;
     min-height: 100vh;
@@ -303,5 +352,13 @@ footer {
     height: 50px;
     background-size: cover;
     margin: 0;
+  }
+  footer {
+    height: 10vh;
+    padding: 5px;
+  }
+  footer p {
+    margin-top: 0.2rem;
+    font-size: 0.5rem;
   }
 }
