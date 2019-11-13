@@ -88,7 +88,7 @@ class Curiosity extends Component {
     fetch(url)
       .then(response => response.json())
       .then(
-        data => {
+        data => {  
           let imageData = data.photos
           let manifestInfo = this.state.manifestDataPhotos
           let imageDataCamera = [];

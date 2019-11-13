@@ -137,7 +137,7 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   and (max-width: 812px) {
 
   .carousel {
-    min-height: 65vh;
+    height: 80vh;
   }
 
   .carousel-item {
@@ -145,7 +145,7 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   }
 
   .dot1, .dot2, .dot3, .dot4, .dot5 {
-    bottom: 5%;
+    bottom: 7%;
   }
   
   .dot1 {
@@ -178,7 +178,7 @@ button.slider-left-arrow:hover, button.slider-right-arrow:hover {
   .carousel-descr {
     left: 7%;
     top: unset;
-    bottom: 10%;
+    bottom: 11%;
     width: 88%;
     padding: 1rem;
     background-color: rgba(239, 150, 98, 0.8);
