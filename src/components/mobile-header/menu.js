@@ -1,24 +1,23 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
 import MenuLinks from "./menu-links"
 
-class Menu extends Component {
+const Menu = (props) => {
 
-  render() {
-    let visibility = "hide";
-    if (this.props.menuVisibility) {
-      visibility = "show"
-    }
-      return (
-        <div id="flyoutMenu" onMouseDown={this.props.handleMouseDown} className={visibility}>
-          <h2>Site Menu</h2>
-
-        <MenuLinks links={this.props.links}/>
-
-        </div>
-      )
-    }
+  
+  let visibility = "hide";
+  if (props.menuVisibility) {
+    visibility = "show"
   }
+    return (
+      <div id="flyoutMenu" onMouseDown={props.handleMouseDown} className={visibility}>
+        <h2>Site Menu</h2>
+
+      <MenuLinks links={props.links}/>
+
+      </div>
+    )
+}
+
 
 
 export default Menu;
