@@ -5,8 +5,8 @@
     border-radius: 5px;
     /* background-color: rgba(51, 51, 51, 0.651); */
     background-color: rgba(192, 192, 192, 0.651);
-    min-width: 376px;
-    margin: 0.8rem;
+    min-width: 392px;
+    margin: auto;
 }
 .ww-sml-inner {
     display: flex;

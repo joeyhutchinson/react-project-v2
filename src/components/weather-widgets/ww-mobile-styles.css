@@ -5,6 +5,8 @@
     background-color: rgba(192, 192, 192);
     width: 100%;
     padding: 0.5rem;
+    align-items: center;
+    justify-content: space-around;
 }
 .ww-mobile-inner {
     display: flex;
@@ -43,8 +45,17 @@ img.weather-icon-mobile {
 h2.ww-mobile-heading {
     color: #333;
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-shadow: none;
-    margin: 0.5rem 0 0 1rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
+@media only screen 
+  and (max-width: 1024px)
+  and (orientation: landscape) {
+    .weather-widget-mobile {
+      height: 15vh;
+
+    }
+}

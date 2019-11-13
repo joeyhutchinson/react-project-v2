@@ -338,6 +338,8 @@ form#gallery-form label {
 .form-mission-day select {
   width: 50%;
   color: #333;
+  background-color: #fff;
+  border: 1px solid #333;
 }
 
 .form-mission-day option {
@@ -368,6 +370,7 @@ form#gallery-form label {
   min-width: 40%;
   margin: auto;
   border-radius: 4px;
+  background-color: rgba(192, 192, 192);
 }
 
 @media only screen 
@@ -408,6 +411,13 @@ form#gallery-form label {
 
   .form-mission-day select {
     margin: auto;
+}
+
+img.feature-image {
+  height: 40vh;
+  margin-top: 15vh;
+  margin-right: 0;
+  width: auto;
 }
 
 }

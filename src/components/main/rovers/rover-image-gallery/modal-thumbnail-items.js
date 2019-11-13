@@ -5,7 +5,7 @@ const ModalThumbnailItems = (props) => {
   if (props.isLoading === true) {
     return( null )
   } else {
-      const modalthumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 10}vw)`}
+      const modalthumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 250}px)`}
 
       let thumbnailImages = props.images;
       return thumbnailImages.map((image, i) => {

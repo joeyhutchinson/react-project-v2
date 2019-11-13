@@ -116,7 +116,6 @@ nav#desktop-nav {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  overflow: hidden;
   background-color: #333;
   list-style-type: none;
 }
@@ -336,6 +335,19 @@ footer p {
 }
 
 @media only screen 
+  and (max-width: 1024px)
+  and (orientation: landscape) {
+    .mobile-site-head {
+      height: 17vh;
+    }
+    
+    footer {
+      height: 5vh;
+      padding: 5px;
+    }
+}
+
+@media only screen 
   and (max-width: 812px) {
 
   header#desktop-header {
@@ -377,7 +389,7 @@ footer p {
   }
 
   .temp-toggle {
-    margin: 0.7rem;
+    margin: -0.1rem 0.7rem 0;
   }
 
   .temp-toggle::after {
