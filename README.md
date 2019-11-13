@@ -40,6 +40,7 @@ This project will utilise the open sourse data available from NASA, and create a
   This API is designed to collect image data gathered by NASA's Curiosity, Opportunity, and Spirit rovers on Mars and make it more easily available to other developers, educators, and citizen scientists. Each rover has its own set of photos stored in the database, which can be queried separately. There are several possible queries that can be made against the API. Photos are organized by the sol (Martian rotation or day) on which they were taken, counting up from the rover's landing date. A photo taken on Curiosity's 1000th Martian sol exploring Mars, for example, will have a sol attribute of 1000. If instead you prefer to search by the Earth date on which a photo was taken, you can do that too. Along with querying by date, results can also be filtered by the camera with which it was taken and responses will be limited to 25 photos per call. Queries that should return more than 25 photos will be split onto several pages, which can be accessed by adding a 'page' param to the query.<br/>
 
 **Google Maps (Mars) API details:** [Google Maps API]()<br/>
+API and associated map capabilities no long available via Google.
 
 ## MVP/ Post MVP
 
@@ -52,7 +53,7 @@ This project will utilise the open sourse data available from NASA, and create a
 
 #### Post MVP
 
-- Pull Google Maps API data to embed dynamic Mars map on Map webpage.
+- Pull Google Maps API data to embed dynamic Mars map on Map webpage. (Post project note: Google no longer provides Mars map API and associated capabilities. Was unable to create embedded Google Mars Map, and instead used the embedded map as per the details within the Map component.)
 
 ## React Component Hierarchy
 
@@ -168,7 +169,7 @@ handleFormSubmit = (sol, camera) => {
 **ERROR**: Error with if statement logic in small weather widget component - InSight lander did not return wind data for sol 327. Wind data therefore unavailable for small weather component i.e. dynamic display of sunny or windy icon. if statment not written to handle if wind data not available. Will not show anything (inc. temp) if wind data not available.<br/>
 **SOLUTION**: Re-designed 'if statement' to test for valid wind data and temp data then returned placeholder text if wind data not available and/or temp data not available. If wind data is not available the default sunny icon will show and the temp data will still render. (components/weather-widgets/weather-widget-sml.js)<br/><br/>
 **WARNING**: React Hook useEffect has a missing dependancy: 'props.imageManifestData.photos'. Either include it or remove the dependancy array.<br/>
-**SOLUTION**: Refactored the component, removed the useEffect and added the fetch function in other components with required dependancy factored in.<br/>
+**SOLUTION**: Refactored the component, removed the useEffect and added the fetch function in other components with required dependancy factored in.<br/><br/>
 **ERROR**: TypeError: Cannot read property 'img_src' of undefined." - Suspect it is caused by the time it is taking for all image  API Call to complete.<br/>
-**SOLUTION**:  <br/>
+**SOLUTION**: No solution sourced or put in place as yet. Further investigation is required with the possibility of adding a loading modal and component render timeout for a set amount of time to allow the API data to be fetched and be ready for use BEFORE it is called.<br/><br/>
  
