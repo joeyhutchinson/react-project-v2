@@ -85,6 +85,7 @@ button.left-arrow, button.right-arrow {
   background-color: #fff;
   color: #333;
   z-index: 10;
+  -webkit-appearance: none !important;
 }
 
 button.left-arrow:hover, button.right-arrow:hover {
@@ -99,9 +100,8 @@ button.left-arrow {
 }
 
 button.right-arrow {
-  right: 0%;
+  right: -6%;
   transform: translate(-50%, 0);
-  margin-right: -0.7rem;
   margin-top: -0.7rem;
 }
 
@@ -195,6 +195,7 @@ button.modal-thumbnail-right-arrow {
   color: #333;
   background-color: #fff;
   z-index: 10;
+  -webkit-appearance: none !important;
 }
 
 button.modal-feature-left-arrow, 
