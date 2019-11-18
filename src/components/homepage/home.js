@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
 import Slider from "./slider";
 import ScrollToTopOnMountClass from "../scroll-to-top-class";
 
