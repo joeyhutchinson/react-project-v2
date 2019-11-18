@@ -80,7 +80,7 @@ const RoverImageGallery = (props) =>  {
                 />
 
                 <div className="image-gallery">
-                  <button className="left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
+                  <button type="button" className="left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
                   {/* In page image thumbnail gallery */}
                   <ul className="thumbnail-gallery">
 
@@ -92,7 +92,7 @@ const RoverImageGallery = (props) =>  {
                   />
 
                   </ul>
-                  <button className="right-arrow" onClick={rightClick} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
+                  <button type="button" className="right-arrow" onClick={rightClick} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
                 </div>
                 <div className="caption-text">
                 (Images: © NASA/JPL/University of Arizona)
@@ -101,7 +101,7 @@ const RoverImageGallery = (props) =>  {
               <div id="lightbox-gallery" className="modal" style={modalStyle}>
               <span className="close cursor" onClick={closeModal}>&times;</span>
               <div className="modal-content">
-              <button className="modal-feature-left-arrow" onClick={leftClickFeature} disabled={imageIndex === 0}>&#10094;</button>
+              <button type="button" className="modal-feature-left-arrow" onClick={leftClickFeature} disabled={imageIndex === 0}>&#10094;</button>
               <ul className="modal-feature-gallery">
                 {/* Modal feature images */}
 
@@ -112,9 +112,9 @@ const RoverImageGallery = (props) =>  {
                   featureImage={featureImage}
                 />
               </ul>
-              <button className="modal-feature-right-arrow" onClick={rightClickFeature} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
+              <button type="button" className="modal-feature-right-arrow" onClick={rightClickFeature} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
               {/* Modal image thumbnails */}
-              <button className="modal-thumbnail-left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
+              <button type="button" className="modal-thumbnail-left-arrow" onClick={leftClick} disabled={imageIndex === 0}>&#10094;</button>
               <ul className="modal-thumbnail-gallery">
               
               <ModalThumbnailItems 
@@ -125,7 +125,7 @@ const RoverImageGallery = (props) =>  {
               />
               
               </ul>
-              <button className="modal-thumbnail-right-arrow" onClick={rightClick} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
+              <button type="button" className="modal-thumbnail-right-arrow" onClick={rightClick} disabled={imageIndex === props.imageGalleryImages.length - 1}>&#10095;</button>
               </div>
               <div className="caption"><span>Mission Day (Sol) No. {props.selectedSol} - Camera {props.selectedCameraForm}</span></div>
               </div>

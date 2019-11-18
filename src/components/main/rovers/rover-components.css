@@ -77,6 +77,11 @@
   padding-inline-start: 0px;
 }
 
+button[type="button"] {
+-webkit-appearance: none;
+border-radius: 0;
+}
+
 
 button.left-arrow, button.right-arrow {
   position: absolute;
