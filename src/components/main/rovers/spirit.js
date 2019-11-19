@@ -61,34 +61,6 @@ class Spirit extends Component {
         }
       );
   };
-  // //  Fetch image data via API call and set to component state
-  // // Alert if data is not available and doesn't load
-  // fetchImageData = () => {
-  //   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.rover}/photos?sol=${this.state.selectedSol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`;
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(
-  //       data => {
-  //         let imageData = data.photos
-  //         let manifestInfo = this.state.manifestDataPhotos
-  //         let imageDataCamera = [];
-  //         for ( let i = 0; i < imageData.length; i++ ) {
-  //           if (imageData[i].camera.name === this.state.selectedCameraForm) {
-  //             imageDataCamera.push(manifestInfo[i].sol)
-  //           }
-  //         }
-  //         this.setState({
-  //           allImageData: imageData,
-  //           isImageDataLoading: false
-  //         });
-  //       },
-  //       error => {
-  //         if (error) {
-  //           alert("Image gallery is currently unavailable");
-  //         }
-  //       }
-  //     );
-  // };
 
   componentDidMount() {
     // Make Manifest Data API call when component mounts
@@ -210,7 +182,7 @@ class Spirit extends Component {
             </p>
           </div>
           <h2>Cameras and imagery</h2>
-          <p>Over the course of its mission on Mars, Opportunity took over 228,000 images. This included 15 360-degree color panoramas from the surface of Mars.</p>
+
           <h3>Available imagery</h3>
           <RoverImageGallery
             imageManifestData={this.state.manifestData}
