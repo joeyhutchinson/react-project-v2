@@ -5,7 +5,7 @@ const GalleryThumbnailItems = (props) => {
   if (props.isLoading === true) {
     return( null )
   } else {
-      const thumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 20}vw)`}
+      const thumbnailStyle = {transform: `translateX(-${(props.imageIndex) * 250}px)`}
 
       let thumbnailImages = props.thumbnailImages;
       return thumbnailImages.map((image, i) => {

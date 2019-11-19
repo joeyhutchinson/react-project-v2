@@ -21,15 +21,15 @@ class Opportunity extends Component {
     selectedSol: '',
     selectedCameraForm: '',
     allImageUrls: [],
-    imageGalleryImages: [`https://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG`,
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631100305207E01_DXXX.jpg`, 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/010/1P129079663EFF0224P2537R7M1-BR.JPG', 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/100/1P137064757EFF2019P2355L7M1-BR.JPG', 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/100/1P137063250EFF2010P2353L7M1-BR.JPG', 
-      'https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044630370503597I01_DXXX.jpg', 
-      'https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631160503676I01_DXXX.jpg', 
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044630270503587E02_DXXX.jpg`, 
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044630420405139E02_DXXX.jpg`]
+    imageGalleryImages: [`https://mars.nasa.gov/mer/gallery/all/1/p/010/1P129079448EFF0224P2537R1M1-BR.JPG`,
+      `https://mars.nasa.gov/mer/gallery/all/1/f/001/1F128285236EDN0000P1001L0M1-BR.JPG`, 
+      'https://mars.nasa.gov/mer/gallery/all/1/p/001/1P128288499EFF0000P2303L2M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/1/p/001/1P128288728EFF0000P2303L2M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/1/f/100/1F137064531EFF2019P1214L0M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/1/p/100/1P137063192EFF2010P2353L7M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/1/f/150/1F141508976EFF3192P1201L0M1-BR.JPG', 
+      `https://mars.nasa.gov/mer/gallery/all/1/n/150/1N141511248EFF3200P1990L0M1-BR.JPG`, 
+      `https://mars.nasa.gov/mer/gallery/all/1/r/150/1R141511040EFF3200P1312R0M1-BR.JPG`]
   };
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load

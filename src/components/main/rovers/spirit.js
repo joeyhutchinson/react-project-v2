@@ -21,15 +21,15 @@ class Spirit extends Component {
     selectedSol: 0,
     selectedCameraForm: '',
     allImageUrls: [],
-    imageGalleryImages: [`https://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG`,
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631100305207E01_DXXX.jpg`, 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/010/1P129079663EFF0224P2537R7M1-BR.JPG', 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/100/1P137064757EFF2019P2355L7M1-BR.JPG', 
-      'https://mars.nasa.gov/mer/gallery/all/1/p/100/1P137063250EFF2010P2353L7M1-BR.JPG', 
-      'https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044630370503597I01_DXXX.jpg', 
-      'https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631160503676I01_DXXX.jpg', 
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044630270503587E02_DXXX.jpg`, 
-      `https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044630420405139E02_DXXX.jpg`]
+    imageGalleryImages: [`https://mars.nasa.gov/mer/gallery/all/2/f/150/2F139689079EFF6200P1210L0M1-BR.JPG`,
+      `https://mars.nasa.gov/mer/gallery/all/2/n/150/2N139687846EFF6104P1938L0M1-BR.JPG`, 
+      'https://mars.nasa.gov/mer/gallery/all/2/n/150/2N139689294EFF6200P1826R0M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/2/f/100/2F135251873EFF27MCP1201L0M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/2/n/100/2N135232528EFF2700P1556L0M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/2/f/050/2F130796339EDN09BVP1111R0M1-BR.JPG', 
+      'https://mars.nasa.gov/mer/gallery/all/2/f/050/2F130804974EDN09EHF0006L0M1-BR.JPG', 
+      `https://mars.nasa.gov/mer/gallery/all/2/n/002/2N126543636EFF0100P1505L0M1-BR.JPG`, 
+      `https://mars.nasa.gov/mer/gallery/all/2/r/001/2R126468012EDN0000P1002L0M1-BR.JPG`]
   };
   //   Fetch manifest data via API call and set to component state
   //   Alert if data is not available and doesn't load
